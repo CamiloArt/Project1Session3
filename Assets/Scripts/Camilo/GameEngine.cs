@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameEngine : MonoBehaviour {
 	// array for the players
 	public Player[] players;
+	public GameObject currentPlayer;
 	private int counter;
 	private int RoundCounter;
 	bool startTurn = false;
@@ -28,7 +29,10 @@ public class GameEngine : MonoBehaviour {
 	}
 	void ShowRoundIntro(){
 		//ui intro to show
-		this.startTurn == true;
+		this.startTurn = true;
+	}
+	void startPayerTurn(){
+	
 	}
 
 }
