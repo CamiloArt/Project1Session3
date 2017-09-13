@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Armor : MonoBehaviour {
 
-	//player variables
-	public int playerNumber;
-	public Unit playerUnit;
-	public int playerTurn;
-	public enum christ{
-		isgay,
-		isnotgay
-	}
+	public float maxArmor;
+	public float initialArmor;
+	public float currentArmor;
+	public float damageReduceMultiplier;
+
 	// Use this for initialization
 	void Start () {
-		
+		currentArmor = initialArmor;
 	}
 	
 	// Update is called once per frame

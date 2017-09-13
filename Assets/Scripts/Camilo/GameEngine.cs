@@ -19,6 +19,12 @@ public class GameEngine : MonoBehaviour {
 	private int playerTurnNum;
 	//Defines state of the game
 	public string gameState;
+	//MainMapCamera
+	public GameObject mapCamera;
+	//Battle map cameras
+	public GameObject battleCamera;
+	//Camera Switch
+	private bool camSwitch;
 	// Use this for initialization
 	void Start () {
 		//initialize the main variables
@@ -27,17 +33,28 @@ public class GameEngine : MonoBehaviour {
 		playerTurnNum = 1;
 		startTurn = false;
 		gameState = "strategyMap";
+		camSwitch = true;
+		battleCamera.SetActive(!camSwitch);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		// animation showing the turn and the player
-		if(!startTurn){
-		ShowRoundIntro ();
+		//check state of the game
+		if(gameState == "strategyMap"){//if the game is in the stategy map
+			// animation showing the turn and the player
+			if(!startTurn){
+			ShowRoundIntro ();
+			}
+			else{
+				//after the animation is done, it starts the player turn
+				StartPayerTurn ();
+			}
+		}else if(gameState == "battlemap"){//if the game is in battle mode
+			
 		}
-		else{
-			//after the animation is done, it starts the player turn
-			StartPayerTurn ();
+
+		if (Input.GetKeyDown (KeyCode.C)) {
+			SwitchCameras ();
 		}
 
 	}
@@ -53,8 +70,11 @@ public class GameEngine : MonoBehaviour {
 		}
 		//timer decreasing during the turn
 		timeCounter -= Time.deltaTime;
-		//finish the turn if the counter equals 0
-		if (timeCounter <= 0)
+
+		//space to create the function when two players encounter
+
+		//finish the turn if the counter equals 0 or the unit run out of gas
+		if (timeCounter <= 0 /*|| currentPlayer.playerUnit.fuel <= 0*/)
 			EndPlayerTurn ();
 		Debug.Log (currentPlayer.playerNumber);
 		Debug.Log (timeCounter);
@@ -64,5 +84,10 @@ public class GameEngine : MonoBehaviour {
 		playerTurnNum++;
 		timeCounter = timeLimit;
 		startTurn = false;
+	}
+	void SwitchCameras(){
+		camSwitch = !camSwitch;
+		mapCamera.SetActive (camSwitch);
+		battleCamera.SetActive(!camSwitch);
 	}
 }

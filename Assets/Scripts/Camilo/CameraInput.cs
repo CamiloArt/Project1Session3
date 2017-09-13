@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraInput : MonoBehaviour {
 
+	//basic input for the camera (if we need it)
 	public KeyCode forward;
 	public KeyCode backward;
 	public KeyCode left;

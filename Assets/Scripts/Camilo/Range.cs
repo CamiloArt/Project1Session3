@@ -2,16 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Range : MonoBehaviour {
 
-	//player variables
-	public int playerNumber;
-	public Unit playerUnit;
-	public int playerTurn;
-	public enum christ{
-		isgay,
-		isnotgay
-	}
+	public float range;
 	// Use this for initialization
 	void Start () {
 		

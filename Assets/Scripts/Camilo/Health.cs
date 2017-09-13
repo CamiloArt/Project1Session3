@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Health : MonoBehaviour {
 
-	//player variables
-	public int playerNumber;
-	public Unit playerUnit;
-	public int playerTurn;
-	public enum christ{
-		isgay,
-		isnotgay
-	}
+	public float maxHp;
+	public float currentHp;
 	// Use this for initialization
 	void Start () {
 		

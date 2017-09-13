@@ -8,8 +8,10 @@ public class Unit : MonoBehaviour {
 	public Item item2;
 	public float damage;
 	public float speed;
-	public float armor;
-	public float health;
+	public Armor armor;
+	public Health health;
+	public Fuel fuel;
+	public float range;
 	private GameEngine gameEngine;
 	// Use this for initialization
 	void Start () {

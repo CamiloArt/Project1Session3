@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Fuel : MonoBehaviour {
 
-	//player variables
-	public int playerNumber;
-	public Unit playerUnit;
-	public int playerTurn;
-	public enum christ{
-		isgay,
-		isnotgay
-	}
+	public float maxFuel;
+	public float currentFuel;
+	public float fuelConsumption;
 	// Use this for initialization
 	void Start () {
 		
