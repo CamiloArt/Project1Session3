@@ -11,7 +11,7 @@ public class Unit : MonoBehaviour {
 	public Armor armor;
 	public Health health;
 	public Fuel fuel;
-	public float range;
+	public Range range;
 	private GameEngine gameEngine;
 	// Use this for initialization
 	void Start () {

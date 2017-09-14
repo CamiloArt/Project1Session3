@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
-
-	//player variables
-	public int playerNumber;
-	public Unit playerUnit;
-	public int playerTurn;
-	public Team playerTeam;
+public class Team : MonoBehaviour {
+	//enumerator to select the color of the team
+	public enum tColor{
+		Blue,
+		Red
+	}
+	public tColor teamColor; 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
