@@ -12,14 +12,19 @@ public class Unit : MonoBehaviour {
 	public Health health;
 	public Fuel fuel;
 	public Range range;
-	private GameEngine gameEngine;
+	public Player player;
+
+	public bool isAlive;
+
 	// Use this for initialization
 	void Start () {
-		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (health.currentHp <= 0) {
+			isAlive = false;
+		}
 	}
 }

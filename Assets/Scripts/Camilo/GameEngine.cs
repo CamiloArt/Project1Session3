@@ -10,13 +10,13 @@ public class GameEngine : MonoBehaviour {
 	//time limit for each turn
 	public float timeLimit;
 	//time counter
-	private float timeCounter;
+	public float timeCounter;
 	//Round counter
-	private int RoundCounter;
+	public int RoundCounter;
 	//Bool used to know if put or not the animation before each turn
 	bool startTurn;
 	//Holds the turn number in order to know which player goes next
-	private int playerTurnNum;
+	public int playerTurnNum;
 	//Defines state of the game
 	public string gameState;
 	//MainMapCamera
@@ -29,7 +29,7 @@ public class GameEngine : MonoBehaviour {
 	void Start () {
 		//initialize the main variables
 		timeCounter = timeLimit;
-		RoundCounter = 0;
+		RoundCounter = 1;
 		playerTurnNum = 1;
 		startTurn = false;
 		gameState = "strategyMap";
@@ -40,6 +40,10 @@ public class GameEngine : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//check state of the game
+
+		if(playerTurnNum > 10){
+			StartNewRound ();
+		}
 		if(gameState == "strategyMap"){//if the game is in the stategy map
 			// animation showing the turn and the player
 			if(!startTurn){
@@ -89,5 +93,9 @@ public class GameEngine : MonoBehaviour {
 		camSwitch = !camSwitch;
 		mapCamera.SetActive (camSwitch);
 		battleCamera.SetActive(!camSwitch);
+	}
+	void StartNewRound (){
+		RoundCounter++;
+		playerTurnNum = 1;
 	}
 }
