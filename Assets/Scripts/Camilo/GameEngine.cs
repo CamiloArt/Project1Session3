@@ -41,7 +41,7 @@ public class GameEngine : MonoBehaviour {
 	void Update () {
 		//check state of the game
 
-		if(playerTurnNum > 10){
+		if(playerTurnNum > players.Length){
 			StartNewRound ();
 		}
 		if(gameState == "strategyMap"){//if the game is in the stategy map
@@ -80,8 +80,6 @@ public class GameEngine : MonoBehaviour {
 		//finish the turn if the counter equals 0 or the unit run out of gas
 		if (timeCounter <= 0 /*|| currentPlayer.playerUnit.fuel <= 0*/)
 			EndPlayerTurn ();
-		Debug.Log (currentPlayer.playerNumber);
-		Debug.Log (timeCounter);
 	}
 	void EndPlayerTurn(){
 		//set the next number for the turn and put the animation before the turns beging
