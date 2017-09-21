@@ -11,10 +11,11 @@ public class GameEngine : MonoBehaviour {
 	public float timeLimit;
 	//time counter
 	public float timeCounter;
+	public float timeMultiplier;
 	//Round counter
 	public int RoundCounter;
 	//Bool used to know if put or not the animation before each turn
-	bool startTurn;
+	public bool startTurn;
 	//Holds the turn number in order to know which player goes next
 	public int playerTurnNum;
 	//Defines state of the game
@@ -67,18 +68,27 @@ public class GameEngine : MonoBehaviour {
 		startTurn = true;
 	}
 	void StartPayerTurn(){
+		timeMultiplier = 1f;
 		//select script  of the player that is in the turn
 		for (int i = 0; i < players.Length; i ++){
-			if (players [i].playerTurn == playerTurnNum)
+			if (players [i].playerTurn == playerTurnNum) {
 				currentPlayer = players [i];
+			}
 		}
+		if (timeCounter == timeLimit) {
+			currentPlayer.playerUnit.fuel.currentFuel = currentPlayer.playerUnit.fuel.maxFuel;
+		}
+		if(Input.GetKey(KeyCode.G)){
+			timeMultiplier = 3;
+		}
+			
 		//timer decreasing during the turn
-		timeCounter -= Time.deltaTime;
+		timeCounter -= Time.deltaTime * timeMultiplier;
 
 		//space to create the function when two players encounter
 
 		//finish the turn if the counter equals 0 or the unit run out of gas
-		if (timeCounter <= 0 /*|| currentPlayer.playerUnit.fuel <= 0*/)
+		if (timeCounter <= 0 || currentPlayer.playerUnit.fuel.currentFuel <= 0)
 			EndPlayerTurn ();
 	}
 	void EndPlayerTurn(){

@@ -18,7 +18,7 @@ public class Unit : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		isAlive = true;
 	}
 	
 	// Update is called once per frame

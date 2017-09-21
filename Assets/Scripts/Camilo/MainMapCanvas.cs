@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MainMapCanvas : MonoBehaviour {
 	public Text counter;
+	public Text fuel;
 	private GameEngine gameEngine;
 	// Use this for initialization
 	void Start () {
@@ -14,5 +15,8 @@ public class MainMapCanvas : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		counter.text = Mathf.Round(gameEngine.timeCounter).ToString();
+		if (gameEngine.currentPlayer) {
+			fuel.text = Mathf.Round (gameEngine.currentPlayer.playerUnit.fuel.currentFuel).ToString ();
+		}
 	}
 }

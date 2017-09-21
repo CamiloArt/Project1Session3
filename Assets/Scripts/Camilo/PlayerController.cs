@@ -19,37 +19,47 @@ public class PlayerController : MonoBehaviour {
 	public KeyCode back;*/
 	public Player myPlayer;
 	public float playerSpeed;
+	private GameEngine gameEngine;
 
-	private CharacterController playerCc;
+	public CharacterController playerCc;
 	private Vector3 direction;
 
 	// Use this for initialization
 
 	void Start () {
+		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
 		playerCc = this.GetComponent<CharacterController> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (myPlayer.gameEngine.gameState == "strategyMap") {
-			MovePlayerMainMap ();
+		if (gameEngine.gameState == "strategyMap") {
+			if (gameEngine.currentPlayer) {
+				myPlayer = gameEngine.currentPlayer;
+				playerCc = myPlayer.gameObject.GetComponent<CharacterController> ();
+				MovePlayerMainMap ();
+			}
 		}
 	}
 
 	void MovePlayerMainMap(){
 		this.direction = Vector3.zero;
-		if (Input.GetAxis ("Horizontal") > 0.2 || Input.GetAxis ("Horizontal") < 0.2) {
+		if (Mathf.Abs(Input.GetAxis ("Horizontal")) > 0.2) {
 			this.direction += new Vector3 (Input.GetAxis ("Horizontal"),0f,0f);
 			ApplyMovement ();
 			}
-		if (Input.GetAxis ("Vertical") > 0.2 || Input.GetAxis ("Vertical") < 0.2) {
+		if (Mathf.Abs(Input.GetAxis ("Vertical")) > 0.2) {
 			this.direction += new Vector3 (0f,0f,Input.GetAxis ("Vertical"));
 			ApplyMovement ();
 		}
 	}
 
 	void ApplyMovement(){
-		//playerCc.Move (direction * playerSpeed * Time.deltaTime);
+		float x = Input.GetAxis ("Horizontal");
+		float y = Input.GetAxis ("Vertical");
+		float angle = Mathf.Atan2 (x, y) * Mathf.Rad2Deg;
+		myPlayer.playerUnit.gameObject.transform.rotation = Quaternion.Euler(0, angle, 0);
+		playerCc.Move (direction * playerSpeed * Time.deltaTime);
 		myPlayer.playerUnit.fuel.currentFuel -= myPlayer.playerUnit.fuel.fuelConsumption * Time.deltaTime;
 	}
 }

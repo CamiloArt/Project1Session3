@@ -16,7 +16,7 @@ public class NormalController : MonoBehaviour {
 
 		float angle = Mathf.Atan2 (x, y);
 
-		transform.rotation = Quaternion.EulerAngles (0, angle, 0);
+		transform.rotation = Quaternion.Euler(0, angle, 0);
 	
 	}
 }
