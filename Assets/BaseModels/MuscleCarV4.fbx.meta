@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: ffcf0b1004ec7b442a55845e193c0956
+timeCreated: 1506045274
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: BBumperSticker_MuscleCar
+    100002: BWheelLeft_MuscleCar
+    100004: BWheelRight_MuscleCar.001
+    100006: FBumperSticker_MuscleCar
+    100008: FWheelLeft_MuscleCar
+    100010: FWheelRight_MuscleCar
+    100012: LMetalBar_MuscleCar
+    100014: //RootNode
+    100016: RMetalBar_MuscleCar
+    100018: Supercharger_MuscleCar
+    100020: WindshieldArmor00_MuscleCar
+    100022: WindshieldArmor01_MuscleCar
+    100024: WindshieldArmor03_MuscleCar
+    100026: WindshieldArmor04_MuscleCar
+    100028: WindshieldArmor05_MuscleCar
+    100030: WindshieldArmor06_MuscleCar
+    100032: WindshieldArmor07_MuscleCar
+    100034: WindshieldArmor08_MuscleCar
+    100036: WindshieldArmor09_MuscleCar
+    100038: WindshieldArmor10_MuscleCar
+    100040: WindshieldArmor11_MuscleCar
+    100042: WindshieldArmor12_MuscleCar
+    100044: WindshieldArmor13_MuscleCar
+    100046: WindshieldArmor14_MuscleCar
+    100048: WindshieldArmor15_MuscleCar
+    100050: WindshieldArmor16_MuscleCar
+    100052: WindshieldArmor17_MuscleCar
+    100054: WindshieldArmor18_MuscleCar
+    100056: WindshieldArmor19_MuscleCar
+    100058: WindshieldArmor20_MuscleCar
+    400000: BBumperSticker_MuscleCar
+    400002: BWheelLeft_MuscleCar
+    400004: BWheelRight_MuscleCar.001
+    400006: FBumperSticker_MuscleCar
+    400008: FWheelLeft_MuscleCar
+    400010: FWheelRight_MuscleCar
+    400012: LMetalBar_MuscleCar
+    400014: //RootNode
+    400016: RMetalBar_MuscleCar
+    400018: Supercharger_MuscleCar
+    400020: WindshieldArmor00_MuscleCar
+    400022: WindshieldArmor01_MuscleCar
+    400024: WindshieldArmor03_MuscleCar
+    400026: WindshieldArmor04_MuscleCar
+    400028: WindshieldArmor05_MuscleCar
+    400030: WindshieldArmor06_MuscleCar
+    400032: WindshieldArmor07_MuscleCar
+    400034: WindshieldArmor08_MuscleCar
+    400036: WindshieldArmor09_MuscleCar
+    400038: WindshieldArmor10_MuscleCar
+    400040: WindshieldArmor11_MuscleCar
+    400042: WindshieldArmor12_MuscleCar
+    400044: WindshieldArmor13_MuscleCar
+    400046: WindshieldArmor14_MuscleCar
+    400048: WindshieldArmor15_MuscleCar
+    400050: WindshieldArmor16_MuscleCar
+    400052: WindshieldArmor17_MuscleCar
+    400054: WindshieldArmor18_MuscleCar
+    400056: WindshieldArmor19_MuscleCar
+    400058: WindshieldArmor20_MuscleCar
+    2300000: BBumperSticker_MuscleCar
+    2300002: BWheelLeft_MuscleCar
+    2300004: BWheelRight_MuscleCar.001
+    2300006: FBumperSticker_MuscleCar
+    2300008: FWheelLeft_MuscleCar
+    2300010: FWheelRight_MuscleCar
+    2300012: LMetalBar_MuscleCar
+    2300014: //RootNode
+    2300016: RMetalBar_MuscleCar
+    2300018: Supercharger_MuscleCar
+    2300020: WindshieldArmor00_MuscleCar
+    2300022: WindshieldArmor01_MuscleCar
+    2300024: WindshieldArmor03_MuscleCar
+    2300026: WindshieldArmor04_MuscleCar
+    2300028: WindshieldArmor05_MuscleCar
+    2300030: WindshieldArmor06_MuscleCar
+    2300032: WindshieldArmor07_MuscleCar
+    2300034: WindshieldArmor08_MuscleCar
+    2300036: WindshieldArmor09_MuscleCar
+    2300038: WindshieldArmor10_MuscleCar
+    2300040: WindshieldArmor11_MuscleCar
+    2300042: WindshieldArmor12_MuscleCar
+    2300044: WindshieldArmor13_MuscleCar
+    2300046: WindshieldArmor14_MuscleCar
+    2300048: WindshieldArmor15_MuscleCar
+    2300050: WindshieldArmor16_MuscleCar
+    2300052: WindshieldArmor17_MuscleCar
+    2300054: WindshieldArmor18_MuscleCar
+    2300056: WindshieldArmor19_MuscleCar
+    2300058: WindshieldArmor20_MuscleCar
+    3300000: BBumperSticker_MuscleCar
+    3300002: BWheelLeft_MuscleCar
+    3300004: BWheelRight_MuscleCar.001
+    3300006: FBumperSticker_MuscleCar
+    3300008: FWheelLeft_MuscleCar
+    3300010: FWheelRight_MuscleCar
+    3300012: LMetalBar_MuscleCar
+    3300014: //RootNode
+    3300016: RMetalBar_MuscleCar
+    3300018: Supercharger_MuscleCar
+    3300020: WindshieldArmor00_MuscleCar
+    3300022: WindshieldArmor01_MuscleCar
+    3300024: WindshieldArmor03_MuscleCar
+    3300026: WindshieldArmor04_MuscleCar
+    3300028: WindshieldArmor05_MuscleCar
+    3300030: WindshieldArmor06_MuscleCar
+    3300032: WindshieldArmor07_MuscleCar
+    3300034: WindshieldArmor08_MuscleCar
+    3300036: WindshieldArmor09_MuscleCar
+    3300038: WindshieldArmor10_MuscleCar
+    3300040: WindshieldArmor11_MuscleCar
+    3300042: WindshieldArmor12_MuscleCar
+    3300044: WindshieldArmor13_MuscleCar
+    3300046: WindshieldArmor14_MuscleCar
+    3300048: WindshieldArmor15_MuscleCar
+    3300050: WindshieldArmor16_MuscleCar
+    3300052: WindshieldArmor17_MuscleCar
+    3300054: WindshieldArmor18_MuscleCar
+    3300056: WindshieldArmor19_MuscleCar
+    3300058: WindshieldArmor20_MuscleCar
+    4300000: Body_MuscleCar
+    4300002: WindshieldArmor01_MuscleCar
+    4300004: BBumperSticker_MuscleCar
+    4300006: LMetalBar_MuscleCar
+    4300008: Supercharger_MuscleCar
+    4300010: FBumperSticker_MuscleCar
+    4300012: FWheelLeft_MuscleCar
+    4300014: BWheelRight_MuscleCar.001
+    4300016: BWheelLeft_MuscleCar
+    4300018: FWheelRight_MuscleCar
+    4300020: RMetalBar_MuscleCar
+    4300022: WindshieldArmor00_MuscleCar
+    4300024: WindshieldArmor10_MuscleCar
+    4300026: WindshieldArmor11_MuscleCar
+    4300028: WindshieldArmor12_MuscleCar
+    4300030: WindshieldArmor13_MuscleCar
+    4300032: WindshieldArmor03_MuscleCar
+    4300034: WindshieldArmor14_MuscleCar
+    4300036: WindshieldArmor15_MuscleCar
+    4300038: WindshieldArmor09_MuscleCar
+    4300040: WindshieldArmor08_MuscleCar
+    4300042: WindshieldArmor04_MuscleCar
+    4300044: WindshieldArmor06_MuscleCar
+    4300046: WindshieldArmor05_MuscleCar
+    4300048: WindshieldArmor20_MuscleCar
+    4300050: WindshieldArmor19_MuscleCar
+    4300052: WindshieldArmor18_MuscleCar
+    4300054: WindshieldArmor17_MuscleCar
+    4300056: WindshieldArmor16_MuscleCar
+    4300058: WindshieldArmor07_MuscleCar
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
