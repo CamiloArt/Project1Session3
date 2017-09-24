@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: ffcf0b1004ec7b442a55845e193c0956
-timeCreated: 1506045274
-=======
-guid: ec6faad7ea2d37f4481f3224f96ec406
-timeCreated: 1506042722
->>>>>>> Stashed changes
-licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
@@ -160,6 +153,7 @@ ModelImporter:
     4300054: WindshieldArmor17_MuscleCar
     4300056: WindshieldArmor16_MuscleCar
     4300058: WindshieldArmor07_MuscleCar
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -229,7 +223,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
