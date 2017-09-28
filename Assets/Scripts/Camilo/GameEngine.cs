@@ -13,9 +13,14 @@ public class GameEngine : MonoBehaviour {
 	public float timeCounter;
 	public float timeMultiplier;
 	//Round counter
-	public int RoundCounter;
+	public int roundCounter;
+	//TurnsCounter
+	public int turnCounter;
 	//Bool used to know if put or not the animation before each turn
 	public bool startTurn;
+	//Set the number of turns required for have a turf
+	[Header("!important to set!")]
+	public int turnsToCapture;
 	//Holds the turn number in order to know which player goes next
 	public int playerTurnNum;
 	//Defines state of the game
@@ -30,7 +35,8 @@ public class GameEngine : MonoBehaviour {
 	void Start () {
 		//initialize the main variables
 		timeCounter = timeLimit;
-		RoundCounter = 1;
+		roundCounter = 1;
+		turnCounter = 1;
 		playerTurnNum = 1;
 		startTurn = false;
 		gameState = "strategyMap";
@@ -96,6 +102,7 @@ public class GameEngine : MonoBehaviour {
 		playerTurnNum++;
 		timeCounter = timeLimit;
 		startTurn = false;
+		turnCounter++;
 	}
 	void SwitchCameras(){
 		camSwitch = !camSwitch;
@@ -103,7 +110,7 @@ public class GameEngine : MonoBehaviour {
 		battleCamera.SetActive(!camSwitch);
 	}
 	void StartNewRound (){
-		RoundCounter++;
+		roundCounter++;
 		playerTurnNum = 1;
 	}
 }

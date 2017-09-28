@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
 	public playerType typeOfPlayer;
 	public GameEngine gameEngine;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
 	}
 	
