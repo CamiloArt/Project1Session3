@@ -6,12 +6,14 @@ public class Turf : MonoBehaviour {
 
 	public float minDistance;
 	public GameEngine gameEngine;
+	public GameObject flag;
+	private Renderer flagRender;
 	private bool blueLeader;
 	private int blueGuardsCounter;
 	private bool redLeader;
 	private int redGuardsCounter;
-	[Header("Negative for Red, Positive for blue")]
 	public int turnsCounter;
+	[Header("Negative for Red, Positive for blue")]
 	public int teamCounter;
 	public enum OwnerNames
 	{
@@ -23,6 +25,7 @@ public class Turf : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
+		flagRender = flag.GetComponent<Renderer> ();
 	}
 	void Start(){
 		owner = OwnerNames.Neutral;
@@ -98,20 +101,36 @@ public class Turf : MonoBehaviour {
 			owner = OwnerNames.BlueTeam;
 		}else if(teamCounter == 0){
 			owner = OwnerNames.Neutral;
+			Vector3 newpos = new Vector3 (1, -100, 0);
+			flag.transform.localPosition = newpos;
 		}else if(teamCounter == -gameEngine.turnsToCapture){
 			owner = OwnerNames.RedTeam;
 		}
+
+		if(teamCounter > 0 || teamCounter < 0 ){
+			Vector3 newpos = new Vector3 (1, Mathf.Abs(teamCounter) * 2, 0);
+			flag.transform.localPosition = newpos;
+			if (teamCounter > 0) {
+				flagRender.material.SetColor ("_Color", Color.blue);				
+			} else {
+				flagRender.material.SetColor ("_Color", Color.red);
+			}
+		}
+
 		SetColor ();
 	}
 	void SetColor(){
 		switch (owner) {
 		case OwnerNames.BlueTeam:
+			flagRender.material.shader = Shader.Find("Specular");
 			//set Blue color;
 			break;
 		case OwnerNames.Neutral:
+			flagRender.material.shader = Shader.Find("Specular");
 			//set Blue color;
 			break;
 		case OwnerNames.RedTeam:
+			flagRender.material.shader = Shader.Find("Specular");
 			//set Blue color;
 			break;
 
