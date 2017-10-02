@@ -7,6 +7,7 @@ public class Fuel : MonoBehaviour {
 	public float maxFuel;
 	public float currentFuel;
 	public float fuelConsumption;
+	public float terrainValue;
 	// Use this for initialization
 	void Start () {
 		
