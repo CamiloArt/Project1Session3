@@ -7,11 +7,15 @@ public class GameEngine : MonoBehaviour {
 	public Player[] players;
 	//scriot for the current player in the turn
 	public Player currentPlayer;
+	//time before each turn
+	public float timeIntro;
+	public float prevTime;
 	//time limit for each turn
 	public float timeLimit;
-	//time counter
+	//time Variables
+	[Header("Set time for each turn")]
 	public float timeCounter;
-	public float timeMultiplier;
+	private float timeMultiplier;
 	//Round counter
 	public int roundCounter;
 	//TurnsCounter
@@ -42,6 +46,7 @@ public class GameEngine : MonoBehaviour {
 		gameState = "strategyMap";
 		camSwitch = true;
 		battleCamera.SetActive(!camSwitch);
+		prevTime = timeIntro;
 	}
 	
 	// Update is called once per frame
@@ -61,26 +66,31 @@ public class GameEngine : MonoBehaviour {
 				StartPayerTurn ();
 			}
 		}else if(gameState == "battlemap"){//if the game is in battle mode
-			
-		}
-
-		if (Input.GetKeyDown (KeyCode.C)) {
+			//switch camera and start battl
 			SwitchCameras ();
+			StartBattle ();
+		}else if(gameState == "DamagingLeader"){
+			
 		}
 
 	}
 	void ShowRoundIntro(){
 		//ui intro to show player number and beggining of the turn
-		startTurn = true;
-	}
-	void StartPayerTurn(){
-		timeMultiplier = 1f;
-		//select script  of the player that is in the turn
 		for (int i = 0; i < players.Length; i ++){
 			if (players [i].playerTurn == playerTurnNum) {
 				currentPlayer = players [i];
 			}
 		}
+		prevTime -= Time.deltaTime;
+		if (prevTime <= 0) {
+			startTurn = true;
+			prevTime = timeIntro;
+		}
+	}
+	void StartPayerTurn(){
+		timeMultiplier = 1f;
+		//select script  of the player that is in the turn
+
 		if (timeCounter == timeLimit) {
 			currentPlayer.playerUnit.fuel.currentFuel = currentPlayer.playerUnit.fuel.maxFuel;
 		}
@@ -92,10 +102,15 @@ public class GameEngine : MonoBehaviour {
 		timeCounter -= Time.deltaTime * timeMultiplier;
 
 		//space to create the function when two players encounter
-
+		if(currentPlayer.typeOfPlayer == Player.playerType.Leader){
+			currentPlayer.CheckEnemies();
+		}
 		//finish the turn if the counter equals 0 or the unit run out of gas
-		if (timeCounter <= 0 || currentPlayer.playerUnit.fuel.currentFuel <= 0)
+		if (currentPlayer.enemyInRange) {
+			
+		} else if (timeCounter <= 0 || currentPlayer.playerUnit.fuel.currentFuel <= 0) {
 			EndPlayerTurn ();
+		}
 	}
 	void EndPlayerTurn(){
 		//set the next number for the turn and put the animation before the turns beging
@@ -112,5 +127,12 @@ public class GameEngine : MonoBehaviour {
 	void StartNewRound (){
 		roundCounter++;
 		playerTurnNum = 1;
+	}
+	public void StartBattle(){
+		
+	}
+	public void DamageLeader( Transform leaderPosition){
+		//instantiate an explosion on the leader position
+		gameState = "DamagingLeader";
 	}
 }

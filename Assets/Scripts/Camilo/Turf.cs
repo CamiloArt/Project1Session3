@@ -48,22 +48,22 @@ public class Turf : MonoBehaviour {
 		for (int i = 0; i < gameEngine.players.Length; i++) {
 			distance = Vector3.Distance (gameEngine.players[i].gameObject.transform.position, gameObject.transform.position);
 			if (distance < minDistance) {
-				if (gameEngine.players [i].typeOfPlayer.ToString () == "Leader") {
-					if (gameEngine.players [i].playerTeam.teamColor.ToString() == "Blue") {
+				if (gameEngine.players [i].typeOfPlayer == Player.playerType.Leader) {
+					if (gameEngine.players [i].playerTeam.teamColor == Team.tColor.Blue) {
 						blueLeader = true;
 						Debug.Log ("blueleader on turf");
 					}
-					if (gameEngine.players [i].playerTeam.teamColor.ToString() == "Red") {
+					if (gameEngine.players [i].playerTeam.teamColor == Team.tColor.Red) {
 						redLeader = true;
 						Debug.Log ("Redleader on turf");
 					}
 				}
-				if (gameEngine.players [i].typeOfPlayer.ToString () == "Guard") {
-					if (gameEngine.players [i].playerTeam.teamColor.ToString() == "Blue") {
+				if (gameEngine.players [i].typeOfPlayer == Player.playerType.Guard) {
+					if (gameEngine.players [i].playerTeam.teamColor == Team.tColor.Blue) {
 						blueGuardsCounter++;
 						Debug.Log ("blueguard on turf");
 					}
-					if (gameEngine.players [i].playerTeam.teamColor.ToString() == "Red") {
+					if (gameEngine.players [i].playerTeam.teamColor == Team.tColor.Red) {
 						redGuardsCounter++;
 						Debug.Log ("blueguard on turf");
 					}
@@ -77,7 +77,7 @@ public class Turf : MonoBehaviour {
 		case OwnerNames.BlueTeam:
 			if(redLeader && !blueLeader){
 				teamCounter--;				
-			}else if(redGuardsCounter > 0 && blueGuardsCounter == 0){
+			}else if(redGuardsCounter > 0 && blueGuardsCounter == 0 && !blueLeader){
 				teamCounter--;
 			}
 			break;
@@ -91,7 +91,7 @@ public class Turf : MonoBehaviour {
 		case OwnerNames.RedTeam:
 			if(!redLeader && blueLeader){
 				teamCounter++;				
-			}else if(redGuardsCounter == 0 && blueGuardsCounter > 0){
+			}else if(redGuardsCounter == 0 && blueGuardsCounter > 0 &&!redLeader){
 				teamCounter++;
 			}
 			break;
