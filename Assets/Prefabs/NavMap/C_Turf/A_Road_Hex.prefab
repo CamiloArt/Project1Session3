@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23794169170729708}
   - component: {fileID: 64423268448535656}
   - component: {fileID: 64346119046763874}
+  - component: {fileID: 114176543585342316}
   m_Layer: 0
   m_Name: A_Road_Hex
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043741984864358}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 6.4095, y: 1.604, z: 13.273}
+  m_LocalPosition: {x: 64.93196, y: 33.404224, z: 31.217037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,3 +111,16 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: db15e970f4a75ed47b099a7f3a7a4243, type: 3}
+--- !u!114 &114176543585342316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1043741984864358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea638e098d08d9a41a35650394c081f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainRadius: 0
+  terrainValue: -2

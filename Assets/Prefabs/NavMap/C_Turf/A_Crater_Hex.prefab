@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23018708633678058}
   - component: {fileID: 64253105490403378}
   - component: {fileID: 64555069141656832}
+  - component: {fileID: 114424691970818970}
   m_Layer: 0
   m_Name: A_Crater_Hex
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496033980971806}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 9.982033, y: 2.1484122, z: 6.0190744}
+  m_LocalPosition: {x: 61.16494, y: 32.075363, z: 32.01855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,3 +111,16 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f97926257af268148896d9cba2c009df, type: 3}
+--- !u!114 &114424691970818970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496033980971806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea638e098d08d9a41a35650394c081f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainRadius: 0
+  terrainValue: 2
