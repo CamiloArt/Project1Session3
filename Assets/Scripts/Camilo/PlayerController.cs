@@ -45,14 +45,10 @@ public class PlayerController : MonoBehaviour {
 
 	void MovePlayerMainMap(){
 		this.direction = Vector3.zero;
-		if (Mathf.Abs(Input.GetAxis ("Horizontal")) > 0.1) {
-			this.direction += new Vector3 (Input.GetAxis ("Horizontal"),0f,0f);
+		if (Mathf.Abs(Input.GetAxis ("Horizontal")) > 0.1 || Mathf.Abs(Input.GetAxis ("Vertical")) > 0.1) {
+			direction += new Vector3 (Input.GetAxis ("Horizontal"),0f,Input.GetAxis ("Vertical"));
 			ApplyMovement ();
 			}
-		if (Mathf.Abs(Input.GetAxis ("Vertical")) > 0.1) {
-			this.direction += new Vector3 (0f,0f,Input.GetAxis ("Vertical"));
-			ApplyMovement ();
-		}
 	}
 
 	void ApplyMovement(){
@@ -60,7 +56,6 @@ public class PlayerController : MonoBehaviour {
 		float y = Input.GetAxis ("Vertical");
 		float angle = Mathf.Atan2 (x, y) * Mathf.Rad2Deg;
 		myPlayer.playerUnit.gameObject.transform.rotation = Quaternion.Euler(0, angle, 0);
-		direction  = direction * Vector3.Magnitude (direction);
 		magnitude =  Vector3.Magnitude (direction);
 		playerCc.Move (direction * playerSpeed * Time.deltaTime);
 		myPlayer.playerUnit.fuel.currentFuel -= (myPlayer.playerUnit.fuel.fuelConsumption + myPlayer.playerUnit.fuel.terrainValue) * Time.deltaTime * magnitude;

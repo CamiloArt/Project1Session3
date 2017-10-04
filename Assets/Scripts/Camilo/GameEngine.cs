@@ -67,8 +67,6 @@ public class GameEngine : MonoBehaviour {
 			}
 		}else if(gameState == "battlemap"){//if the game is in battle mode
 			//switch camera and start battl
-			SwitchCameras ();
-			StartBattle ();
 		}else if(gameState == "DamagingLeader"){
 			
 		}
@@ -102,12 +100,14 @@ public class GameEngine : MonoBehaviour {
 		timeCounter -= Time.deltaTime * timeMultiplier;
 
 		//space to create the function when two players encounter
-		if(currentPlayer.typeOfPlayer == Player.playerType.Leader){
-			currentPlayer.CheckEnemies();
+		if(currentPlayer.typeOfPlayer == Player.playerType.Guard){
+		currentPlayer.CheckEnemies();
 		}
 		//finish the turn if the counter equals 0 or the unit run out of gas
 		if (currentPlayer.enemyInRange) {
-			
+			gameState = "battlemap";
+			SwitchCameras ();
+			StartBattle ();
 		} else if (timeCounter <= 0 || currentPlayer.playerUnit.fuel.currentFuel <= 0) {
 			EndPlayerTurn ();
 		}

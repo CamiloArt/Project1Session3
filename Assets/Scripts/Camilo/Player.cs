@@ -38,14 +38,14 @@ public class Player : MonoBehaviour {
 	public void CheckEnemies(){
 		for (int i = 0; i < gameEngine.players.Length; i++) {
 			float distance;
-			distance = Vector3.Distance (gameEngine.players[i].gameObject.transform.position, gameObject.transform.position);
 			if (gameEngine.players [i].playerTeam.teamColor.ToString() != playerTeam.teamColor.ToString()){
-				if (distance < playerUnit.range.range || distance < gameEngine.players[i].playerUnit.range.range) {
-					if (gameEngine.players [i].typeOfPlayer == Player.playerType.Leader) {
-						gameEngine.DamageLeader (gameEngine.players [i].gameObject.transform);
-					} else {
-						
-					}
+				distance = Vector3.Distance (gameEngine.players[i].gameObject.transform.position, gameObject.transform.position);
+				if (gameEngine.players [i].typeOfPlayer == playerType.Leader &&  distance < playerUnit.range.range) {
+					//make damage to the leader
+					gameEngine.DamageLeader(gameEngine.players [i].gameObject.transform);
+				}
+				else if (distance < playerUnit.range.range || distance < gameEngine.players[i].playerUnit.range.range) {
+					enemyInRange = true;
 				}
 			}
 		}
