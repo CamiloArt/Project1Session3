@@ -8,6 +8,7 @@ public class Grenade : MonoBehaviour {
 	public Rigidbody rb;
 	public CombatPlayer pl;
 	private Vector3 throwDirection;
+	public float timer;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +18,14 @@ public class Grenade : MonoBehaviour {
 			rb = GetComponent<Rigidbody>();
 		throwDirection = pl.lastDirection * -thrust;
 		rb.AddForce(throwDirection, ForceMode.Impulse);
-		Destroy (gameObject, 5);
+		Destroy (gameObject, timer);
 
+	}
+
+	void Update(){
+	
+		if (timer <= 1)
+			GetComponent<SphereCollider> ().enabled = true;
 	}
 }
 
