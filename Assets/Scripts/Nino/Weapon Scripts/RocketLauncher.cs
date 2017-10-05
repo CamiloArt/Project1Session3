@@ -9,7 +9,8 @@ public class RocketLauncher : MonoBehaviour {
 	public float speed = 2.0f;
 
 	public bool shooting;
-
+	public float firingTime;
+	public float canShootTime;
 	public enum Team {
 
 		blue,
@@ -24,6 +25,9 @@ public class RocketLauncher : MonoBehaviour {
 	private string verticalAxis;
 
 	void Start () {
+
+		firingTime = 0f;
+
 		switch (team) {
 		case Team.blue:
 			horizontalAxis = "BluePlayerHorizontal2";
@@ -67,9 +71,11 @@ public class RocketLauncher : MonoBehaviour {
 			shooting = true;
 
 		}
-		if (shooting == true) 
+		if (shooting == true && canShootTime <= firingTime) 
 		{
 			Instantiate (bulletPrefab, this.transform.position, this.transform.rotation); 
+			firingTime =0f;
+
 		}
 
 

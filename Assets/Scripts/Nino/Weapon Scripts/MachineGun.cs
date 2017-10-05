@@ -8,6 +8,12 @@ public class MachineGun : MonoBehaviour {
 	//speed
 	public float speed = 2.0f;
 
+	public float firingTime;
+	public float canShootTime;
+	public float bulletTimeNum;
+	public int bulletNum;
+
+
 	public bool shooting;
 
 	public enum Team {
@@ -24,6 +30,10 @@ public class MachineGun : MonoBehaviour {
 	private string verticalAxis;
 
 	void Start () {
+		bulletTimeNum = 0f;
+		firingTime = 0f;
+		bulletNum = 0;
+
 		switch (team) {
 		case Team.blue:
 			horizontalAxis = "BluePlayerHorizontal2";
@@ -40,6 +50,9 @@ public class MachineGun : MonoBehaviour {
 
 	void Update () {
 		//the inputs 
+
+		firingTime += Time.deltaTime;
+
 		float x2 = Input.GetAxis (horizontalAxis);
 		float y2 = Input.GetAxis (verticalAxis);
 		//discovering the angle
@@ -67,16 +80,29 @@ public class MachineGun : MonoBehaviour {
 			shooting = true;
 
 		}
-		if (shooting == true) 
+		if (shooting == true && canShootTime <= firingTime) 
 		{
-			Instantiate (bulletPrefab, this.transform.position, this.transform.rotation); 
+			ShootBullet ();
 		}
-
 
 		//the rotation of the launcher
 		Vector3 NextDir = new Vector3(Input.GetAxisRaw(horizontalAxis), 0, Input.GetAxisRaw(verticalAxis));
 		if (NextDir != Vector3.zero)
 			transform.rotation = Quaternion.LookRotation(NextDir);
+	}
+	void ShootBullet(){
+		bulletTimeNum += Time.deltaTime;
+		float btimecd = 0.1f;
+		if (bulletNum < 3) {
+			if (bulletTimeNum > btimecd) {
+				Instantiate (bulletPrefab, this.transform.position, this.transform.rotation); 
+				bulletTimeNum = 0;
+				bulletNum++;
+			}
+		} else {
+			firingTime =0f;
+			bulletNum = 0;
+		}
 	}
 }
 
