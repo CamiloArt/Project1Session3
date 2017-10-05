@@ -22,6 +22,7 @@ public class GameEngine : MonoBehaviour {
 	public int turnCounter;
 	//Bool used to know if put or not the animation before each turn
 	public bool startTurn;
+	public bool inBattle;
 	//Set the number of turns required for have a turf
 	[Header("!important to set!")]
 	public int turnsToCapture;
@@ -43,6 +44,7 @@ public class GameEngine : MonoBehaviour {
 		turnCounter = 1;
 		playerTurnNum = 1;
 		startTurn = false;
+		inBattle = false;
 		gameState = "strategyMap";
 		camSwitch = true;
 		battleCamera.SetActive(!camSwitch);
@@ -66,6 +68,11 @@ public class GameEngine : MonoBehaviour {
 				StartPayerTurn ();
 			}
 		}else if(gameState == "battlemap"){//if the game is in battle mode
+			if (!inBattle) {
+				//animation before the battle starts
+			} else {
+				StartBattle ();
+			}
 			//switch camera and start battl
 		}else if(gameState == "DamagingLeader"){
 			
@@ -107,7 +114,6 @@ public class GameEngine : MonoBehaviour {
 		if (currentPlayer.enemyInRange) {
 			gameState = "battlemap";
 			SwitchCameras ();
-			StartBattle ();
 		} else if (timeCounter <= 0 || currentPlayer.playerUnit.fuel.currentFuel <= 0) {
 			EndPlayerTurn ();
 		}

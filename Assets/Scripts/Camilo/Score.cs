@@ -7,6 +7,8 @@ public class Score : MonoBehaviour {
 	public float RedTeamTurfs;
 	public float blueTeamTurfs;
 	public GameEngine gameEngine;
+
+	[Header("Please insert all the turfs")]
 	public Turf[] turfs;
 	private int turnsCounter;
 	void Awake(){

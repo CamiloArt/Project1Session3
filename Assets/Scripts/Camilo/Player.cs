@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
 	public Team playerTeam;
 	public Transform respawnPosition;
 	public bool enemyInRange;
+	public Player playerinRange;
+	public bool inBattle;
 
 	public enum playerType{
 		Leader,
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
+		inBattle = false;
 	}
 	
 	// Update is called once per frame
@@ -46,6 +49,9 @@ public class Player : MonoBehaviour {
 				}
 				else if (distance < playerUnit.range.range || distance < gameEngine.players[i].playerUnit.range.range) {
 					enemyInRange = true;
+					inBattle = true;
+					playerinRange = gameEngine.players [i];
+					gameEngine.players [i].inBattle = true;
 				}
 			}
 		}

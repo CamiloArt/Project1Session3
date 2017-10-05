@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 57438799}
   - component: {fileID: 57438798}
   - component: {fileID: 57438797}
+  - component: {fileID: 57438802}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -269,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d701d67e8cd75e4488c0ad20725bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 1
 --- !u!114 &57438798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,13 +329,31 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 57438802}
   armor: {fileID: 57438799}
   health: {fileID: 57438800}
   fuel: {fileID: 57438798}
   range: {fileID: 57438797}
   player: {fileID: 279275052}
   isAlive: 0
+--- !u!114 &57438802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 57438795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &84385768
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +462,8 @@ GameObject:
   - component: {fileID: 88106713}
   - component: {fileID: 88106714}
   - component: {fileID: 88106715}
+  - component: {fileID: 88106717}
+  - component: {fileID: 88106716}
   m_Layer: 0
   m_Name: Guard1
   m_TagString: Player
@@ -481,6 +502,8 @@ MonoBehaviour:
   playerTeam: {fileID: 88106714}
   respawnPosition: {fileID: 957348422}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 1
   gameEngine: {fileID: 0}
 --- !u!114 &88106714
@@ -512,6 +535,43 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &88106716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 88106711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
+--- !u!114 &88106717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 88106711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!1 &89440613
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +583,8 @@ GameObject:
   - component: {fileID: 89440615}
   - component: {fileID: 89440616}
   - component: {fileID: 89440617}
+  - component: {fileID: 89440619}
+  - component: {fileID: 89440618}
   m_Layer: 0
   m_Name: Guard2
   m_TagString: Player
@@ -561,6 +623,8 @@ MonoBehaviour:
   playerTeam: {fileID: 89440616}
   respawnPosition: {fileID: 957348422}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 1
   gameEngine: {fileID: 0}
 --- !u!114 &89440616
@@ -592,6 +656,43 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &89440618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89440613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
+--- !u!114 &89440619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89440613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!1 &93868231
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +787,8 @@ GameObject:
   - component: {fileID: 126598942}
   - component: {fileID: 126598943}
   - component: {fileID: 126598944}
+  - component: {fileID: 126598946}
+  - component: {fileID: 126598945}
   m_Layer: 0
   m_Name: Guard4
   m_TagString: Player
@@ -724,6 +827,8 @@ MonoBehaviour:
   playerTeam: {fileID: 126598943}
   respawnPosition: {fileID: 84385769}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 1
   gameEngine: {fileID: 0}
 --- !u!114 &126598943
@@ -755,6 +860,43 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &126598945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 126598940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
+--- !u!114 &126598946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 126598940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!1 &138607371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1310,8 @@ GameObject:
   - component: {fileID: 279275052}
   - component: {fileID: 279275053}
   - component: {fileID: 279275054}
+  - component: {fileID: 279275056}
+  - component: {fileID: 279275055}
   m_Layer: 0
   m_Name: Guard4
   m_TagString: Player
@@ -1206,6 +1350,8 @@ MonoBehaviour:
   playerTeam: {fileID: 279275053}
   respawnPosition: {fileID: 957348422}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 1
   gameEngine: {fileID: 0}
 --- !u!114 &279275053
@@ -1237,6 +1383,43 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &279275055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 279275050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
+--- !u!114 &279275056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 279275050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!1 &306525362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1596,8 @@ GameObject:
   - component: {fileID: 341132464}
   - component: {fileID: 341132465}
   - component: {fileID: 341132466}
+  - component: {fileID: 341132468}
+  - component: {fileID: 341132467}
   m_Layer: 0
   m_Name: Guard3
   m_TagString: Player
@@ -1451,6 +1636,8 @@ MonoBehaviour:
   playerTeam: {fileID: 341132465}
   respawnPosition: {fileID: 84385769}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 1
   gameEngine: {fileID: 0}
 --- !u!114 &341132465
@@ -1482,6 +1669,43 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &341132467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341132462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
+--- !u!114 &341132468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341132462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!1 &351408770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,6 +1868,8 @@ GameObject:
   - component: {fileID: 378406327}
   - component: {fileID: 378406328}
   - component: {fileID: 378406329}
+  - component: {fileID: 378406331}
+  - component: {fileID: 378406330}
   m_Layer: 0
   m_Name: Guard2
   m_TagString: Player
@@ -1682,6 +1908,8 @@ MonoBehaviour:
   playerTeam: {fileID: 378406328}
   respawnPosition: {fileID: 84385769}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 1
   gameEngine: {fileID: 0}
 --- !u!114 &378406328
@@ -1713,6 +1941,43 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &378406330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 378406325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
+--- !u!114 &378406331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 378406325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!1 &439700753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,6 +2260,7 @@ MonoBehaviour:
   roundCounter: 0
   turnCounter: 0
   startTurn: 0
+  inBattle: 0
   turnsToCapture: 5
   playerTurnNum: 0
   gameState: 
@@ -2009,8 +2275,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -2.1346216, y: -2.4551146, z: -7.175905}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 964375539}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -2226,6 +2491,7 @@ GameObject:
   - component: {fileID: 649909392}
   - component: {fileID: 649909391}
   - component: {fileID: 649909390}
+  - component: {fileID: 649909395}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -2258,7 +2524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d701d67e8cd75e4488c0ad20725bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 1
 --- !u!114 &649909391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,13 +2583,31 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 649909395}
   armor: {fileID: 649909392}
   health: {fileID: 649909393}
   fuel: {fileID: 649909391}
   range: {fileID: 649909390}
   player: {fileID: 88106713}
   isAlive: 0
+--- !u!114 &649909395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649909388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &655926616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,6 +2717,7 @@ GameObject:
   - component: {fileID: 668933826}
   - component: {fileID: 668933825}
   - component: {fileID: 668933824}
+  - component: {fileID: 668933829}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -2465,7 +2750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d701d67e8cd75e4488c0ad20725bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 1
 --- !u!114 &668933825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2524,13 +2809,31 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 668933829}
   armor: {fileID: 668933826}
   health: {fileID: 668933827}
   fuel: {fileID: 668933825}
   range: {fileID: 668933824}
   player: {fileID: 1100612703}
   isAlive: 0
+--- !u!114 &668933829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668933822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &675300391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,6 +2847,7 @@ GameObject:
   - component: {fileID: 675300395}
   - component: {fileID: 675300394}
   - component: {fileID: 675300393}
+  - component: {fileID: 675300398}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -2576,7 +2880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d701d67e8cd75e4488c0ad20725bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 1
 --- !u!114 &675300394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2635,13 +2939,31 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 675300398}
   armor: {fileID: 675300395}
   health: {fileID: 675300396}
   fuel: {fileID: 675300394}
   range: {fileID: 675300393}
   player: {fileID: 378406327}
   isAlive: 0
+--- !u!114 &675300398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 675300391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &677412578
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,51 +3659,6 @@ Transform:
   m_Father: {fileID: 1757528585}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &964375538
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 964375539}
-  - component: {fileID: 964375540}
-  m_Layer: 0
-  m_Name: playerController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &964375539
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 964375538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 576423957}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &964375540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 964375538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myPlayer: {fileID: 0}
-  playerSpeed: 30
-  playerCc: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
-  magnitude: 0
 --- !u!1 &964701461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,6 +3852,7 @@ GameObject:
   - component: {fileID: 1087752863}
   - component: {fileID: 1087752862}
   - component: {fileID: 1087752861}
+  - component: {fileID: 1087752866}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -3607,7 +3885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d701d67e8cd75e4488c0ad20725bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 1
 --- !u!114 &1087752862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3666,13 +3944,31 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 1087752866}
   armor: {fileID: 1087752863}
   health: {fileID: 1087752864}
   fuel: {fileID: 1087752862}
   range: {fileID: 1087752861}
   player: {fileID: 126598942}
   isAlive: 0
+--- !u!114 &1087752866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1087752859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &1100612701
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,6 +3980,8 @@ GameObject:
   - component: {fileID: 1100612703}
   - component: {fileID: 1100612704}
   - component: {fileID: 1100612705}
+  - component: {fileID: 1100612707}
+  - component: {fileID: 1100612706}
   m_Layer: 0
   m_Name: Guard1
   m_TagString: Player
@@ -3722,6 +4020,8 @@ MonoBehaviour:
   playerTeam: {fileID: 1100612704}
   respawnPosition: {fileID: 84385769}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 1
   gameEngine: {fileID: 0}
 --- !u!114 &1100612704
@@ -3753,6 +4053,43 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &1100612706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1100612701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
+--- !u!114 &1100612707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1100612701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!1 &1121512145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,6 +4101,8 @@ GameObject:
   - component: {fileID: 1121512147}
   - component: {fileID: 1121512146}
   - component: {fileID: 1121512150}
+  - component: {fileID: 1121512151}
+  - component: {fileID: 1121512149}
   m_Layer: 0
   m_Name: Leader
   m_TagString: Player
@@ -3800,6 +4139,8 @@ MonoBehaviour:
   playerTeam: {fileID: 1121512146}
   respawnPosition: {fileID: 957348422}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 0
   gameEngine: {fileID: 0}
 --- !u!4 &1121512148
@@ -3816,6 +4157,28 @@ Transform:
   m_Father: {fileID: 1754577728}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1121512149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1121512145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!143 &1121512150
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3833,6 +4196,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &1121512151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1121512145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
 --- !u!1 &1130105189
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,6 +4476,8 @@ GameObject:
   - component: {fileID: 1206887702}
   - component: {fileID: 1206887703}
   - component: {fileID: 1206887704}
+  - component: {fileID: 1206887706}
+  - component: {fileID: 1206887705}
   m_Layer: 0
   m_Name: Leader
   m_TagString: Player
@@ -4136,6 +4516,8 @@ MonoBehaviour:
   playerTeam: {fileID: 1206887703}
   respawnPosition: {fileID: 84385769}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 0
   gameEngine: {fileID: 0}
 --- !u!114 &1206887703
@@ -4167,6 +4549,43 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &1206887705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1206887700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
+--- !u!114 &1206887706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1206887700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!1 &1208690170
 GameObject:
   m_ObjectHideFlags: 0
@@ -4577,6 +4996,8 @@ GameObject:
   - component: {fileID: 1248044793}
   - component: {fileID: 1248044794}
   - component: {fileID: 1248044795}
+  - component: {fileID: 1248044797}
+  - component: {fileID: 1248044796}
   m_Layer: 0
   m_Name: Guard3
   m_TagString: Player
@@ -4615,6 +5036,8 @@ MonoBehaviour:
   playerTeam: {fileID: 1248044794}
   respawnPosition: {fileID: 957348422}
   enemyInRange: 0
+  playerinRange: {fileID: 0}
+  inBattle: 0
   typeOfPlayer: 1
   gameEngine: {fileID: 0}
 --- !u!114 &1248044794
@@ -4646,6 +5069,43 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &1248044796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1248044791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45881d08d5fe904c809f1a9fe9f55f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  hAxisName: 
+  vAxisName: 
+  trigger: 
+--- !u!114 &1248044797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1248044791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab57c76a3aae174aad326de2f98bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCc: {fileID: 0}
+  mapDirection: {x: 0, y: 0, z: 0}
+  magnitude: 0
+  gravity: 5
+  turningSpeed: 20
+  direction: {x: 0, y: 0, z: 0}
+  lastDirection: {x: 0, y: 0, z: 0}
+  tdirection: {x: 0, y: 0, z: 0}
+  pressing: 0
+  speedDampener: 0.2
+  turboTime: 0
 --- !u!1 &1254981025
 GameObject:
   m_ObjectHideFlags: 0
@@ -4905,6 +5365,7 @@ GameObject:
   - component: {fileID: 1316774182}
   - component: {fileID: 1316774181}
   - component: {fileID: 1316774180}
+  - component: {fileID: 1316774185}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -4937,7 +5398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d701d67e8cd75e4488c0ad20725bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 1
 --- !u!114 &1316774181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4996,13 +5457,31 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 1316774185}
   armor: {fileID: 1316774182}
   health: {fileID: 1316774183}
   fuel: {fileID: 1316774181}
   range: {fileID: 1316774180}
   player: {fileID: 341132464}
   isAlive: 0
+--- !u!114 &1316774185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1316774178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &1335237280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,7 +5629,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1357060037}
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 123, y: 0, z: -315}
+  m_LocalPosition: {x: 216.4, y: 9.7, z: 0}
   m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5211,6 +5690,7 @@ GameObject:
   - component: {fileID: 1381466570}
   - component: {fileID: 1381466569}
   - component: {fileID: 1381466568}
+  - component: {fileID: 1381466573}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -5243,7 +5723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d701d67e8cd75e4488c0ad20725bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 1
 --- !u!114 &1381466569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5302,13 +5782,31 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 1381466573}
   armor: {fileID: 1381466570}
   health: {fileID: 1381466571}
   fuel: {fileID: 1381466569}
   range: {fileID: 1381466568}
   player: {fileID: 89440615}
   isAlive: 0
+--- !u!114 &1381466573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1381466566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &1406642780
 GameObject:
   m_ObjectHideFlags: 0
@@ -5915,7 +6413,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1585636469}
   m_LocalRotation: {x: -0.6421001, y: -0.27498254, z: 0.26574835, w: -0.66443205}
-  m_LocalPosition: {x: 119.97641, y: 125.177345, z: -318.0291}
+  m_LocalPosition: {x: 213.3764, y: 134.87735, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6264,6 +6762,7 @@ GameObject:
   - component: {fileID: 1734463255}
   - component: {fileID: 1734463253}
   - component: {fileID: 1734463252}
+  - component: {fileID: 1734463257}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -6285,7 +6784,7 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 1734463257}
   armor: {fileID: 1734463255}
   health: {fileID: 1734463254}
   fuel: {fileID: 1734463253}
@@ -6362,6 +6861,24 @@ Transform:
   m_Father: {fileID: 1121512148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1734463257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1734463250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &1747280515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6375,6 +6892,7 @@ GameObject:
   - component: {fileID: 1747280519}
   - component: {fileID: 1747280518}
   - component: {fileID: 1747280517}
+  - component: {fileID: 1747280522}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -6466,13 +6984,31 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 1747280522}
   armor: {fileID: 1747280519}
   health: {fileID: 1747280520}
   fuel: {fileID: 1747280518}
   range: {fileID: 1747280517}
   player: {fileID: 1206887702}
   isAlive: 0
+--- !u!114 &1747280522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747280515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &1754577727
 GameObject:
   m_ObjectHideFlags: 0
@@ -6710,6 +7246,7 @@ GameObject:
   - component: {fileID: 1900812998}
   - component: {fileID: 1900812997}
   - component: {fileID: 1900812996}
+  - component: {fileID: 1900813001}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -6742,7 +7279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d701d67e8cd75e4488c0ad20725bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 1
 --- !u!114 &1900812997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6801,13 +7338,31 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   damage: 0
-  speed: 0
+  speed: {fileID: 1900813001}
   armor: {fileID: 1900812998}
   health: {fileID: 1900812999}
   fuel: {fileID: 1900812997}
   range: {fileID: 1900812996}
   player: {fileID: 1248044793}
   isAlive: 0
+--- !u!114 &1900813001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1900812994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!1 &1909209841
 GameObject:
   m_ObjectHideFlags: 0
@@ -6967,7 +7522,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1920475758}
   m_LocalRotation: {x: -0.41246247, y: -0.19158778, z: 0.24594721, w: 0.8559667}
-  m_LocalPosition: {x: 123, y: 2.6, z: -315}
+  m_LocalPosition: {x: 216.4, y: 12.299999, z: 0}
   m_LocalScale: {x: 5.705304, y: 5.7053046, z: 5.7053046}
   m_Children: []
   m_Father: {fileID: 0}

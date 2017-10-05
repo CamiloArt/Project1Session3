@@ -7,7 +7,7 @@ public class Unit : MonoBehaviour {
 	public Item item1;
 	public Item item2;
 	public float damage;
-	public float speed;
+	public Speed speed;
 	public Armor armor;
 	public Health health;
 	public Fuel fuel;
