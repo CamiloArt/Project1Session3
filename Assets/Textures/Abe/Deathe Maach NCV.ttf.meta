@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 897c7b5981c4518408324c6522ca3d93
+timeCreated: 1506555069
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DEATHE MAACH NCV
+  fontNames:
+  - DEATHE MAACH NCV
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
