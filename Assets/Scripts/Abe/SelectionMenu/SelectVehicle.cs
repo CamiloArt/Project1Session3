@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class SelectVehicle : MonoBehaviour {
     //--PUBLIC VARIABLES--//
-    public Unit units;
+    [Tooltip("MuscleCar = [0], Buggy = [1], MonsterTruck = [2]")]
+    public GameObject[] vehicles;
+
+    public GameEngine gameEngine;
 
     public Camera mainCamera;
     public GameObject selectedUI;
 
     public Transform initialTransform;
     public Transform newTransform;
+
+    public Material carBodyTeam1;
+    public Material carBodyTeam2;
+    public Material currentCarBodyMat;
 
     public float speed = 1f;
     //--PRIVATE VARIABLES--//
@@ -22,6 +29,8 @@ public class SelectVehicle : MonoBehaviour {
 
 	void Start() 
     {
+        currentCarBodyMat = carBodyTeam1;
+
         selectedUI.SetActive(false);
 
         journeyLengthTo = Vector3.Distance(initialTransform.position, newTransform.position);
@@ -47,6 +56,19 @@ public class SelectVehicle : MonoBehaviour {
 
     void Update() 
     {
+        //change team color starting at the 6th player (Leader 2)
+        vehicles[0].GetComponent<Renderer>().material = currentCarBodyMat;
+        vehicles[1].GetComponent<Renderer>().material = currentCarBodyMat;
+        vehicles[2].GetComponent<Renderer>().material = currentCarBodyMat;
+        if (gameEngine.playerTurnNum < 5)
+        {
+            currentCarBodyMat = carBodyTeam1;
+        }
+        if (gameEngine.playerTurnNum > 5)
+        {
+            currentCarBodyMat = carBodyTeam2;
+        }
+
         if (Input.GetKeyDown(KeyCode.Return)) //if in initial pos, and e is pressed, go to new pos
         {
             //zoom camera in on local axis 

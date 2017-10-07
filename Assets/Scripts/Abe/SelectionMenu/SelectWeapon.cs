@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponSelect : MonoBehaviour {
-	//if slected = true, enable selection for weapon and consumables
+public class SelectWeapon : MonoBehaviour {
+	//if selected = true, enable selection for weapon and consumables
 	//--PUBLIC VARIABLES--//
 	public SelectVehicle selectVehicle;
 	public ApplyValues applyValues;
@@ -17,7 +17,8 @@ public class WeaponSelect : MonoBehaviour {
 	public GameObject[] monsterTruck_Weapons;
 
 	public Dropdown dropdownWS;
-	//--PRIVATE VARIABLES--//
+
+    public float dps;
 
 	void Start() 
     {
@@ -39,20 +40,25 @@ public class WeaponSelect : MonoBehaviour {
 				muscleCar_Weapons[0].SetActive(true);
 				muscleCar_Weapons[1].SetActive(false);
 				muscleCar_Weapons[2].SetActive(false);
+
+                dps = 0.2f;
 			}
 			if (applyValues.buggy_LookAt)
 			{
 				buggy_Weapons[0].SetActive(true);
 				buggy_Weapons[1].SetActive(false);
 				buggy_Weapons[2].SetActive(false);
+
+                dps = 0.2f;
 			}
 			if (applyValues.monsterTruck_LookAt)
 			{
 				monsterTruck_Weapons[0].SetActive(true);
 				monsterTruck_Weapons[1].SetActive(false);
 				monsterTruck_Weapons[2].SetActive(false);
+
+                dps = 0.2f;
 			}
-			Debug.Log("Option0");
 		}
 	}
 	//Rocket Launcher
@@ -65,20 +71,25 @@ public class WeaponSelect : MonoBehaviour {
 				muscleCar_Weapons[0].SetActive(false);
 				muscleCar_Weapons[1].SetActive(true);
 				muscleCar_Weapons[2].SetActive(false);
+
+                dps = 0.5f;
 			}
 			if (applyValues.buggy_LookAt)
 			{
 				buggy_Weapons[0].SetActive(false);
 				buggy_Weapons[1].SetActive(true);
 				buggy_Weapons[2].SetActive(false);
+
+                dps = 0.5f;
 			}
 			if (applyValues.monsterTruck_LookAt)
 			{
 				monsterTruck_Weapons[0].SetActive(false);
 				monsterTruck_Weapons[1].SetActive(true);
 				monsterTruck_Weapons[2].SetActive(false);
+
+                dps = 0.5f;
 			}
-			Debug.Log("Option1");
 		}
 	}
 	//Flamethrower
@@ -91,20 +102,25 @@ public class WeaponSelect : MonoBehaviour {
 				muscleCar_Weapons[0].SetActive(false);
 				muscleCar_Weapons[1].SetActive(false);
 				muscleCar_Weapons[2].SetActive(true);
+
+                dps = 0.7f;
 			}
 			if (applyValues.buggy_LookAt)
 			{
 				buggy_Weapons[0].SetActive(false);
 				buggy_Weapons[1].SetActive(false);
 				buggy_Weapons[2].SetActive(true);
+
+                dps = 0.7f;
 			}
 			if (applyValues.monsterTruck_LookAt)
 			{
 				monsterTruck_Weapons[0].SetActive(false);
 				monsterTruck_Weapons[1].SetActive(false);
 				monsterTruck_Weapons[2].SetActive(true);
+
+                dps = 0.7f;
 			}
-			Debug.Log("Option2");
 		}
 	}
 

@@ -8,7 +8,7 @@ public class TurnEnd : MonoBehaviour {
     public ApplyValues applyValues;
     public SelectVehicle selectVehicle;
     public ParentPlatform parentPlatform;
-    public WeaponSelect weaponSelect;
+    public SelectWeapon selectWeapon;
 
     public bool lastPlayerTurnEnd = false;
 
@@ -23,6 +23,6 @@ public class TurnEnd : MonoBehaviour {
     public void ResetSelectionMenu()
     {
         selectVehicle.selected = false;
-        weaponSelect.ResetWeaponSelection();
+        selectWeapon.ResetWeaponSelection();
     }
 }
