@@ -63,8 +63,6 @@ public class PlayerController : MonoBehaviour {
 		float angle = Mathf.Atan2 (x, y) * Mathf.Rad2Deg;
 		myPlayer.playerUnit.gameObject.transform.rotation = Quaternion.Euler(0, angle, 0);
 		magnitude =  Vector3.Magnitude (mapDirection);
-		Debug.Log (mapDirection);
-		Debug.Log (myPlayer.playerUnit.speed.mapSpeed);
 		playerCc.Move (mapDirection * myPlayer.playerUnit.speed.mapSpeed * Time.deltaTime);
 		myPlayer.playerUnit.fuel.currentFuel -= (myPlayer.playerUnit.fuel.fuelConsumption + myPlayer.playerUnit.fuel.terrainValue) * Time.deltaTime * magnitude;
 	}

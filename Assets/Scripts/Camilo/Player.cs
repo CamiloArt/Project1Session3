@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
 	public Team playerTeam;
 	public Transform respawnPosition;
 	public bool enemyInRange;
-	public Player playerinRange;
+	public int playerInRange;
 	public bool inBattle;
 
 	public enum playerType{
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour {
 				else if (distance < playerUnit.range.range || distance < gameEngine.players[i].playerUnit.range.range) {
 					enemyInRange = true;
 					inBattle = true;
-					playerinRange = gameEngine.players [i];
+					playerInRange = i;
 					gameEngine.players [i].inBattle = true;
 				}
 			}
