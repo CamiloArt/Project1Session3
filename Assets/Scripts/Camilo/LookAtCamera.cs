@@ -24,10 +24,10 @@ public class LookAtCamera : MonoBehaviour {
 	void Update () {
 		mySlider.maxValue = myPlayer.playerUnit.health.maxHp;
 		mySlider.value = myPlayer.playerUnit.health.currentHp;
-		if (gameEngine.gameState == "strategyMap") {
-			wantedPos = mainCamera.WorldToScreenPoint (myPlayer.gameObject.transform.position);
-		}else if(gameEngine.gameState == "battlemap"){
+		if(gameEngine.gameState == "battlemap"){
 			wantedPos = combatCamera.WorldToScreenPoint (myPlayer.gameObject.transform.position);
+		}else{
+			wantedPos = mainCamera.WorldToScreenPoint (myPlayer.gameObject.transform.position);
 		}
 		transform.position = wantedPos;
 	}

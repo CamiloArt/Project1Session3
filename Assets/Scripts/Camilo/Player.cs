@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
 		Guard
 	}
 	public playerType typeOfPlayer;
-	public GameEngine gameEngine;
+	private GameEngine gameEngine;
 	// Use this for initialization
 	void Awake () {
 		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();

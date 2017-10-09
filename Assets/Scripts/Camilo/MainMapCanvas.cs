@@ -39,6 +39,8 @@ public class MainMapCanvas : MonoBehaviour {
 					showInBattleCounter ();
 				else
 					ShowPrevCounter ();
+			}else if(gameEngine.gameState == "showingCombatResults"){
+				showCombatResults ();
 			}
 		}
 
@@ -57,5 +59,13 @@ public class MainMapCanvas : MonoBehaviour {
 	}
 	void showInBattleCounter(){
 		combatTimer.text = Mathf.Round (gameEngine.combatCounter).ToString ();
+	}
+	void showCombatResults(){
+		if (gameEngine.combatEngine.draw) {
+			PrevCounter.text = "DRAW!" + "\n" + "Both players did the same ammount of damage";
+		}
+		else {
+			PrevCounter.text = "the winner is" + gameEngine.players [gameEngine.combatEngine.winnerIndex].playerNumber + "\n" + "from the team: " + gameEngine.players [gameEngine.combatEngine.winnerIndex].playerTeam.teamColor.ToString ();
+		}
 	}
 }

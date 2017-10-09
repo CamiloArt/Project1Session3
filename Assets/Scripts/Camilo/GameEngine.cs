@@ -8,9 +8,11 @@ public class GameEngine : MonoBehaviour {
 	//scriot for the current player in the turn
 	public Player currentPlayer;
 	public int currentPlayerIndex;
+	public int playerInRangeIndex;
 	//time before each turn
 	public float timeIntro;
 	public float prevTime;
+	public CombatEngine combatEngine;
 	//time Variables
 	[Header("Set time for each turn")]
 	//time limit for each turn
@@ -20,6 +22,9 @@ public class GameEngine : MonoBehaviour {
 	[Header("Set time for Combat Map")]
 	public float combatTime;
 	public float combatCounter;
+	[Header("Set Speed for the looser player to retreive")]
+	public float looserSpeed;
+	[Header("")]
 	//Round counter
 	public int roundCounter;
 	//TurnsCounter
@@ -46,6 +51,10 @@ public class GameEngine : MonoBehaviour {
 
 	public Transform battleMapPoint1;
 	public Transform battleMapPoint2;
+
+	void Awake(){
+		combatEngine = gameObject.GetComponent<CombatEngine> ();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -89,6 +98,10 @@ public class GameEngine : MonoBehaviour {
 			//switch camera and start battl
 		}else if(gameState == "DamagingLeader"){
 
+		}else if(gameState == "showingCombatResults"){
+			ShowCombatResults ();
+		}else if(gameState == "afterCombat"){
+			EndBattle ();
 		}
 
 	}
@@ -114,7 +127,7 @@ public class GameEngine : MonoBehaviour {
 			currentPlayer.playerUnit.fuel.currentFuel = currentPlayer.playerUnit.fuel.maxFuel;
 		}
 		if(Input.GetKey(KeyCode.G)){
-			timeMultiplier = 3;
+			timeMultiplier = 100;
 		}
 		//timer decreasing during the turn
 		timeCounter -= Time.deltaTime * timeMultiplier;
@@ -126,15 +139,16 @@ public class GameEngine : MonoBehaviour {
 		//finish the turn if the counter equals 0 or the unit run out of gas
 		if (currentPlayer.enemyInRange) {
 			gameState = "battlemap";
+			playerInRangeIndex = currentPlayer.playerInRange;
 			currentPlayerPos.position = players[currentPlayerIndex].gameObject.transform.position;
 			currentPlayerPos.rotation = players[currentPlayerIndex].gameObject.transform.rotation;
-			battlePlayerPos.position = players[currentPlayer.playerInRange].gameObject.transform.position;
-			battlePlayerPos.rotation = players[currentPlayer.playerInRange].gameObject.transform.rotation;
+			battlePlayerPos.position = players[playerInRangeIndex].gameObject.transform.position;
+			battlePlayerPos.rotation = players[playerInRangeIndex].gameObject.transform.rotation;
 
 			players[currentPlayerIndex].transform.position = battleMapPoint1.position;
 			players[currentPlayerIndex].gameObject.transform.rotation = battleMapPoint1.rotation;
-			players[currentPlayer.playerInRange].gameObject.transform.position = battleMapPoint2.position;
-			players[currentPlayer.playerInRange].gameObject.transform.rotation = battleMapPoint2.rotation;
+			players[playerInRangeIndex].gameObject.transform.position = battleMapPoint2.position;
+			players[playerInRangeIndex].gameObject.transform.rotation = battleMapPoint2.rotation;
 			SwitchCameras ();
 		} else if (timeCounter <= 0 || currentPlayer.playerUnit.fuel.currentFuel <= 0) {
 			EndPlayerTurn ();
@@ -161,25 +175,57 @@ public class GameEngine : MonoBehaviour {
 		if (prevTime <= 0) {
 			inBattle = true;
 			prevTime = timeIntro;
+			combatEngine.SetPlayers ();
 		}
 	}
 	public void StartBattle(){
 		combatCounter -= Time.deltaTime;
-		if (combatCounter <= 0) {
-			EndBattle ();
+		if (combatCounter <= 0 || currentPlayer.playerUnit.health.currentHp <= 0 || players [currentPlayer.playerInRange].playerUnit.health.currentHp <= 0) {
+			combatEngine.SetWinner ();
+			gameState = "showingCombatResults";
+		}
+	}
+	void ShowCombatResults (){
+		prevTime -= Time.deltaTime;
+		if (prevTime <= 0) {
+			prevTime = timeIntro;
+			players [currentPlayerIndex].transform.position = currentPlayerPos.position;
+			players [currentPlayerIndex].gameObject.transform.rotation = currentPlayerPos.rotation;
+			players [playerInRangeIndex].gameObject.transform.position = battlePlayerPos.position;
+			players [playerInRangeIndex].gameObject.transform.rotation = battlePlayerPos.rotation;
+			SwitchCameras ();
+			inBattle = false;
+			gameState = "afterCombat";
 		}
 	}
 	void EndBattle(){
-		//We need animation or the looser going back before switch turns!
+		//We need animation of the looser going back before switch turns!
+		CharacterController looserController;
+		Vector3 moveDirection = Vector3.zero;
+		if(!combatEngine.playerDied){
+			if (combatEngine.draw) {
+				looserController = players [currentPlayerIndex].gameObject.GetComponent<CharacterController> ();
+				moveDirection = players [currentPlayerIndex].gameObject.transform.position - players [playerInRangeIndex].gameObject.transform.position;
+				moveDirection = moveDirection.normalized;
+				looserController.Move (moveDirection * Time.deltaTime * looserSpeed);
+				looserController = players [playerInRangeIndex].gameObject.GetComponent<CharacterController> ();
+				moveDirection = players [playerInRangeIndex].gameObject.transform.position - players [currentPlayerIndex].gameObject.transform.position;
+				moveDirection = moveDirection.normalized;
+				looserController.Move (moveDirection * Time.deltaTime * looserSpeed);
+			} else {
+				looserController = players [combatEngine.looserIndex].gameObject.GetComponent<CharacterController> ();
+				moveDirection = players [combatEngine.looserIndex].gameObject.transform.position - players [combatEngine.winnerIndex].gameObject.transform.position;
+				moveDirection = moveDirection.normalized;
+				looserController.Move (moveDirection * Time.deltaTime * looserSpeed);
+			}
+		}
 		combatCounter = combatTime;
-		inBattle = false;
-		players [currentPlayerIndex].transform.position = currentPlayerPos.position;
-		players [currentPlayerIndex].gameObject.transform.rotation = currentPlayerPos.rotation;
-		players [currentPlayer.playerInRange].gameObject.transform.position = battlePlayerPos.position;
-		players [currentPlayer.playerInRange].gameObject.transform.rotation = battlePlayerPos.rotation;
-		SwitchCameras ();
-		gameState = "strategyMap";
-		EndPlayerTurn ();
+		prevTime -= Time.deltaTime;
+		if (prevTime <= 0) {
+			prevTime = timeIntro;
+			gameState = "strategyMap";
+			EndPlayerTurn ();
+		}
 	}
 	public void DamageLeader( Transform leaderPosition){
 		//instantiate an explosion on the leader position
