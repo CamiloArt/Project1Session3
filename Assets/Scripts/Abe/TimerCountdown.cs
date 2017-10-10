@@ -7,7 +7,7 @@ public class TimerCountdown : MonoBehaviour {
     
     public Text timer;
 
-    private float timeLeft = 15f;
+    public float timeLeft = 15f;
 
 	void Update () 
     {
@@ -18,7 +18,6 @@ public class TimerCountdown : MonoBehaviour {
         if (timeLeft < 0)
         {
             //End Turn
-            Debug.Log("End of turn");
             timeLeft = 15f;
         }
 	}

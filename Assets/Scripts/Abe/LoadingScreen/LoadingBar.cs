@@ -14,7 +14,9 @@ public class LoadingBar : MonoBehaviour {
 
     public float progress;
 
-    private float speed = 0.1f;
+    private Vector3 initialCarPos;
+
+    private float speed = 0.15f;
     private float minValue = 0f;
     private float maxValue = 1f;
 
@@ -22,6 +24,8 @@ public class LoadingBar : MonoBehaviour {
 
 	void Start() 
     {
+        initialCarPos = carIdle.transform.position;
+
         carIdle.enabled = true;
         carMoving.enabled = false;
 	}
@@ -43,11 +47,17 @@ public class LoadingBar : MonoBehaviour {
         {
             //move to next scene
             loaded = true;
+            //reset loadingBar
+            progress = 0f;
+            t = 0f;
+            carMoving.transform.position = initialCarPos;
+            carIdle.enabled = true;
+            carMoving.enabled = false;
         }
 	}
 
     void LerpPos()
     {
-        carMoving.transform.position = Vector3.MoveTowards(carMoving.transform.position, targetRect.transform.position, Time.deltaTime * 15);
+        carMoving.transform.position = Vector3.MoveTowards(carMoving.transform.position, targetRect.transform.position, Time.deltaTime * 25);
     }
 }

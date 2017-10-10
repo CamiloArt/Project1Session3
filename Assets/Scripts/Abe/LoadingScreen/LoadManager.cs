@@ -14,11 +14,6 @@ public class LoadManager : MonoBehaviour {
     public bool loadToStrategyMap = false;
     public bool loadToBattleMap = false;
 
-	void Awake() 
-    {
-		
-	}
-
 	void Update() 
     {
         if (loadToSelectionMenu)
@@ -27,6 +22,7 @@ public class LoadManager : MonoBehaviour {
             if (loadingBar.loaded)
             {
                 SelectionMenu();
+                loadingBar.loaded = false;
             }
         }
         if (loadToStrategyMap)
@@ -35,6 +31,7 @@ public class LoadManager : MonoBehaviour {
             if (loadingBar.loaded)
             {
                 StrategyMap();
+                loadingBar.loaded = false;
             }
         }
         if (loadToBattleMap)
@@ -43,10 +40,11 @@ public class LoadManager : MonoBehaviour {
             if(loadingBar.loaded)
             {
                 BattleMap();
+                loadingBar.loaded = false;
             }
         }
 	}
-
+    //
     private void Load_LoadingScreen()
     {
         Scenes[0].SetActive(true);

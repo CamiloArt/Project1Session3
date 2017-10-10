@@ -9,14 +9,20 @@ public class TurnEnd : MonoBehaviour {
     public SelectVehicle selectVehicle;
     public ParentPlatform parentPlatform;
     public SelectWeapon selectWeapon;
-
-    public bool lastPlayerTurnEnd = false;
+    public LoadManager loadManager;
+    [Tooltip("Assign from *TimerSelectionMenu*")]
+    public TimerCountdown timerCountdown;
 
     void Update()
     {
         if (gameEngine.playerTurnNum == 10) //last player has clicked "Ready"
         {
-            lastPlayerTurnEnd = true;
+            loadManager.loadToStrategyMap = true;
+        }
+
+        if (timerCountdown.timeLeft <= 0f) 
+        {
+            AutoSelectVehicle();
         }
     }
 
@@ -24,5 +30,13 @@ public class TurnEnd : MonoBehaviour {
     {
         selectVehicle.selected = false;
         selectWeapon.ResetWeaponSelection();
+    }
+
+    void AutoSelectVehicle()
+    {
+        //if time has run out for turn selected = false + selectWeapon = false
+        ResetSelectionMenu();
+        //apply unit values to GameEngine
+        applyValues.ApplyUnitValues();
     }
 }

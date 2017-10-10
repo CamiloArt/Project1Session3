@@ -16,19 +16,13 @@ public class SelectWeapon : MonoBehaviour {
 	[Tooltip("Minigun:[0], RocketLauncher:[1], Flamethrower[2]")]
 	public GameObject[] monsterTruck_Weapons;
 
+    public GameObject currentSelectedWeapon;
+
 	public Dropdown dropdownWS;
 
-    public float dps;
+    public Text dpsWText;
 
-	void Start() 
-    {
-		
-	}
-   
-	void Update() 
-    {
-		
-	}
+    public float dps;
 
 	//Minigun
 	public void Option0()
@@ -37,27 +31,36 @@ public class SelectWeapon : MonoBehaviour {
 		{
 			if (applyValues.muscleCar_LookAt)
 			{
+                currentSelectedWeapon = muscleCar_Weapons[0];
+
 				muscleCar_Weapons[0].SetActive(true);
 				muscleCar_Weapons[1].SetActive(false);
-				muscleCar_Weapons[2].SetActive(false);
+                muscleCar_Weapons[2].SetActive(false);
 
                 dps = 0.2f;
+                dpsWText.text = "Weapon DPS: " + dps.ToString();
 			}
 			if (applyValues.buggy_LookAt)
 			{
+                currentSelectedWeapon = buggy_Weapons[0];
+
 				buggy_Weapons[0].SetActive(true);
 				buggy_Weapons[1].SetActive(false);
 				buggy_Weapons[2].SetActive(false);
 
                 dps = 0.2f;
+                dpsWText.text = "Consumable DPS: " + dps.ToString();
 			}
 			if (applyValues.monsterTruck_LookAt)
 			{
+                currentSelectedWeapon = monsterTruck_Weapons[0];
+
 				monsterTruck_Weapons[0].SetActive(true);
 				monsterTruck_Weapons[1].SetActive(false);
 				monsterTruck_Weapons[2].SetActive(false);
 
                 dps = 0.2f;
+                dpsWText.text = "DPS: " + dps.ToString();
 			}
 		}
 	}
@@ -68,27 +71,36 @@ public class SelectWeapon : MonoBehaviour {
 		{
 			if (applyValues.muscleCar_LookAt)
 			{
+                currentSelectedWeapon = muscleCar_Weapons[1];
+
 				muscleCar_Weapons[0].SetActive(false);
 				muscleCar_Weapons[1].SetActive(true);
 				muscleCar_Weapons[2].SetActive(false);
 
                 dps = 0.5f;
+                dpsWText.text = "DPS: " + dps.ToString();
 			}
 			if (applyValues.buggy_LookAt)
 			{
+                currentSelectedWeapon = buggy_Weapons[1];
+
 				buggy_Weapons[0].SetActive(false);
 				buggy_Weapons[1].SetActive(true);
 				buggy_Weapons[2].SetActive(false);
 
                 dps = 0.5f;
+                dpsWText.text = "DPS: " + dps.ToString();
 			}
 			if (applyValues.monsterTruck_LookAt)
 			{
+                currentSelectedWeapon = monsterTruck_Weapons[1];
+
 				monsterTruck_Weapons[0].SetActive(false);
 				monsterTruck_Weapons[1].SetActive(true);
 				monsterTruck_Weapons[2].SetActive(false);
 
                 dps = 0.5f;
+                dpsWText.text = "DPS: " + dps.ToString();
 			}
 		}
 	}
@@ -99,27 +111,36 @@ public class SelectWeapon : MonoBehaviour {
 		{
 			if (applyValues.muscleCar_LookAt)
 			{
+                currentSelectedWeapon = muscleCar_Weapons[2];
+
 				muscleCar_Weapons[0].SetActive(false);
 				muscleCar_Weapons[1].SetActive(false);
 				muscleCar_Weapons[2].SetActive(true);
 
                 dps = 0.7f;
+                dpsWText.text = "DPS: " + dps.ToString();
 			}
 			if (applyValues.buggy_LookAt)
 			{
+                currentSelectedWeapon = buggy_Weapons[2];
+
 				buggy_Weapons[0].SetActive(false);
 				buggy_Weapons[1].SetActive(false);
 				buggy_Weapons[2].SetActive(true);
 
                 dps = 0.7f;
+                dpsWText.text = "DPS: " + dps.ToString();
 			}
 			if (applyValues.monsterTruck_LookAt)
 			{
+                currentSelectedWeapon = monsterTruck_Weapons[2];
+
 				monsterTruck_Weapons[0].SetActive(false);
 				monsterTruck_Weapons[1].SetActive(false);
 				monsterTruck_Weapons[2].SetActive(true);
 
                 dps = 0.7f;
+                dpsWText.text = "DPS: " + dps.ToString();
 			}
 		}
 	}

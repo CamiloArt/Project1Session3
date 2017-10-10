@@ -9,23 +9,54 @@ public class WeaponConsumablesDescription : MonoBehaviour {
     public SelectConsumables selectConsumables;
 
     public Text descriptionText;
+    //Weapons
+    [TextArea(3,10)]
+    public string minigunDescription;
+    [TextArea(3,10)]
+    public string rocketLauncherDescription;
+    [TextArea(3,10)]
+    public string flamethrowerDescription;
+    //Consumables
+    [TextArea(3,10)]
+    public string minesDescription;
+    [TextArea(3,10)]
+    public string grenadesDescription;
+    [TextArea(3,10)]
+    public string caltropsDescription;
 
 	void Update() 
     {
+        //Weapons
         //Minigun
         if (selectWeapon.dropdownWS.value == 0)
         {
-            descriptionText.text = "da ting goes skrra";
+            descriptionText.text = minigunDescription;
         }
         //Rocket Launcher
         if (selectWeapon.dropdownWS.value == 1)
         {
-            descriptionText.text = "makes your enemies go BOOM!... splat";
+            descriptionText.text = rocketLauncherDescription;
         }
         //Flamethrowers
         if (selectWeapon.dropdownWS.value == 2)
         {
-            descriptionText.text = "the result of camilo dropping his mixtape";
+            descriptionText.text = flamethrowerDescription;
+        }
+        //Consumables
+        //Mines
+        if (selectConsumables.dropdownCS.value == 0)
+        {
+            descriptionText.text = minesDescription;
+        }
+        //Grenades
+        if (selectConsumables.dropdownCS.value == 1)
+        {
+            descriptionText.text = grenadesDescription;
+        }
+        //Caltrops
+        if (selectConsumables.dropdownCS.value == 2)
+        {
+            descriptionText.text = caltropsDescription;
         }
 	}
 }
