@@ -21,7 +21,7 @@ public class LookAtCamera : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		mySlider.maxValue = myPlayer.playerUnit.health.maxHp;
 		mySlider.value = myPlayer.playerUnit.health.currentHp;
 		if(gameEngine.gameState == "battlemap"){
