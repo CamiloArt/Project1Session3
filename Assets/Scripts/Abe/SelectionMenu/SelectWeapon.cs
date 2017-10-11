@@ -38,7 +38,7 @@ public class SelectWeapon : MonoBehaviour {
                 muscleCar_Weapons[2].SetActive(false);
 
                 dps = 0.2f;
-                dpsWText.text = "Weapon DPS: " + dps.ToString();
+                dpsWText.text = "Mingun Damage: " + dps.ToString();
 			}
 			if (applyValues.buggy_LookAt)
 			{
@@ -49,7 +49,7 @@ public class SelectWeapon : MonoBehaviour {
 				buggy_Weapons[2].SetActive(false);
 
                 dps = 0.2f;
-                dpsWText.text = "Consumable DPS: " + dps.ToString();
+                dpsWText.text = "Minigun Damage: " + dps.ToString();
 			}
 			if (applyValues.monsterTruck_LookAt)
 			{
@@ -60,7 +60,7 @@ public class SelectWeapon : MonoBehaviour {
 				monsterTruck_Weapons[2].SetActive(false);
 
                 dps = 0.2f;
-                dpsWText.text = "DPS: " + dps.ToString();
+                dpsWText.text = "Minigun Damage: " + dps.ToString();
 			}
 		}
 	}
@@ -78,7 +78,7 @@ public class SelectWeapon : MonoBehaviour {
 				muscleCar_Weapons[2].SetActive(false);
 
                 dps = 0.5f;
-                dpsWText.text = "DPS: " + dps.ToString();
+                dpsWText.text = "Rocket Launcher Damage: " + dps.ToString();
 			}
 			if (applyValues.buggy_LookAt)
 			{
@@ -89,7 +89,7 @@ public class SelectWeapon : MonoBehaviour {
 				buggy_Weapons[2].SetActive(false);
 
                 dps = 0.5f;
-                dpsWText.text = "DPS: " + dps.ToString();
+                dpsWText.text = "Rocket Launcher Damage: " + dps.ToString();
 			}
 			if (applyValues.monsterTruck_LookAt)
 			{
@@ -100,7 +100,7 @@ public class SelectWeapon : MonoBehaviour {
 				monsterTruck_Weapons[2].SetActive(false);
 
                 dps = 0.5f;
-                dpsWText.text = "DPS: " + dps.ToString();
+                dpsWText.text = "Rocket Launcher Damage: " + dps.ToString();
 			}
 		}
 	}
@@ -118,7 +118,7 @@ public class SelectWeapon : MonoBehaviour {
 				muscleCar_Weapons[2].SetActive(true);
 
                 dps = 0.7f;
-                dpsWText.text = "DPS: " + dps.ToString();
+                dpsWText.text = "Flamethrower Damage: " + dps.ToString();
 			}
 			if (applyValues.buggy_LookAt)
 			{
@@ -129,7 +129,7 @@ public class SelectWeapon : MonoBehaviour {
 				buggy_Weapons[2].SetActive(true);
 
                 dps = 0.7f;
-                dpsWText.text = "DPS: " + dps.ToString();
+                dpsWText.text = "Flamethrower Damage: " + dps.ToString();
 			}
 			if (applyValues.monsterTruck_LookAt)
 			{
@@ -140,7 +140,7 @@ public class SelectWeapon : MonoBehaviour {
 				monsterTruck_Weapons[2].SetActive(true);
 
                 dps = 0.7f;
-                dpsWText.text = "DPS: " + dps.ToString();
+                dpsWText.text = "Flamethrower Damage: " + dps.ToString();
 			}
 		}
 	}

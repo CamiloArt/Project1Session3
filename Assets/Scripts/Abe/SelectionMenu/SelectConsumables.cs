@@ -38,7 +38,7 @@ public class SelectConsumables : MonoBehaviour {
                 muscleCar_Consumables[2].SetActive(false);
 
                 dps = 0.2f;
-                dpsCText.text = "DPS: " + dps.ToString();
+                dpsCText.text = "Mines Damage: " + dps.ToString();
             }
             if (applyValues.buggy_LookAt)
             {
@@ -49,7 +49,7 @@ public class SelectConsumables : MonoBehaviour {
                 buggy_Consumables[2].SetActive(false);
 
                 dps = 0.2f;
-                dpsCText.text = "DPS: " + dps.ToString();
+                dpsCText.text = "Mines Damage: " + dps.ToString();
             }
             if (applyValues.monsterTruck_LookAt)
             {
@@ -60,7 +60,7 @@ public class SelectConsumables : MonoBehaviour {
                 monsterTruck_Consumables[2].SetActive(false);
 
                 dps = 0.2f;
-                dpsCText.text = "DPS: " + dps.ToString();
+                dpsCText.text = "Mines Damage: " + dps.ToString();
             }
         }
     }
@@ -78,7 +78,7 @@ public class SelectConsumables : MonoBehaviour {
                 muscleCar_Consumables[2].SetActive(false);
 
                 dps = 0.5f;
-                dpsCText.text = "DPS: " + dps.ToString();
+                dpsCText.text = "Grenades Damage: " + dps.ToString();
             }
             if (applyValues.buggy_LookAt)
             {
@@ -89,7 +89,7 @@ public class SelectConsumables : MonoBehaviour {
                 buggy_Consumables[2].SetActive(false);
 
                 dps = 0.5f;
-                dpsCText.text = "DPS: " + dps.ToString();
+                dpsCText.text = "Grenades Damage: " + dps.ToString();
             }
             if (applyValues.monsterTruck_LookAt)
             {
@@ -100,7 +100,7 @@ public class SelectConsumables : MonoBehaviour {
                 monsterTruck_Consumables[2].SetActive(false);
 
                 dps = 0.5f;
-                dpsCText.text = "DPS: " + dps.ToString();
+                dpsCText.text = "Grenades Damage: " + dps.ToString();
             }
         }
     }
@@ -118,7 +118,7 @@ public class SelectConsumables : MonoBehaviour {
                 muscleCar_Consumables[2].SetActive(true);
 
                 dps = 0.7f;
-                dpsCText.text = "DPS: " + dps.ToString();
+                dpsCText.text = "Caltrops Damage: " + dps.ToString();
             }
             if (applyValues.buggy_LookAt)
             {
@@ -129,7 +129,7 @@ public class SelectConsumables : MonoBehaviour {
                 buggy_Consumables[2].SetActive(true);
 
                 dps = 0.7f;
-                dpsCText.text = "DPS: " + dps.ToString();
+                dpsCText.text = "Caltrops Damage: " + dps.ToString();
             }
             if (applyValues.monsterTruck_LookAt)
             {
@@ -138,7 +138,7 @@ public class SelectConsumables : MonoBehaviour {
                 monsterTruck_Consumables[2].SetActive(true);
 
                 dps = 0.7f;
-                dpsCText.text = "DPS: " + dps.ToString();
+                dpsCText.text = "Caltrops Damage: " + dps.ToString();
             }
         }
     }

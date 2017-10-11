@@ -24,7 +24,7 @@ public class Unit : MonoBehaviour {
 		isAlive = true;
         vehicleIndex = 0;
         vehicleLib = GameObject.FindGameObjectWithTag("Finish").GetComponent<Vehicles>();
-        vehicle = Instantiate(vehicleLib.car[vehicleIndex], gameObject.transform.position, Quaternion.identity, gameObject.transform);
+        //vehicle = Instantiate(vehicleLib.car[vehicleIndex], gameObject.transform.position, Quaternion.identity, gameObject.transform);
 	}
 	
 	// Update is called once per frame
