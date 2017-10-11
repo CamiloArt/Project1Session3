@@ -5866,6 +5866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 114950184907143210}
+  timeLeft: 15
 --- !u!114 &114002236029222268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6258,6 +6259,7 @@ MonoBehaviour:
   maxHp: 10
   currentHp: 3
   initialHp: 3
+  isDead: 0
 --- !u!114 &114091091325241518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6364,7 +6366,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_MethodName: SelectNext
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6441,6 +6443,7 @@ MonoBehaviour:
   maxHp: 10
   currentHp: 6
   initialHp: 6
+  isDead: 0
 --- !u!114 &114154625845801692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6933,6 +6936,7 @@ MonoBehaviour:
   vehicles:
   - {fileID: 1610543429862214}
   - {fileID: 1191746855618292}
+  - {fileID: 1981890208678412}
   gameEngine: {fileID: 0}
   mainCamera: {fileID: 20145830648776946}
   selectedUI: {fileID: 1899353020631272}
@@ -7842,6 +7846,7 @@ MonoBehaviour:
   parentPlatform: {fileID: 114997448562502108}
   selectWeapon: {fileID: 114426878984970952}
   loadManager: {fileID: 0}
+  timerCountdown: {fileID: 114001863105379386}
 --- !u!114 &114690981256356568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7853,10 +7858,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7be638439badb54693f18afe59dc3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: []
+  unit:
+  - {fileID: 114329305288009256}
+  - {fileID: 114396375457222418}
+  - {fileID: 114945815118390090}
   muscleCar_LookAt: 0
   buggy_LookAt: 0
   monsterTruck_LookAt: 0
+  loadManager: {fileID: 0}
   newDamage: 0
   newSpeed: 0
   newArmor: 0
@@ -7901,7 +7910,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114571424613095516}
   m_HandleRect: {fileID: 224216998129945540}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8039,6 +8048,7 @@ MonoBehaviour:
   maxHp: 10
   currentHp: 4
   initialHp: 4
+  isDead: 0
 --- !u!114 &114785878735642406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8053,6 +8063,12 @@ MonoBehaviour:
   selectWeapon: {fileID: 114426878984970952}
   selectConsumables: {fileID: 114053878146097152}
   descriptionText: {fileID: 114117141857083236}
+  minigunDescription: 
+  rocketLauncherDescription: 
+  flamethrowerDescription: 
+  minesDescription: 
+  grenadesDescription: 
+  caltropsDescription: 
 --- !u!114 &114786409359960092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13358,7 +13374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000022888184}
+  m_AnchoredPosition: {x: 0, y: 0.000045776367}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224780422425720688
@@ -13540,7 +13556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000038146973}
+  m_AnchoredPosition: {x: 0, y: -0.00005340576}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224994660370964914

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour {
 
+    public Vehicles vehicleLib;
+    public int vehicleIndex;
+    public GameObject vehicle;
 	public Item item1;
 	public Item item2;
 	public float damage;
@@ -19,6 +22,9 @@ public class Unit : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		isAlive = true;
+        vehicleIndex = 0;
+        vehicleLib = GameObject.FindGameObjectWithTag("Finish").GetComponent<Vehicles>();
+        vehicle = Instantiate(vehicleLib.car[vehicleIndex], gameObject.transform.position, Quaternion.identity, gameObject.transform);
 	}
 	
 	// Update is called once per frame

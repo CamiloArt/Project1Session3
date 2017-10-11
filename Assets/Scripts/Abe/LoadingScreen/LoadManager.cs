@@ -71,6 +71,7 @@ public class LoadManager : MonoBehaviour {
         Scenes[1].SetActive(false);
         Scenes[2].SetActive(true);
         loadToStrategyMap = false;
+        gameEngine.gameState = "strategyMap";
         //[3](false);
     }
     public void LoadTo_StrategyMap()

@@ -9,6 +9,7 @@ public class ApplyValues : MonoBehaviour {
 	public bool muscleCar_LookAt;
 	public bool buggy_LookAt;
 	public bool monsterTruck_LookAt;
+    public LoadManager loadManager;
 
     public float newDamage;
     public float newSpeed;
@@ -88,8 +89,16 @@ public class ApplyValues : MonoBehaviour {
         //gameEngine.currentPlayer.playerUnit.speed.maxSpeed = newSpeed;
         gameEngine.currentPlayer.playerUnit.armor.currentArmor = newArmor;
         gameEngine.currentPlayer.playerUnit.health.currentHp = newHealth;
+        gameEngine.currentPlayer.playerUnit.health.initialHp = newHealth;
         gameEngine.currentPlayer.playerUnit.fuel.currentFuel = newFuel;
         gameEngine.currentPlayer.playerUnit.range.range = newRange;
+        gameEngine.endSelection();
+
+        if (gameEngine.playerTurnNum > 10) //last player has clicked "Ready"
+        {
+            loadManager.LoadTo_StrategyMap();
+            gameEngine.playerTurnNum = 1;
+        }
         //gameEngine.SelectNext();
     }
 }

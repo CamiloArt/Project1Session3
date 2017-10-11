@@ -22,7 +22,7 @@ public class LookAtCamera : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		mySlider.maxValue = myPlayer.playerUnit.health.maxHp;
+        mySlider.maxValue = myPlayer.playerUnit.health.initialHp;
 		mySlider.value = myPlayer.playerUnit.health.currentHp;
 		if(gameEngine.gameState == "battlemap"){
 			wantedPos = combatCamera.WorldToScreenPoint (myPlayer.gameObject.transform.position);

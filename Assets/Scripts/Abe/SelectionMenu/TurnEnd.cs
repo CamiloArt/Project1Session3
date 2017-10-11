@@ -12,13 +12,11 @@ public class TurnEnd : MonoBehaviour {
     public LoadManager loadManager;
     [Tooltip("Assign from *TimerSelectionMenu*")]
     public TimerCountdown timerCountdown;
-
+    void Awake(){
+        gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
+    }
     void Update()
     {
-        if (gameEngine.playerTurnNum == 10) //last player has clicked "Ready"
-        {
-            loadManager.loadToStrategyMap = true;
-        }
 
         if (timerCountdown.timeLeft <= 0f) 
         {

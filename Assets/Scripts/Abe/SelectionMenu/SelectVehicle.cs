@@ -60,6 +60,7 @@ public class SelectVehicle : MonoBehaviour {
         vehicles[0].GetComponent<Renderer>().material = currentCarBodyMat;
         vehicles[1].GetComponent<Renderer>().material = currentCarBodyMat;
         vehicles[2].GetComponent<Renderer>().material = currentCarBodyMat;
+        Debug.Log("im here");
         if (gameEngine.playerTurnNum < 5)
         {
             currentCarBodyMat = carBodyTeam1;

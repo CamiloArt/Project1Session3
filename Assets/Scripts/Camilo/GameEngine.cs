@@ -52,6 +52,8 @@ public class GameEngine : MonoBehaviour {
 	public Transform battleMapPoint1;
 	public Transform battleMapPoint2;
 
+    private bool playerSelected;
+
 	void Awake(){
 		combatEngine = gameObject.GetComponent<CombatEngine> ();
 	}
@@ -66,21 +68,28 @@ public class GameEngine : MonoBehaviour {
 		playerTurnNum = 1;
 		startTurn = false;
 		inBattle = false;
-		gameState = "strategyMap";
+		gameState = "SelectionMenu";
 		camSwitch = true;
 		battleCamera.SetActive(!camSwitch);
 		prevTime = timeIntro;
+        playerSelected = false;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		//check state of the game
-
-		if(playerTurnNum > players.Length){
-			StartNewRound ();
-		}
-		if(gameState == "strategyMap"){//if the game is in the stategy map
-			// animation showing the turn and the player
+        if(gameState == "SelectionMenu"){
+            if (!playerSelected)
+            {
+                SelectPlayer(1);
+                playerSelected = true;
+            }
+        }
+		else if(gameState == "strategyMap"){//if the game is in the stategy map
+            // animation showing the turn and the player
+            if(playerTurnNum > players.Length){
+                StartNewRound ();
+            }
 			if(!startTurn){
 				ShowRoundIntro ();
 			}
@@ -105,14 +114,13 @@ public class GameEngine : MonoBehaviour {
 		}
 
 	}
+    public void endSelection(){
+        playerSelected = false;
+        playerTurnNum++;
+    }
 	void ShowRoundIntro(){
+        SelectPlayer(2);
 		//ui intro to show player number and beggining of the turn
-		for (int i = 0; i < players.Length; i ++){
-			if (players [i].playerTurn == playerTurnNum) {
-				currentPlayer = players [i];
-				currentPlayerIndex = i;
-			}
-		}
 		prevTime -= Time.deltaTime;
 		if (prevTime <= 0) {
 			startTurn = true;
@@ -231,4 +239,24 @@ public class GameEngine : MonoBehaviour {
 		//instantiate an explosion on the leader position
 		gameState = "DamagingLeader";
 	}
+    void SelectPlayer(int a){
+        for (int i = 0; i < players.Length; i ++){
+            if (a == 1)
+            {
+                if (players[i].playerNumber == playerTurnNum)
+                {
+                    currentPlayer = players[i];
+                    currentPlayerIndex = i;
+                }
+            }
+            if (a == 2)
+            {
+                if (players[i].playerTurn == playerTurnNum)
+                {
+                    currentPlayer = players[i];
+                    currentPlayerIndex = i;
+                }
+            }
+        }
+    }
 }
