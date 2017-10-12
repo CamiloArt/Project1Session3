@@ -15,10 +15,10 @@ public class SelectConsumables : MonoBehaviour {
     public GameObject[] buggy_Consumables;
     [Tooltip("Mines:[0], Grenades:[1], Caltrops[2]")]
     public GameObject[] monsterTruck_Consumables;
+    [Tooltip("Mines:[0], Grenades:[1], Caltrops[2]")]
+    public bool[] currentValueC;
 
     public GameObject currentSelectedConsumable;
-
-    public Dropdown dropdownCS;
 
     public Text dpsCText;
 
@@ -27,119 +27,146 @@ public class SelectConsumables : MonoBehaviour {
     //Mines
     public void Option0()
     {
-        if (dropdownCS.value == 0)
+        if (applyValues.muscleCar_LookAt)
         {
-            if (applyValues.muscleCar_LookAt)
-            {
-                currentSelectedConsumable = muscleCar_Consumables[0];
+            currentValueC[0] = true;
+            currentValueC[1] = false;
+            currentValueC[2] = false;
 
-                muscleCar_Consumables[0].SetActive(true);
-                muscleCar_Consumables[1].SetActive(false);
-                muscleCar_Consumables[2].SetActive(false);
+            currentSelectedConsumable = muscleCar_Consumables[0];
 
-                dps = 0.2f;
-                dpsCText.text = "Mines Damage: " + dps.ToString();
-            }
-            if (applyValues.buggy_LookAt)
-            {
-                currentSelectedConsumable = buggy_Consumables[0];
+            muscleCar_Consumables[0].SetActive(true);
+            muscleCar_Consumables[1].SetActive(false);
+            muscleCar_Consumables[2].SetActive(false);
 
-                buggy_Consumables[0].SetActive(true);
-                buggy_Consumables[1].SetActive(false);
-                buggy_Consumables[2].SetActive(false);
+            dps = 0.2f;
+            dpsCText.text = "Mines Damage: " + dps.ToString();
+        }
+        if (applyValues.buggy_LookAt)
+        {
+            currentValueC[0] = true;
+            currentValueC[1] = false;
+            currentValueC[2] = false;
 
-                dps = 0.2f;
-                dpsCText.text = "Mines Damage: " + dps.ToString();
-            }
-            if (applyValues.monsterTruck_LookAt)
-            {
-                currentSelectedConsumable = monsterTruck_Consumables[0];
+            currentSelectedConsumable = buggy_Consumables[0];
 
-                monsterTruck_Consumables[0].SetActive(true);
-                monsterTruck_Consumables[1].SetActive(false);
-                monsterTruck_Consumables[2].SetActive(false);
+            buggy_Consumables[0].SetActive(true);
+            buggy_Consumables[1].SetActive(false);
+            buggy_Consumables[2].SetActive(false);
 
-                dps = 0.2f;
-                dpsCText.text = "Mines Damage: " + dps.ToString();
-            }
+            dps = 0.2f;
+            dpsCText.text = "Mines Damage: " + dps.ToString();
+        }
+        if (applyValues.monsterTruck_LookAt)
+        {
+            currentValueC[0] = true;
+            currentValueC[1] = false;
+            currentValueC[2] = false;
+
+            currentSelectedConsumable = monsterTruck_Consumables[0];
+
+            monsterTruck_Consumables[0].SetActive(true);
+            monsterTruck_Consumables[1].SetActive(false);
+            monsterTruck_Consumables[2].SetActive(false);
+
+            dps = 0.2f;
+            dpsCText.text = "Mines Damage: " + dps.ToString();
         }
     }
     //Grenades
     public void Option1()
     {
-        if (dropdownCS.value == 1)
+        if (applyValues.muscleCar_LookAt)
         {
-            if (applyValues.muscleCar_LookAt)
-            {
-                currentSelectedConsumable = muscleCar_Consumables[1];
+            currentValueC[0] = false;
+            currentValueC[1] = true;
+            currentValueC[2] = false;
 
-                muscleCar_Consumables[0].SetActive(false);
-                muscleCar_Consumables[1].SetActive(true);
-                muscleCar_Consumables[2].SetActive(false);
+            currentSelectedConsumable = muscleCar_Consumables[1];
 
-                dps = 0.5f;
-                dpsCText.text = "Grenades Damage: " + dps.ToString();
-            }
-            if (applyValues.buggy_LookAt)
-            {
-                currentSelectedConsumable = buggy_Consumables[1];
+            muscleCar_Consumables[0].SetActive(false);
+            muscleCar_Consumables[1].SetActive(true);
+            muscleCar_Consumables[2].SetActive(false);
 
-                buggy_Consumables[0].SetActive(false);
-                buggy_Consumables[1].SetActive(true);
-                buggy_Consumables[2].SetActive(false);
+            dps = 0.5f;
+            dpsCText.text = "Grenades Damage: " + dps.ToString();
+        }
+        if (applyValues.buggy_LookAt)
+        {
+            currentValueC[0] = false;
+            currentValueC[1] = true;
+            currentValueC[2] = false;
 
-                dps = 0.5f;
-                dpsCText.text = "Grenades Damage: " + dps.ToString();
-            }
-            if (applyValues.monsterTruck_LookAt)
-            {
-                currentSelectedConsumable = monsterTruck_Consumables[1];
+            currentSelectedConsumable = buggy_Consumables[1];
 
-                monsterTruck_Consumables[0].SetActive(false);
-                monsterTruck_Consumables[1].SetActive(true);
-                monsterTruck_Consumables[2].SetActive(false);
+            buggy_Consumables[0].SetActive(false);
+            buggy_Consumables[1].SetActive(true);
+            buggy_Consumables[2].SetActive(false);
 
-                dps = 0.5f;
-                dpsCText.text = "Grenades Damage: " + dps.ToString();
-            }
+            dps = 0.5f;
+            dpsCText.text = "Grenades Damage: " + dps.ToString();
+        }
+        if (applyValues.monsterTruck_LookAt)
+        {
+            currentValueC[0] = false;
+            currentValueC[1] = true;
+            currentValueC[2] = false;
+
+            currentSelectedConsumable = monsterTruck_Consumables[1];
+
+            monsterTruck_Consumables[0].SetActive(false);
+            monsterTruck_Consumables[1].SetActive(true);
+            monsterTruck_Consumables[2].SetActive(false);
+
+            dps = 0.5f;
+            dpsCText.text = "Grenades Damage: " + dps.ToString();
         }
     }
     //Caltrops
     public void Option2()
     {
-        if (dropdownCS.value == 2)
+        if (applyValues.muscleCar_LookAt)
         {
-            if (applyValues.muscleCar_LookAt)
-            {
-                currentSelectedConsumable = muscleCar_Consumables[2];
+            currentValueC[0] = false;
+            currentValueC[1] = false;
+            currentValueC[2] = true;
 
-                muscleCar_Consumables[0].SetActive(false);
-                muscleCar_Consumables[1].SetActive(false);
-                muscleCar_Consumables[2].SetActive(true);
+            currentSelectedConsumable = muscleCar_Consumables[2];
 
-                dps = 0.7f;
-                dpsCText.text = "Caltrops Damage: " + dps.ToString();
-            }
-            if (applyValues.buggy_LookAt)
-            {
-                currentSelectedConsumable = buggy_Consumables[1];
+            muscleCar_Consumables[0].SetActive(false);
+            muscleCar_Consumables[1].SetActive(false);
+            muscleCar_Consumables[2].SetActive(true);
 
-                buggy_Consumables[0].SetActive(false);
-                buggy_Consumables[1].SetActive(false);
-                buggy_Consumables[2].SetActive(true);
+            dps = 0.7f;
+            dpsCText.text = "Caltrops Damage: " + dps.ToString();
+        }
+        if (applyValues.buggy_LookAt)
+        {
+            currentValueC[0] = false;
+            currentValueC[1] = false;
+            currentValueC[2] = true;
 
-                dps = 0.7f;
-                dpsCText.text = "Caltrops Damage: " + dps.ToString();
-            }
-            if (applyValues.monsterTruck_LookAt)
-            {
-                monsterTruck_Consumables[0].SetActive(false);
-                monsterTruck_Consumables[1].SetActive(false);
-                monsterTruck_Consumables[2].SetActive(true);
+            currentSelectedConsumable = buggy_Consumables[1];
 
-                dps = 0.7f;
-                dpsCText.text = "Caltrops Damage: " + dps.ToString();
-            }
+            buggy_Consumables[0].SetActive(false);
+            buggy_Consumables[1].SetActive(false);
+            buggy_Consumables[2].SetActive(true);
+
+            dps = 0.7f;
+            dpsCText.text = "Caltrops Damage: " + dps.ToString();
+        }
+        if (applyValues.monsterTruck_LookAt)
+        {
+            currentValueC[0] = false;
+            currentValueC[1] = false;
+            currentValueC[2] = true;
+
+            monsterTruck_Consumables[0].SetActive(false);
+            monsterTruck_Consumables[1].SetActive(false);
+            monsterTruck_Consumables[2].SetActive(true);
+
+            dps = 0.7f;
+            dpsCText.text = "Caltrops Damage: " + dps.ToString();
         }
     }
 

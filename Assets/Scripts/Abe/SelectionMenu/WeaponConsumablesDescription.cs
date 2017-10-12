@@ -28,33 +28,33 @@ public class WeaponConsumablesDescription : MonoBehaviour {
     {
         //Weapons
         //Minigun
-        if (selectWeapon.dropdownWS.value == 0)
+        if (selectWeapon.currentValueW[0] == true)
         {
             descriptionText.text = minigunDescription;
         }
         //Rocket Launcher
-        if (selectWeapon.dropdownWS.value == 1)
+        if (selectWeapon.currentValueW[1] == true)
         {
             descriptionText.text = rocketLauncherDescription;
         }
         //Flamethrowers
-        if (selectWeapon.dropdownWS.value == 2)
+        if (selectWeapon.currentValueW[2] == true)
         {
             descriptionText.text = flamethrowerDescription;
         }
         //Consumables
         //Mines
-        if (selectConsumables.dropdownCS.value == 0)
+        if (selectConsumables.currentValueC[0] == true)
         {
             descriptionText.text = minesDescription;
         }
         //Grenades
-        if (selectConsumables.dropdownCS.value == 1)
+        if (selectConsumables.currentValueC[1] == true)
         {
             descriptionText.text = grenadesDescription;
         }
         //Caltrops
-        if (selectConsumables.dropdownCS.value == 2)
+        if (selectConsumables.currentValueC[2] == true)
         {
             descriptionText.text = caltropsDescription;
         }

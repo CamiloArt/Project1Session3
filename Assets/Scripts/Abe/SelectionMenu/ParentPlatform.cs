@@ -14,6 +14,7 @@ public class ParentPlatform : MonoBehaviour {
     public int PRotationAngle = 120;
     //--PRIVATE VARIABLES--//
     private bool rotate;
+    private bool axisInUse = false;
 
     private float parentSpeed = 5f;
     private float direction;
@@ -26,23 +27,53 @@ public class ParentPlatform : MonoBehaviour {
 
     void Update()
     {
-        OnArrowKeyPress();
+        OnInputPress();
     }
 
-    void OnArrowKeyPress()
+    void OnInputPress()
     {
+        //Left
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             rotate = true;
             PRotationAmount.y -= PRotationAngle;
             direction = -1;
         }
+        if (Input.GetAxisRaw("X360_HorizontalDPad") == -1f)
+        {
+            if (!axisInUse)
+            {
+                axisInUse = true;
+
+                rotate = true;
+                PRotationAmount.y -= PRotationAngle;
+                direction = -1;
+            }
+        }
+        //Right
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             rotate = true;
             PRotationAmount.y += PRotationAngle;
             direction = 1;
         }
+        if (Input.GetAxisRaw("X360_HorizontalDPad") == 1f)
+        {
+            if (!axisInUse)
+            {
+                axisInUse = true;
+
+                rotate = true;
+                PRotationAmount.y += PRotationAngle;
+                direction = 1;
+            }
+        }
+
+        if (!rotate)
+        {
+            axisInUse = false;
+        }
+
         if (rotate)
         {
             RotateParent();

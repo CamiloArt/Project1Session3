@@ -69,12 +69,12 @@ public class SelectVehicle : MonoBehaviour {
             currentCarBodyMat = carBodyTeam2;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return)) //if in initial pos, and e is pressed, go to new pos
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("X360_A")) 
         {
             //zoom camera in on local axis 
             selected = true;
         }
-        if (Input.GetKeyDown(KeyCode.Escape)) //if in new pos, and escape 
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("X360_B")) 
         {
             //zoom camera back to initial position
             selected = false;
