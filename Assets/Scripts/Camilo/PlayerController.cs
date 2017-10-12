@@ -13,15 +13,14 @@ public class PlayerController : MonoBehaviour {
 	public float magnitude;
 
 	//combat variables
-	public float gravity = 5.0f;
-	public float turningSpeed = 20.0f;
+	public float gravity;
+	public float turningSpeed;
 
 	public Vector3 direction;
 	public Vector3 lastDirection;
 
 	public Vector3 tdirection;
 	public bool pressing;
-	public float speedDampener = 0.2f;
 	public float turboTime;
 	private float maxSpeed;
 	private Quaternion ankle;

@@ -5,16 +5,21 @@ using UnityEngine;
 public class Damage : MonoBehaviour {
 
 	public float damage;
-	public string target;
-	public string player;
+	public Player myPlayer;
 
-
+	void Start(){
+		myPlayer = gameObject.GetComponentInParent<Player> ();
+	}
 	void OnTriggerEnter(Collider player){
 
-		if(player.gameObject.tag == target)
+		if(player.gameObject.tag == "Player")
 		{
-			player.gameObject.SendMessage ("ReceiveDamage", damage);
-			Destroy(gameObject);
+			Player playerInCollision;
+			playerInCollision = player.gameObject.GetComponent<Player> ();
+			if (playerInCollision.playerTeam.teamColor.ToString () != myPlayer.playerTeam.teamColor.ToString ()) {
+				playerInCollision.playerUnit.health.ReceiveDamage (damage);
+				Destroy (gameObject);
+			}
 		}
 }
 }

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vehicles : MonoBehaviour {
-    public GameObject[] car;
-	public GameObject[] weapon;
-	public GameObject[] consumable;
+public class carWeapon : MonoBehaviour {
+	public Transform weaponPosition;
+	public GameObject weapon;
 	// Use this for initialization
 	void Start () {
 		

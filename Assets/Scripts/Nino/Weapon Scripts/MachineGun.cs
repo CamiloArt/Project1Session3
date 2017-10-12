@@ -80,6 +80,9 @@ public class MachineGun : MonoBehaviour {
 			shooting = true;
 
 		}
+		/*if(Input.GetKey(KeyCode.V)){
+			shooting = true;
+		}*/
 		if (shooting == true && canShootTime <= firingTime) 
 		{
 			ShootBullet ();
@@ -95,7 +98,7 @@ public class MachineGun : MonoBehaviour {
 		float btimecd = 0.1f;
 		if (bulletNum < 3) {
 			if (bulletTimeNum > btimecd) {
-				Instantiate (bulletPrefab, this.transform.position, this.transform.rotation); 
+				Instantiate (bulletPrefab, this.transform.position, this.transform.rotation,gameObject.transform); 
 				bulletTimeNum = 0;
 				bulletNum++;
 			}
