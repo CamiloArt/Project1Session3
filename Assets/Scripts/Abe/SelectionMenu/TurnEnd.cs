@@ -17,7 +17,6 @@ public class TurnEnd : MonoBehaviour {
     }
     void Update()
     {
-
         if (timerCountdown.timeLeft <= 0f) 
         {
             AutoSelectVehicle();
