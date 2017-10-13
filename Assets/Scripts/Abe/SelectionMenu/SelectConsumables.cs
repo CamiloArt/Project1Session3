@@ -24,9 +24,12 @@ public class SelectConsumables : MonoBehaviour {
 
     public float dps;
 
+    public int consumablesSelectIndex; //Mines:[0], Grenades:[1], Caltrops[2]
+
     //Mines
     public void Option0()
     {
+        consumablesSelectIndex = 0;
         if (applyValues.muscleCar_LookAt)
         {
             currentValueC[0] = true;
@@ -76,6 +79,7 @@ public class SelectConsumables : MonoBehaviour {
     //Grenades
     public void Option1()
     {
+        consumablesSelectIndex = 1;
         if (applyValues.muscleCar_LookAt)
         {
             currentValueC[0] = false;
@@ -125,6 +129,7 @@ public class SelectConsumables : MonoBehaviour {
     //Caltrops
     public void Option2()
     {
+        consumablesSelectIndex = 2;
         if (applyValues.muscleCar_LookAt)
         {
             currentValueC[0] = false;

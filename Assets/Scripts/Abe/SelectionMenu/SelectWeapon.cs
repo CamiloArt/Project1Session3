@@ -25,10 +25,7 @@ public class SelectWeapon : MonoBehaviour {
 
     public float dps;
 
-    void Start()
-    {
-        
-    }
+    public int weaponSelectIndex; //Minigun:[1], RocketLauncher:[2], Flamethrower[3]
 
 	//MachineGun
 	public void Option0()
@@ -88,6 +85,7 @@ public class SelectWeapon : MonoBehaviour {
 	//Minigun
 	public void Option1()
 	{
+        weaponSelectIndex = 1;
 		if (applyValues.muscleCar_LookAt)
 		{
             currentValueW[0] = false;
@@ -143,6 +141,7 @@ public class SelectWeapon : MonoBehaviour {
     //Rocket Launcher
 	public void Option2()
 	{
+        weaponSelectIndex = 2;
 		if (applyValues.muscleCar_LookAt)
 		{
             currentValueW[0] = false;
@@ -198,6 +197,7 @@ public class SelectWeapon : MonoBehaviour {
     //Flamethrower
     public void Option3()
     {
+        weaponSelectIndex = 3;
         if (applyValues.muscleCar_LookAt)
         {
             currentValueW[0] = false;
