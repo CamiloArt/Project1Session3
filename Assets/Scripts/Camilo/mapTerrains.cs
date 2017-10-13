@@ -5,6 +5,7 @@ using UnityEngine;
 public class mapTerrains : MonoBehaviour {
 
 	private GameEngine gameEngine;
+	private Player playerOnTerrain;
 	public float terrainRadius;
 	private float distance;
 	[Range(-9.0f, 9.0f)]
@@ -26,18 +27,20 @@ public class mapTerrains : MonoBehaviour {
 			}
 		}
 	}*/
-	void OnTriggerEnter(Collider coll){
+	void OnTriggerStay(Collider coll){
 		if (coll.gameObject.tag == "Player") {
-			Player playerOnTerrain;
 			playerOnTerrain = coll.gameObject.GetComponent<Player> ();
-			playerOnTerrain.playerUnit.fuel.terrainValue = terrainValue;
+			Debug.Log ("Player here");
 		}
 	}
-	void OnTriggerExit(Collider coll){
+	void fixedUpdate(){
+		playerOnTerrain.playerUnit.fuel.terrainValue = terrainValue;
+	}
+	/*void OnTriggerExit(Collider coll){
 		if (coll.gameObject.tag == "Player") {
 			Player playerOnTerrain;
 			playerOnTerrain = coll.gameObject.GetComponent<Player> ();
 			playerOnTerrain.playerUnit.fuel.terrainValue = 0;
 		}
-	}
+	}*/
 }

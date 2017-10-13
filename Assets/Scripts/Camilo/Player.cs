@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 	public bool enemyInRange;
 	public int playerInRange;
 	public bool inBattle;
+	public PlayerController myController;
 
 	public enum playerType{
 		Leader,
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour {
 	private GameEngine gameEngine;
 	// Use this for initialization
 	void Awake () {
+		myController = gameObject.GetComponent<PlayerController>();
 		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
 		inBattle = false;
 	}
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour {
 				if (gameEngine.players [i].typeOfPlayer == playerType.Leader &&  distance < playerUnit.range.range) {
 					//make damage to the leader
 					gameEngine.DamageLeader(gameEngine.players [i].gameObject.transform);
+					playerInRange = i;
 				}
 				else if (distance < playerUnit.range.range || distance < gameEngine.players[i].playerUnit.range.range) {
 					enemyInRange = true;

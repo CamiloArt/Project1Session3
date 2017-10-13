@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour {
 
 	public Vector3 tdirection;
 	public bool pressing;
+	public bool shooting;
+	public Vector3 shootingVector;
+
 	public float turboTime;
 	private float maxSpeed;
 	private Quaternion ankle;
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		shooting = false;
 		if (gameEngine.gameState == "strategyMap" && gameEngine.startTurn) {
 			if (gameEngine.currentPlayer.playerTurn == myPlayer.playerTurn) {
 				myPlayer = gameEngine.currentPlayer;
@@ -45,6 +49,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		else if(gameEngine.gameState == "battlemap" && gameEngine.inBattle && myPlayer.inBattle){
 			SetDirection ();
+			getShootingAxis ();
 		}
 	}
 
@@ -62,8 +67,8 @@ public class PlayerController : MonoBehaviour {
 		float angle = Mathf.Atan2 (x, y) * Mathf.Rad2Deg;
 		myPlayer.gameObject.transform.rotation = Quaternion.Euler(0, angle, 0);
 		magnitude =  Vector3.Magnitude (mapDirection);
-		playerCc.Move (mapDirection * myPlayer.playerUnit.speed.mapSpeed * Time.deltaTime);
-		myPlayer.playerUnit.fuel.currentFuel -= (myPlayer.playerUnit.fuel.fuelConsumption + myPlayer.playerUnit.fuel.terrainValue) * Time.deltaTime * magnitude;
+		playerCc.Move (mapDirection * (myPlayer.playerUnit.speed.mapSpeed - myPlayer.playerUnit.fuel.terrainValue) * Time.deltaTime);
+		myPlayer.playerUnit.fuel.currentFuel -= (myPlayer.playerUnit.fuel.fuelConsumption) * Time.deltaTime * magnitude;
 	}
 	void SetDirection(){
 		direction = Vector3.zero;
@@ -99,5 +104,11 @@ public class PlayerController : MonoBehaviour {
 		gameObject.transform.rotation = Quaternion.RotateTowards (transform.rotation, ankle, step);
 		myPlayer.playerUnit.speed.currentSpeed = Mathf.Clamp (myPlayer.playerUnit.speed.currentSpeed, myPlayer.playerUnit.speed.minSpeed, maxSpeed);
 		playerCc.Move (direction);
+	}
+	void getShootingAxis(){
+		if (Mathf.Abs (Input.GetAxis (myInput.hAxisName2)) > 0.2 || Mathf.Abs (Input.GetAxis (myInput.vAxisName2)) > 0.2) {
+			shooting = true;
+			shootingVector = new Vector3 (Input.GetAxisRaw (myInput.hAxisName2), 0, Input.GetAxisRaw (myInput.vAxisName2));
+		}
 	}
 }

@@ -106,7 +106,7 @@ public class GameEngine : MonoBehaviour {
 			}
 			//switch camera and start battl
 		}else if(gameState == "DamagingLeader"){
-
+			DamagingLeader ();
 		}else if(gameState == "showingCombatResults"){
 			ShowCombatResults ();
 		}else if(gameState == "afterCombat"){
@@ -135,7 +135,7 @@ public class GameEngine : MonoBehaviour {
 			currentPlayer.playerUnit.fuel.currentFuel = currentPlayer.playerUnit.fuel.maxFuel;
 		}
 		if(Input.GetKey(KeyCode.G)){
-			timeMultiplier = 100;
+			timeMultiplier = 3;
 		}
 		//timer decreasing during the turn
 		timeCounter -= Time.deltaTime * timeMultiplier;
@@ -238,6 +238,16 @@ public class GameEngine : MonoBehaviour {
 	public void DamageLeader( Transform leaderPosition){
 		//instantiate an explosion on the leader position
 		gameState = "DamagingLeader";
+		playerInRangeIndex = currentPlayer.playerInRange;
+		players [playerInRangeIndex].playerUnit.health.ReceiveDamage (currentPlayer.playerUnit.damage);
+	}
+	public void DamagingLeader(){
+		prevTime -= Time.deltaTime;
+		if (prevTime <= 0) {
+			prevTime = timeIntro;
+			gameState = "strategyMap";
+			EndPlayerTurn ();
+		}
 	}
     void SelectPlayer(int a){
         for (int i = 0; i < players.Length; i ++){

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -768,6 +768,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!114 &88106717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,6 +790,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!1 &89440613
 GameObject:
@@ -887,6 +890,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!114 &89440619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +912,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!1 &89966281
 GameObject:
@@ -1248,6 +1254,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!114 &126598946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,6 +1276,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!1 &127125750
 GameObject:
@@ -1918,6 +1927,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!114 &279275056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1938,6 +1949,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!1 &315083164
 GameObject:
@@ -2475,6 +2487,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!114 &341132468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2495,6 +2509,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!1 &352502234
 GameObject:
@@ -2818,6 +2833,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!114 &378406331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2838,6 +2855,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!1 &389708126
 GameObject:
@@ -9071,6 +9089,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!114 &1100612707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9091,6 +9111,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!1 &1121512145
 GameObject:
@@ -9178,6 +9199,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!143 &1121512150
 CharacterController:
@@ -9211,6 +9233,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!1 &1123088574
 GameObject:
   m_ObjectHideFlags: 0
@@ -9867,6 +9891,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!114 &1206887706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9887,6 +9913,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!1 &1214780060
 GameObject:
@@ -10457,6 +10484,8 @@ MonoBehaviour:
   hAxisName: 
   vAxisName: 
   trigger: 
+  hAxisName2: 
+  vAxisName2: 
 --- !u!114 &1248044797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10477,6 +10506,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0, z: 0}
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
+  shooting: 0
   turboTime: 0
 --- !u!1 &1256969579
 GameObject:
@@ -16066,8 +16096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f319444445fb284f9970404aed9fe01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFuel: 10
-  currentFuel: 4
+  maxFuel: 100
+  currentFuel: 100
   fuelConsumption: 4
   terrainValue: 4
 --- !u!114 &1874425850
