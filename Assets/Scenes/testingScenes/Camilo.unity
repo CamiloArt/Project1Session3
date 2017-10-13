@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -407,6 +407,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 1
 --- !u!114 &88106714
 MonoBehaviour:
@@ -475,6 +476,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!1 &89440613
 GameObject:
@@ -529,6 +531,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 1
 --- !u!114 &89440616
 MonoBehaviour:
@@ -597,6 +600,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!1 &126598940
 GameObject:
@@ -651,6 +655,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 1
 --- !u!114 &126598943
 MonoBehaviour:
@@ -719,6 +724,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!1 &191701802
 GameObject:
@@ -837,6 +843,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 1
 --- !u!114 &279275053
 MonoBehaviour:
@@ -905,6 +912,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!1 &337138204
 GameObject:
@@ -1027,6 +1035,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 1
 --- !u!114 &341132465
 MonoBehaviour:
@@ -1095,6 +1104,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!1 &378406325
 GameObject:
@@ -1149,6 +1159,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 1
 --- !u!114 &378406328
 MonoBehaviour:
@@ -1217,6 +1228,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!1 &418310766
 GameObject:
@@ -3831,6 +3843,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 1
 --- !u!114 &1100612704
 MonoBehaviour:
@@ -3899,6 +3912,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!1 &1121512145
 GameObject:
@@ -3951,6 +3965,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 0
 --- !u!4 &1121512148
 Transform:
@@ -3987,6 +4002,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!143 &1121512150
 CharacterController:
@@ -4051,8 +4067,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.45669845, y: 0.45669842, z: 0.45669842}
   m_Children: []
-  m_Father: {fileID: 1627359323}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4135,7 +4151,7 @@ Transform:
   - {fileID: 2066331775}
   - {fileID: 1399088494}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180919816
 GameObject:
@@ -4426,6 +4442,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 0
 --- !u!114 &1206887703
 MonoBehaviour:
@@ -4494,6 +4511,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!1 &1214780060
 GameObject:
@@ -4814,6 +4832,7 @@ MonoBehaviour:
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
+  myController: {fileID: 0}
   typeOfPlayer: 1
 --- !u!114 &1248044794
 MonoBehaviour:
@@ -4882,6 +4901,7 @@ MonoBehaviour:
   tdirection: {x: 0, y: 0, z: 0}
   pressing: 0
   shooting: 0
+  shootingVector: {x: 0, y: 0, z: 0}
   turboTime: 0
 --- !u!1 &1256969579
 GameObject:
@@ -7379,8 +7399,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 821971320}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1874425846
 MonoBehaviour:
@@ -7500,51 +7520,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1894114044
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1113551258160008, guid: eb83263193a59b5458cce0fddf2a204b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1894114045}
-  - component: {fileID: 1894114046}
-  m_Layer: 0
-  m_Name: Grenades_Buggy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1894114045
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4772974483933010, guid: eb83263193a59b5458cce0fddf2a204b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1894114044}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000089406956, y: -0.0000076293945, z: -0.0000011920928}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
-  m_Children: []
-  m_Father: {fileID: 1436240173}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1894114046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114171131564456350, guid: eb83263193a59b5458cce0fddf2a204b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1894114044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 189b3caad07330348bc4321fde6b91a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialDps: 0.5
-  currentDps: 0.5
 --- !u!1 &1900812994
 GameObject:
   m_ObjectHideFlags: 0

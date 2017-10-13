@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SelectWeapon : MonoBehaviour {
 	//if selected = true, enable selection for weapon and consumables
+    //int vehicle index, int weapon index, int consumable index -- if muscle car selected car = index car = 0 -- gameEngine.... currenetIndex 
 	//--PUBLIC VARIABLES--//
 	public SelectVehicle selectVehicle;
 	public ApplyValues applyValues;

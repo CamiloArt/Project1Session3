@@ -200,6 +200,9 @@ public class ApplyValues : MonoBehaviour {
         //Range
         gameEngine.currentPlayer.playerUnit.range.range = range_new;
 
+        //vehicleIndex 
+        gameEngine.currentPlayer.playerUnit.vehicleIndex = valueIndex;
+
         //Weapons Slot 
         //gameEngine.currentPlayer.playerUnit.item1 = selectWeapon.currentSelectedWeapon; //Secondary Weapon
 
