@@ -59,7 +59,7 @@ public class ApplyValues : MonoBehaviour {
 			if (hit.collider.gameObject.name.Equals("Values0"))
 			{
 				muscleCar_LookAt = true;
-				//print(hit.collider.gameObject.name);
+				print(hit.collider.gameObject.name);
                 valueIndex = 0;
 
                 //Damage

@@ -28,17 +28,17 @@ public class WeaponConsumablesDescription : MonoBehaviour {
     {
         //Weapons
         //Minigun
-        if (selectWeapon.currentValueW[0] == true)
+        if (selectWeapon.currentValueW[1] == true)
         {
             descriptionText.text = minigunDescription;
         }
         //Rocket Launcher
-        if (selectWeapon.currentValueW[1] == true)
+        if (selectWeapon.currentValueW[2] == true)
         {
             descriptionText.text = rocketLauncherDescription;
         }
         //Flamethrowers
-        if (selectWeapon.currentValueW[2] == true)
+        if (selectWeapon.currentValueW[3] == true)
         {
             descriptionText.text = flamethrowerDescription;
         }

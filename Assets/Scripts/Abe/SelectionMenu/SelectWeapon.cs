@@ -9,13 +9,13 @@ public class SelectWeapon : MonoBehaviour {
 	public SelectVehicle selectVehicle;
 	public ApplyValues applyValues;
 
-	[Tooltip("Minigun:[0], RocketLauncher:[1], Flamethrower[2]")]
+	[Tooltip("MachineGun[0], Minigun:[1], RocketLauncher:[2], Flamethrower[3]")]
 	public GameObject[] muscleCar_Weapons;
-	[Tooltip("Minigun:[0], RocketLauncher:[1], Flamethrower[2]")]
+    [Tooltip("MachineGun[0], Minigun:[1], RocketLauncher:[2], Flamethrower[3]")]
 	public GameObject[] buggy_Weapons;
-	[Tooltip("Minigun:[0], RocketLauncher:[1], Flamethrower[2]")]
+    [Tooltip("MachineGun[0], Minigun:[1], RocketLauncher:[2], Flamethrower[3]")]
 	public GameObject[] monsterTruck_Weapons;
-    [Tooltip("Minigun:[0], RocketLauncher:[1], Flamethrower[2]")]
+    [Tooltip("MachineGun[0], Minigun:[1], RocketLauncher:[2], Flamethrower[3]")]
     public bool[] currentValueW;
 
     public GameObject currentSelectedWeapon;
@@ -24,7 +24,12 @@ public class SelectWeapon : MonoBehaviour {
 
     public float dps;
 
-	//Minigun
+    void Start()
+    {
+        
+    }
+
+	//MachineGun
 	public void Option0()
 	{
 		if (applyValues.muscleCar_LookAt)
@@ -32,27 +37,31 @@ public class SelectWeapon : MonoBehaviour {
             currentValueW[0] = true;
             currentValueW[1] = false;
             currentValueW[2] = false;
+            currentValueW[3] = false;
 
             currentSelectedWeapon = muscleCar_Weapons[0];
 
 			muscleCar_Weapons[0].SetActive(true);
 			muscleCar_Weapons[1].SetActive(false);
             muscleCar_Weapons[2].SetActive(false);
+            muscleCar_Weapons[3].SetActive(false);
 
             dps = 0.2f;
-            dpsWText.text = "Mingun Damage: " + dps.ToString();
+            dpsWText.text = "Minigun Damage: " + dps.ToString();
 		}
 		if (applyValues.buggy_LookAt)
 		{
             currentValueW[0] = true;
             currentValueW[1] = false;
             currentValueW[2] = false;
+            currentValueW[3] = false;
 
             currentSelectedWeapon = buggy_Weapons[0];
 
 			buggy_Weapons[0].SetActive(true);
 			buggy_Weapons[1].SetActive(false);
 			buggy_Weapons[2].SetActive(false);
+            buggy_Weapons[3].SetActive(false);
 
             dps = 0.2f;
             dpsWText.text = "Minigun Damage: " + dps.ToString();
@@ -62,18 +71,20 @@ public class SelectWeapon : MonoBehaviour {
             currentValueW[0] = true;
             currentValueW[1] = false;
             currentValueW[2] = false;
+            currentValueW[3] = false;
 
             currentSelectedWeapon = monsterTruck_Weapons[0];
 
 			monsterTruck_Weapons[0].SetActive(true);
 			monsterTruck_Weapons[1].SetActive(false);
 			monsterTruck_Weapons[2].SetActive(false);
+            monsterTruck_Weapons[3].SetActive(false);
 
             dps = 0.2f;
             dpsWText.text = "Minigun Damage: " + dps.ToString();
 	    }
 	}
-	//Rocket Launcher
+	//Minigun
 	public void Option1()
 	{
 		if (applyValues.muscleCar_LookAt)
@@ -81,12 +92,14 @@ public class SelectWeapon : MonoBehaviour {
             currentValueW[0] = false;
             currentValueW[1] = true;
             currentValueW[2] = false;
+            currentValueW[3] = false;
 
             currentSelectedWeapon = muscleCar_Weapons[1];
 
 			muscleCar_Weapons[0].SetActive(false);
 			muscleCar_Weapons[1].SetActive(true);
 			muscleCar_Weapons[2].SetActive(false);
+            muscleCar_Weapons[3].SetActive(false);
 
             dps = 0.5f;
             dpsWText.text = "Rocket Launcher Damage: " + dps.ToString();
@@ -96,12 +109,14 @@ public class SelectWeapon : MonoBehaviour {
             currentValueW[0] = false;
             currentValueW[1] = true;
             currentValueW[2] = false;
+            currentValueW[3] = false;
 
             currentSelectedWeapon = buggy_Weapons[1];
 
 			buggy_Weapons[0].SetActive(false);
 			buggy_Weapons[1].SetActive(true);
 			buggy_Weapons[2].SetActive(false);
+            buggy_Weapons[3].SetActive(false);
 
             dps = 0.5f;
             dpsWText.text = "Rocket Launcher Damage: " + dps.ToString();
@@ -111,18 +126,20 @@ public class SelectWeapon : MonoBehaviour {
             currentValueW[0] = false;
             currentValueW[1] = true;
             currentValueW[2] = false;
+            currentValueW[3] = false;
 
             currentSelectedWeapon = monsterTruck_Weapons[1];
 
 			monsterTruck_Weapons[0].SetActive(false);
 			monsterTruck_Weapons[1].SetActive(true);
 			monsterTruck_Weapons[2].SetActive(false);
+            monsterTruck_Weapons[3].SetActive(false);
 
             dps = 0.5f;
             dpsWText.text = "Rocket Launcher Damage: " + dps.ToString();
 		}
 	}
-	//Flamethrower
+    //Rocket Launcher
 	public void Option2()
 	{
 		if (applyValues.muscleCar_LookAt)
@@ -130,12 +147,14 @@ public class SelectWeapon : MonoBehaviour {
             currentValueW[0] = false;
             currentValueW[1] = false;
             currentValueW[2] = true;
+            currentValueW[3] = false;
 
             currentSelectedWeapon = muscleCar_Weapons[2];
 
 			muscleCar_Weapons[0].SetActive(false);
 			muscleCar_Weapons[1].SetActive(false);
 			muscleCar_Weapons[2].SetActive(true);
+            muscleCar_Weapons[3].SetActive(false);
 
             dps = 0.7f;
             dpsWText.text = "Flamethrower Damage: " + dps.ToString();
@@ -145,12 +164,14 @@ public class SelectWeapon : MonoBehaviour {
             currentValueW[0] = false;
             currentValueW[1] = false;
             currentValueW[2] = true;
+            currentValueW[3] = false;
 
             currentSelectedWeapon = buggy_Weapons[2];
 
 			buggy_Weapons[0].SetActive(false);
 			buggy_Weapons[1].SetActive(false);
 			buggy_Weapons[2].SetActive(true);
+            buggy_Weapons[3].SetActive(false);
 
             dps = 0.7f;
             dpsWText.text = "Flamethrower Damage: " + dps.ToString();
@@ -160,30 +181,90 @@ public class SelectWeapon : MonoBehaviour {
             currentValueW[0] = false;
             currentValueW[1] = false;
             currentValueW[2] = true;
+            currentValueW[3] = false;
 
             currentSelectedWeapon = monsterTruck_Weapons[2];
 
 			monsterTruck_Weapons[0].SetActive(false);
 			monsterTruck_Weapons[1].SetActive(false);
 			monsterTruck_Weapons[2].SetActive(true);
+            monsterTruck_Weapons[3].SetActive(false);
 
             dps = 0.7f;
             dpsWText.text = "Flamethrower Damage: " + dps.ToString();
 		}
 	}
+    //Flamethrower
+    public void Option3()
+    {
+        if (applyValues.muscleCar_LookAt)
+        {
+            currentValueW[0] = false;
+            currentValueW[1] = false;
+            currentValueW[2] = false;
+            currentValueW[3] = true;
+
+            currentSelectedWeapon = muscleCar_Weapons[0];
+
+            muscleCar_Weapons[0].SetActive(false);
+            muscleCar_Weapons[1].SetActive(false);
+            muscleCar_Weapons[2].SetActive(false);
+            muscleCar_Weapons[3].SetActive(true);
+
+            dps = 0.2f;
+            dpsWText.text = "Mingun Damage: " + dps.ToString();
+        }
+        if (applyValues.buggy_LookAt)
+        {
+            currentValueW[0] = false;
+            currentValueW[1] = false;
+            currentValueW[2] = false;
+            currentValueW[3] = true;
+
+            currentSelectedWeapon = buggy_Weapons[0];
+
+            buggy_Weapons[0].SetActive(false);
+            buggy_Weapons[1].SetActive(false);
+            buggy_Weapons[2].SetActive(false);
+            buggy_Weapons[3].SetActive(true);
+
+            dps = 0.2f;
+            dpsWText.text = "Minigun Damage: " + dps.ToString();
+        }
+        if (applyValues.monsterTruck_LookAt)
+        {
+            currentValueW[0] = false;
+            currentValueW[1] = false;
+            currentValueW[2] = false;
+            currentValueW[3] = true;
+
+            currentSelectedWeapon = monsterTruck_Weapons[0];
+
+            monsterTruck_Weapons[0].SetActive(false);
+            monsterTruck_Weapons[1].SetActive(false);
+            monsterTruck_Weapons[2].SetActive(false);
+            monsterTruck_Weapons[3].SetActive(true);
+
+            dps = 0.2f;
+            dpsWText.text = "Minigun Damage: " + dps.ToString();
+        }
+    }
 
     public void ResetWeaponSelection()
     {
         muscleCar_Weapons[0].SetActive(false);
         muscleCar_Weapons[1].SetActive(false);
         muscleCar_Weapons[2].SetActive(false);
+        muscleCar_Weapons[3].SetActive(false);
 
         buggy_Weapons[0].SetActive(false);
         buggy_Weapons[1].SetActive(false);
         buggy_Weapons[2].SetActive(false);
+        buggy_Weapons[3].SetActive(false);
 
         monsterTruck_Weapons[0].SetActive(false);
         monsterTruck_Weapons[1].SetActive(false);
         monsterTruck_Weapons[2].SetActive(false);
+        monsterTruck_Weapons[3].SetActive(false);
     }
 }
