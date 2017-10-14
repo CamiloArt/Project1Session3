@@ -10,11 +10,11 @@ public class Fuel : MonoBehaviour {
 	public float terrainValue;
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		terrainValue = 0;
 	}
+
 }

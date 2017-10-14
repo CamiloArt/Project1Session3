@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 				MovePlayerMainMap ();
 			}
 		}
-		else if(gameEngine.gameState == "battlemap" && gameEngine.inBattle && myPlayer.inBattle){
+		if(gameEngine.gameState == "battlemap" && gameEngine.inBattle && myPlayer.inBattle){
 			SetDirection ();
 			getShootingAxis ();
 		}
@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour {
 		float angle = Mathf.Atan2 (x, y) * Mathf.Rad2Deg;
 		myPlayer.gameObject.transform.rotation = Quaternion.Euler(0, angle, 0);
 		magnitude =  Vector3.Magnitude (mapDirection);
+		CheckTurfs ();
 		playerCc.Move (mapDirection * (myPlayer.playerUnit.speed.mapSpeed - myPlayer.playerUnit.fuel.terrainValue) * Time.deltaTime);
 		myPlayer.playerUnit.fuel.currentFuel -= (myPlayer.playerUnit.fuel.fuelConsumption) * Time.deltaTime * magnitude;
 	}
@@ -110,5 +111,8 @@ public class PlayerController : MonoBehaviour {
 			shooting = true;
 			shootingVector = new Vector3 (Input.GetAxisRaw (myInput.hAxisName2), 0, Input.GetAxisRaw (myInput.vAxisName2));
 		}
+	}
+	void CheckTurfs(){
+		GameObject[] terrains = GameObject.FindGameObjectsWithTag ("Terrain");
 	}
 }
