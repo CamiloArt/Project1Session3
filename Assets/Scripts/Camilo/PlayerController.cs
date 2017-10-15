@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public CharacterController playerCc;
 	public Vector3 mapDirection;
 	public float magnitude;
+	float terrainminDistance;
 
 	//combat variables
 	public float gravity;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 		playerCc = gameObject.GetComponent<CharacterController> ();
 		myPlayer = gameObject.GetComponent<Player> ();
 		myInput = gameObject.GetComponent<PlayerInputs> ();
+		terrainminDistance = 3f;
 	}
 	
 	// Update is called once per frame
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour {
 		float angle = Mathf.Atan2 (x, y) * Mathf.Rad2Deg;
 		myPlayer.gameObject.transform.rotation = Quaternion.Euler(0, angle, 0);
 		magnitude =  Vector3.Magnitude (mapDirection);
-		CheckTurfs ();
+		CheckTerrains ();
 		playerCc.Move (mapDirection * (myPlayer.playerUnit.speed.mapSpeed - myPlayer.playerUnit.fuel.terrainValue) * Time.deltaTime);
 		myPlayer.playerUnit.fuel.currentFuel -= (myPlayer.playerUnit.fuel.fuelConsumption) * Time.deltaTime * magnitude;
 	}
@@ -112,7 +114,14 @@ public class PlayerController : MonoBehaviour {
 			shootingVector = new Vector3 (Input.GetAxisRaw (myInput.hAxisName2), 0, Input.GetAxisRaw (myInput.vAxisName2));
 		}
 	}
-	void CheckTurfs(){
+	void CheckTerrains(){
 		GameObject[] terrains = GameObject.FindGameObjectsWithTag ("Terrain");
+		float distance;
+		for (int i = 0; i < terrains.Length; i++) {
+			distance = Vector3.Distance (gameObject.transform.position, terrains [i].gameObject.transform.position);
+			if (distance < terrainminDistance) {
+				myPlayer.playerUnit.fuel.terrainValue = terrains [i].gameObject.GetComponent<mapTerrains> ().terrainValue;
+			}
+		}
 	}
 }

@@ -89,9 +89,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1802287422124750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4031137d7e101e42b56b42984d198df, type: 3}
+  m_Script: {fileID: 11500000, guid: 029b53b80d516144fba69dda9b6fbd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flamer: {fileID: 1222748182331976, guid: 4f5fa0edb5bb7dc4a9530bbe7efa2da5, type: 2}
-  shooting: 0
-  team: 0
+  flamer: {fileID: 0}
+  myPlayer: {fileID: 0}
+  timelimit: 0
+  coolDown: 0

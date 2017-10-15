@@ -53,6 +53,7 @@ public class GameEngine : MonoBehaviour {
 	public Transform battleMapPoint2;
 
     private bool playerSelected;
+	private bool modelsLoaded;
 
 	void Awake(){
 		combatEngine = gameObject.GetComponent<CombatEngine> ();
@@ -73,6 +74,7 @@ public class GameEngine : MonoBehaviour {
 		battleCamera.SetActive(!camSwitch);
 		prevTime = timeIntro;
         playerSelected = false;
+		modelsLoaded = false;
 	}
 
 	// Update is called once per frame
@@ -87,6 +89,12 @@ public class GameEngine : MonoBehaviour {
         }
 		else if(gameState == "strategyMap"){//if the game is in the stategy map
             // animation showing the turn and the player
+			if(!modelsLoaded){
+				for (int i = 0; i < players.Length; i ++){
+					players [i].playerUnit.LoadModels ();
+				}
+				modelsLoaded = true;
+			}
             if(playerTurnNum > players.Length){
                 StartNewRound ();
             }

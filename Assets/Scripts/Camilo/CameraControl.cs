@@ -12,13 +12,10 @@ public class CameraControl : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		if (gameEngine.currentPlayer) {
 			SetPosition ();
 		}	
-	}
-	void LateUpdate(){
-		
 	}
 	void SetPosition(){
 		gameObject.transform.position = gameEngine.currentPlayer.gameObject.transform.position;

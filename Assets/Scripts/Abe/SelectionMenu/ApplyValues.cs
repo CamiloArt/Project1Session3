@@ -203,11 +203,11 @@ public class ApplyValues : MonoBehaviour {
         //vehicleIndex 
         gameEngine.currentPlayer.playerUnit.vehicleIndex = valueIndex;
 
-        //Weapons Slot 
-        //gameEngine.currentPlayer.playerUnit.item1 = selectWeapon.currentSelectedWeapon; //Secondary Weapon
+        //WeaponIndex
+		gameEngine.currentPlayer.playerUnit.weaponIndex = selectWeapon.weaponSelectIndex; //Secondary Weapon
 
-        //Consumables Slot
-        //gameEngine.currentPlayer.playerUnit.item2 = selectConsumable.currentSelectedConsumable; //Consumable
+        //ConsumableIndex
+		gameEngine.currentPlayer.playerUnit.consumableIndex = selectConsumable.consumablesSelectIndex; //Consumable
 
         gameEngine.endSelection();   
 

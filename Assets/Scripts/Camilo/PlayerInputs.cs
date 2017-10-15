@@ -27,14 +27,14 @@ public class PlayerInputs : MonoBehaviour {
 			trigger = "BlueLeftTrigger";*/
 
 		} else if(myPlayer.playerTeam.teamColor == Team.tColor.Red) {
-			/*hAxisName = "RedPlayerHorizontal";
+			hAxisName = "RedPlayerHorizontal";
 			vAxisName = "RedPlayerVertical";
-			trigger = "RedLeftTrigger";*/
+			trigger = "RedLeftTrigger";
 			hAxisName2 = "RedPlayerHorizontal2";
 			vAxisName2 = "RedPlayerVertical2";
-			hAxisName = "Horizontal";
+			/*hAxisName = "Horizontal";
 			vAxisName = "Vertical";
-			trigger = "BlueLeftTrigger";
+			trigger = "BlueLeftTrigger";*/
 		}
 	}
 	// Update is called once per frame
