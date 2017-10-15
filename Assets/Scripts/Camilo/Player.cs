@@ -38,7 +38,9 @@ public class Player : MonoBehaviour {
 	}
 
 	void Respawn(){
-		this.gameObject.transform.Translate (respawnPosition.position);
+		playerUnit.isAlive = true;
+		playerUnit.health.currentHp = playerUnit.health.initialHp;
+		gameObject.transform.position = respawnPosition.position;
 	}
 	public void CheckEnemies(){
 		for (int i = 0; i < gameEngine.players.Length; i++) {
