@@ -6,7 +6,9 @@ public class BattleCamera : MonoBehaviour
 {
     private GameEngine gameEngine;
     private Vector3 Player01, Player02;
-	
+    public Camera battleCamera;
+    public float minDistance, maxDistance;
+   	
 	void Start () 
     {
 		gameEngine = GameObject.FindGameObjectWithTag("GameEngine").GetComponent<GameEngine>();
@@ -17,12 +19,9 @@ public class BattleCamera : MonoBehaviour
     {
         if (gameEngine.gameState == "battlemap")
         {
-            if (!gameEngine.inBattle)
+            if (gameEngine.inBattle)
             {
                 PlayerTarget();
-            }
-            else
-            {
                 DynamicCamera();
             }
         }
@@ -36,7 +35,14 @@ public class BattleCamera : MonoBehaviour
 
     void DynamicCamera()
     {
-    Vector3 midPoint= (Player01 + Player02) / 2;
+        Vector3 midPoint= (Player01 + Player02) / 2;
+        float distance = Vector3.Distance(Player01,Player02);
+        Vector3 myPos = new Vector3(midPoint.x,0,midPoint.z);
+        gameObject.transform.position = myPos;
+
+        if (distance > minDistance && distance < maxDistance)
+
+        battleCamera.fieldOfView = distance*1.5f;
     }
 }
 

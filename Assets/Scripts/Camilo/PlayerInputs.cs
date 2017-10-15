@@ -17,14 +17,14 @@ public class PlayerInputs : MonoBehaviour {
 
 	void Start(){
 		if (myPlayer.playerTeam.teamColor == Team.tColor.Blue) {
-			hAxisName = "BluePlayerHorizontal";
+			/*hAxisName = "BluePlayerHorizontal";
 			vAxisName = "BluePlayerVertical";
-			trigger = "BlueLeftTrigger";
+			trigger = "BlueLeftTrigger";*/
 			hAxisName2 = "BluePlayerHorizontal2";
 			vAxisName2 = "BluePlayerVertical2";
-			/*hAxisName = "Horizontal";
+			hAxisName = "Horizontal";
 			vAxisName = "Vertical";
-			trigger = "BlueLeftTrigger";*/
+			trigger = "BlueLeftTrigger";
 
 		} else if(myPlayer.playerTeam.teamColor == Team.tColor.Red) {
 			hAxisName = "RedPlayerHorizontal";

@@ -477,6 +477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -2487,7 +2489,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4164,9 +4166,9 @@ MonoBehaviour:
   timeIntro: 3
   prevTime: 0
   combatEngine: {fileID: 0}
-  timeLimit: 100
+  timeLimit: 10
   timeCounter: 0
-  combatTime: 10
+  combatTime: 100
   combatCounter: 0
   looserSpeed: 5
   roundCounter: 0
@@ -4624,7 +4626,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4925,6 +4927,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -5285,6 +5289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -5424,6 +5430,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -9129,6 +9137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -9673,7 +9683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1133273196
 Transform:
   m_ObjectHideFlags: 0
@@ -9686,7 +9696,7 @@ Transform:
   m_Children:
   - {fileID: 1415398038}
   - {fileID: 28566829}
-  - {fileID: 1585636474}
+  - {fileID: 1652555426}
   - {fileID: 1757528585}
   - {fileID: 1229208613}
   - {fileID: 191701803}
@@ -9696,9 +9706,9 @@ Transform:
   - {fileID: 1219227554}
   - {fileID: 1697392123}
   - {fileID: 441257710}
+  - {fileID: 1399088494}
   - {fileID: 684882459}
   - {fileID: 2066331775}
-  - {fileID: 1399088494}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10360,7 +10370,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10428,7 +10438,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10708,9 +10718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea638e098d08d9a41a35650394c081f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainRadius: 5
   terrainValue: 10
-  playerInTerrain: 0
 --- !u!135 &1219227553
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10962,6 +10970,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -11728,7 +11738,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11937,6 +11947,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -12333,6 +12345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -12446,7 +12460,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12512,7 +12526,7 @@ Transform:
   m_LocalScale: {x: 18, y: 1, z: 17}
   m_Children: []
   m_Father: {fileID: 1133273196}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!23 &1399088495
 MeshRenderer:
@@ -13965,6 +13979,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -14046,7 +14062,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 1000.01
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -14071,12 +14087,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1585636469}
-  m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
-  m_LocalPosition: {x: 215.2, y: 36.1, z: -36}
+  m_LocalRotation: {x: 0.46174863, y: -0, z: -0, w: 0.8870109}
+  m_LocalPosition: {x: 0.39909363, y: 49.2, z: -54.31406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1133273196}
-  m_RootOrder: 2
+  m_Father: {fileID: 1652555426}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 55, y: 0, z: 0}
 --- !u!1001 &1592873458
 Prefab:
@@ -14115,7 +14131,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4427120133401762, guid: 9362308a288add94885aa8b594f4dc28, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 218732450253459144, guid: 9362308a288add94885aa8b594f4dc28,
         type: 2}
@@ -14587,6 +14603,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 22.399994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1652555425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1652555426}
+  - component: {fileID: 1652555427}
+  m_Layer: 0
+  m_Name: BattleCameraAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1652555426
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1652555425}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 225.5009, y: 0, z: 12.01406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1585636474}
+  m_Father: {fileID: 1133273196}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1652555427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1652555425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f5ce4d3f333c84dbaa5df9c3b106c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleCamera: {fileID: 1585636473}
 --- !u!1 &1655929688
 GameObject:
   m_ObjectHideFlags: 0
@@ -14753,7 +14811,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15256,6 +15314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -15459,6 +15519,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -15585,7 +15647,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15935,6 +15997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -16458,6 +16522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleLib: {fileID: 0}
   vehicleIndex: 0
+  weaponIndex: 0
+  consumableIndex: 0
   vehicle: {fileID: 0}
   item1: {fileID: 0}
   item2: {fileID: 0}
@@ -17402,7 +17468,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -17554,7 +17620,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4448769245521716, guid: de8b70362fb567143be8460bf20fe2e2, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4448769245521716, guid: de8b70362fb567143be8460bf20fe2e2, type: 2}
       propertyPath: m_LocalScale.x
@@ -18289,7 +18355,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
