@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc11e496ac046c4daf7d767eed0ec49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
-  myPlayer: {fileID: 0}
+  damage: 0.2
+  myTeamColor: 
 --- !u!114 &114295619613352210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f310cbca8632c9d4c823f58f4b82e3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 50
 --- !u!135 &135180684800645898
 SphereCollider:
   m_ObjectHideFlags: 1

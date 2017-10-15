@@ -799,9 +799,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 2
   playerUnit: {fileID: 649909394}
-  playerTurn: 3
+  playerTurn: 1
   playerTeam: {fileID: 88106714}
-  respawnPosition: {fileID: 957348422}
+  respawnPosition: {fileID: 678764213}
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
@@ -925,7 +925,7 @@ MonoBehaviour:
   playerUnit: {fileID: 1381466572}
   playerTurn: 5
   playerTeam: {fileID: 89440616}
-  respawnPosition: {fileID: 957348422}
+  respawnPosition: {fileID: 1223414729}
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   playerUnit: {fileID: 1087752865}
   playerTurn: 10
   playerTeam: {fileID: 126598943}
-  respawnPosition: {fileID: 84385769}
+  respawnPosition: {fileID: 964701462}
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
@@ -2254,7 +2254,7 @@ MonoBehaviour:
   playerUnit: {fileID: 57438801}
   playerTurn: 9
   playerTeam: {fileID: 279275053}
-  respawnPosition: {fileID: 957348422}
+  respawnPosition: {fileID: 964701462}
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
@@ -2579,7 +2579,7 @@ MonoBehaviour:
   playerUnit: {fileID: 1316774184}
   playerTurn: 8
   playerTeam: {fileID: 341132465}
-  respawnPosition: {fileID: 84385769}
+  respawnPosition: {fileID: 1940953513}
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
@@ -2748,7 +2748,7 @@ MonoBehaviour:
   playerUnit: {fileID: 675300397}
   playerTurn: 6
   playerTeam: {fileID: 378406328}
-  respawnPosition: {fileID: 84385769}
+  respawnPosition: {fileID: 1223414729}
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
@@ -5701,6 +5701,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 696010104}
+--- !u!1001 &700051614
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4504583038418504, guid: b4e973d35c7ed2847b766f2594c475d6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 185.21935
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504583038418504, guid: b4e973d35c7ed2847b766f2594c475d6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 42.98603
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504583038418504, guid: b4e973d35c7ed2847b766f2594c475d6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 87.62277
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504583038418504, guid: b4e973d35c7ed2847b766f2594c475d6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504583038418504, guid: b4e973d35c7ed2847b766f2594c475d6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504583038418504, guid: b4e973d35c7ed2847b766f2594c475d6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504583038418504, guid: b4e973d35c7ed2847b766f2594c475d6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504583038418504, guid: b4e973d35c7ed2847b766f2594c475d6, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b4e973d35c7ed2847b766f2594c475d6, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &721069758
 GameObject:
   m_ObjectHideFlags: 0
@@ -7877,7 +7919,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4329074588972128, guid: 79811922a4967544e9eac9990b5b45dd, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114733217820636854, guid: 79811922a4967544e9eac9990b5b45dd,
         type: 2}
@@ -9322,9 +9364,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 7
   playerUnit: {fileID: 668933828}
-  playerTurn: 4
+  playerTurn: 2
   playerTeam: {fileID: 1100612704}
-  respawnPosition: {fileID: 84385769}
+  respawnPosition: {fileID: 1407741140}
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
@@ -9595,7 +9637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 1
   playerUnit: {fileID: 1734463251}
-  playerTurn: 1
+  playerTurn: 3
   playerTeam: {fileID: 1121512146}
   respawnPosition: {fileID: 957348422}
   enemyInRange: 0
@@ -9715,7 +9757,7 @@ Transform:
   - {fileID: 684882459}
   - {fileID: 2066331775}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1144294172
 GameObject:
@@ -10535,7 +10577,7 @@ Transform:
   - {fileID: 1280658601}
   - {fileID: 921216942}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1206887700
 GameObject:
@@ -10584,7 +10626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 6
   playerUnit: {fileID: 1747280521}
-  playerTurn: 2
+  playerTurn: 4
   playerTeam: {fileID: 1206887703}
   respawnPosition: {fileID: 84385769}
   enemyInRange: 0
@@ -11205,7 +11247,7 @@ MonoBehaviour:
   playerUnit: {fileID: 1900813000}
   playerTurn: 7
   playerTeam: {fileID: 1248044794}
-  respawnPosition: {fileID: 957348422}
+  respawnPosition: {fileID: 1940953513}
   enemyInRange: 0
   playerInRange: 0
   inBattle: 0
@@ -12418,7 +12460,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4952083851673004, guid: c30fa654d12a43442a90fe1ff19b4861, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c30fa654d12a43442a90fe1ff19b4861, type: 2}
@@ -14152,6 +14194,34 @@ Prefab:
         type: 2}
       propertyPath: m_ReflectionProbeUsage
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064437134038970, guid: 9362308a288add94885aa8b594f4dc28, type: 2}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048945724715124, guid: 9362308a288add94885aa8b594f4dc28, type: 2}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734809304239972, guid: 9362308a288add94885aa8b594f4dc28, type: 2}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504147502437516, guid: 9362308a288add94885aa8b594f4dc28, type: 2}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569876048577276, guid: 9362308a288add94885aa8b594f4dc28, type: 2}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845391477884436, guid: 9362308a288add94885aa8b594f4dc28, type: 2}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557319197548624, guid: 9362308a288add94885aa8b594f4dc28, type: 2}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9362308a288add94885aa8b594f4dc28, type: 2}

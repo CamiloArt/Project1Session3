@@ -5,10 +5,10 @@ using UnityEngine;
 public class Damage : MonoBehaviour {
 
 	public float damage;
-	public Player myPlayer;
+	public string  myTeamColor;
 
 	void Start(){
-		myPlayer = gameObject.GetComponentInParent<Player> ();
+		
 	}
 	void OnTriggerEnter(Collider player){
 
@@ -16,10 +16,16 @@ public class Damage : MonoBehaviour {
 		{
 			Player playerInCollision;
 			playerInCollision = player.gameObject.GetComponent<Player> ();
-			if (playerInCollision.playerTeam.teamColor.ToString () != myPlayer.playerTeam.teamColor.ToString ()) {
+			if (playerInCollision.playerTeam.teamColor.ToString () != myTeamColor) {
 				playerInCollision.playerUnit.health.ReceiveDamage (damage);
 				Destroy (gameObject);
 			}
 		}
-}
+		if (player.gameObject.tag == "Finish") {
+			Destroy (gameObject);
+		}
+	}
+	public void myTeam(string teamColor){
+		myTeamColor = teamColor;
+	}
 }

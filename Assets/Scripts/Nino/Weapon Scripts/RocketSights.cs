@@ -4,31 +4,40 @@ using UnityEngine;
 
 public class RocketSights : MonoBehaviour {
 
-	public string enemyName;
+	public Rocket myRocket;
+	public Transform target;
+	private GameEngine gameEngine;
+	public int enemyIndex;
 	public bool locked;
 	public float timer;
 	public bool lockOn;
+	public float targetDistance;
+	public float minDistance;
 
+	void Start(){
+		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
+		lockOn = false;
+		locked = false;
+	}
 
-	void Update(){
-		if (lockOn == true)
+	void Update(){		
+			target.position = gameEngine.players [enemyIndex].gameObject.transform.position;
+		targetDistance = Vector3.Distance (gameObject.transform.position,target.position);
+		if (targetDistance <= minDistance) {
+			lockOn = true;
+		} else {
+			lockOn = false;
+		}
+		if (lockOn) {
 			timer = 3.0f;
 			locked = true;
-		if (lockOn == false)
-			timer -= 1*Time.deltaTime;
-		if (timer <= 0)
-			locked = false;
+		} else {
+			timer -= 1 * Time.deltaTime;
+			if (timer <= 0)
+				locked = false;
+		}
 	}
-
-	void OnTriggerEnter (Collider other)
-	{
-		if (other.tag == enemyName)
-		lockOn = true;
-	}
-
-	void OnTriggerExit(Collider other)
-	{
-		if (other.tag == enemyName)
-			lockOn = false;
+	public void SetTarget(int enemy){
+		enemyIndex = enemy;
 	}
 }

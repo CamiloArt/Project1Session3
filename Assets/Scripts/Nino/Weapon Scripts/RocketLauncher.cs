@@ -5,84 +5,56 @@ using UnityEngine;
 public class RocketLauncher : MonoBehaviour {
 
 	public GameObject bulletPrefab;
+	public int enemyIndex;
+	private GameEngine gameEngine;
+	public Player myPlayer;
 	//speed
 	public float speed = 2.0f;
 
 	public bool shooting;
 	public float firingTime;
 	public float canShootTime;
-	public enum Team {
+	private bool indexSetted;
 
-		blue,
-		red,
-		nbteam,
-		invalid
-	}
-
-	public Team team = Team.invalid;
-
-	private string horizontalAxis;
-	private string verticalAxis;
-
-	void Start () {
-
-		firingTime = 0f;
-
-		switch (team) {
-		case Team.blue:
-			horizontalAxis = "BluePlayerHorizontal2";
-			verticalAxis = "BluePlayerVertical2";
-			break;
-		case Team.red:
-			horizontalAxis = "RedPlayerHorizontal2";
-			verticalAxis = "RedPlayerVertical2";
-			break;
-		}
-
-
+	void Start(){
+		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
+		myPlayer = gameObject.GetComponentInParent<Player> ();
+		indexSetted = false;
 	}
 
 	void Update () {
+		if (myPlayer.inBattle) {
+			if (!indexSetted) {
+				setIndex ();
+				indexSetted = true;
+			}
+		} else {
+			indexSetted = false;
+		}
 		//the inputs 
-		float x2 = Input.GetAxis (horizontalAxis);
-		float y2 = Input.GetAxis (verticalAxis);
-		//discovering the angle
-		float angle = Mathf.Atan2 (x2, y2);
-		//using the angle to move
-		transform.rotation = Quaternion.EulerAngles (0, angle, 0);
-		//the directions which the launcher will move towards
-
-		shooting = false;
-
-		if (Input.GetAxis (horizontalAxis) > 0.2)
+		firingTime += Time.deltaTime;
+		if (myPlayer.myController.shooting == true && canShootTime <= firingTime) 
 		{
-			shooting = true;
-		}
-		if (Input.GetAxis (horizontalAxis) < -0.2)
-		{
-			shooting = true; 
-		}
-		if (Input.GetAxis (verticalAxis) > 0.2) 
-		{
-			shooting = true;
-		}
-		if (Input.GetAxis (verticalAxis) < -0.2)
-		{
-			shooting = true;
-
-		}
-		if (shooting == true && canShootTime <= firingTime) 
-		{
-			Instantiate (bulletPrefab, this.transform.position, this.transform.rotation); 
+			GameObject bullet;
+			bullet = Instantiate (bulletPrefab, this.transform.position, this.transform.rotation); 
+			bullet.gameObject.SendMessage("myTeam",myPlayer.playerTeam.teamColor.ToString());
+			bullet.gameObject.GetComponent<RocketSights> ().SetTarget (enemyIndex);
+			//bullet.gameObject.SendMessage ("SetTarget", enemyIndex);
 			firingTime =0f;
 
 		}
 
 
 		//the rotation of the launcher
-		Vector3 NextDir = new Vector3(Input.GetAxisRaw(horizontalAxis), 0, Input.GetAxisRaw(verticalAxis));
-		if (NextDir != Vector3.zero)
-			transform.rotation = Quaternion.LookRotation(NextDir);
+		if (myPlayer.myController.shootingVector != Vector3.zero)
+			transform.rotation = Quaternion.LookRotation(myPlayer.myController.shootingVector);
+	}
+	void setIndex(){
+		if (myPlayer.playerTurn != gameEngine.players [gameEngine.currentPlayerIndex].playerTurn) {
+			enemyIndex = gameEngine.currentPlayerIndex;
+		} else {
+			enemyIndex = gameEngine.playerInRangeIndex;
+		}
 	}
 }
 

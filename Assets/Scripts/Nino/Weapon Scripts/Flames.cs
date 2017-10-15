@@ -7,12 +7,21 @@ public class Flames : MonoBehaviour {
 	public float damage;
 	public string target;
 	public string player;
+	private Player myPlayer;
+
+	void Start(){
+		myPlayer = gameObject.GetComponentInParent<Player> ();
+	}
 
 	void OnTriggerStay(Collider player){
 
-		if(player.gameObject.tag == target)
+		if(player.gameObject.tag == "Player")
 		{
-			player.gameObject.SendMessage ("ReceiveDamage", damage);
+			Player playerOnHit;
+			playerOnHit = player.GetComponent<Player> ();
+			if (playerOnHit.playerTeam.teamColor.ToString () != myPlayer.playerTeam.teamColor.ToString ())
+				playerOnHit.playerUnit.health.ReceiveDamage (damage);
+			Debug.Log ("Entered");
 
 		}
 	}

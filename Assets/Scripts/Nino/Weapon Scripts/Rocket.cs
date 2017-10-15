@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour {
 
-	public Transform target;
+
 	public float speed = 2.0f;
 
 	public RocketSights rs;
@@ -14,8 +14,8 @@ public class Rocket : MonoBehaviour {
 		Destroy(gameObject, 5);
 
 
-		if (rs.locked = true)
-			transform.LookAt (target);
+		if (rs.locked)
+			transform.LookAt (rs.target);
 	}
 
 }

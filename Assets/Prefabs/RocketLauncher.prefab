@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4797667262128868}
   - component: {fileID: 33145512321875444}
   - component: {fileID: 23320333429982240}
-  - component: {fileID: 114563635198564012}
+  - component: {fileID: 114841705837968492}
   m_Layer: 0
   m_Name: RocketLauncher
   m_TagString: Untagged
@@ -81,7 +81,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1423917430836260}
   m_Mesh: {fileID: 4300000, guid: 73f3639bc7a034742ac6041a8148052f, type: 3}
---- !u!114 &114563635198564012
+--- !u!114 &114841705837968492
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -89,13 +89,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1423917430836260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5825b7570ffcee84c8e281d0eaaa2e25, type: 3}
+  m_Script: {fileID: 11500000, guid: 7956495abe6aef845823e130c3686bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1572576915778484, guid: b4e973d35c7ed2847b766f2594c475d6,
     type: 2}
+  myPlayer: {fileID: 0}
   speed: 2
   shooting: 0
   firingTime: 0
   canShootTime: 3
-  team: 0

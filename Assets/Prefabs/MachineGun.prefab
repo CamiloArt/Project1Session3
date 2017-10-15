@@ -90,15 +90,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1980187002725608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: babbb418119bc444a87e8bd44007557f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6f0836da8c24241813b796a425c0b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1231547424315240, guid: 677ff091c2d574f4cabe3c77625b4332,
+  bulletPrefab: {fileID: 1722775831135402, guid: ae496ae3d26fe2147a12641a8f4fd29b,
     type: 2}
+  myPlayer: {fileID: 0}
   speed: 2
   firingTime: 0
   canShootTime: 1
   bulletTimeNum: 0
-  bulletNum: 3
+  bulletNum: 0
   shooting: 0
-  team: 0
