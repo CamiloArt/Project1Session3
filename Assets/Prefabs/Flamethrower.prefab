@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 23867604342572986}
   - component: {fileID: 114984680237710682}
   m_Layer: 0
-  m_Name: BlueFlamethrower
+  m_Name: Flamethrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,5 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flamer: {fileID: 1904262451463654}
-  shooting: 0
-  team: 0
+  myPlayer: {fileID: 0}
+  timelimit: 0
+  coolDown: 0

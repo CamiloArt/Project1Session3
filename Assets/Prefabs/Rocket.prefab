@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 135358736646300168}
   - component: {fileID: 54675627251844398}
   m_Layer: 0
-  m_Name: BlueRocket
+  m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,8 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
-  target: RedPlayer
-  player: 
+  myPlayer: {fileID: 0}
 --- !u!135 &135358736646300168
 SphereCollider:
   m_ObjectHideFlags: 1

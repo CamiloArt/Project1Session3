@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -224,8 +224,12 @@ MonoBehaviour:
   car:
   - {fileID: 1135606593680730, guid: 9a34fc7dbb590a8418d4f4c47dbda5c9, type: 2}
   - {fileID: 1438955207752988, guid: 5ca90e6bdfd7c4940bdc34c8be07eba8, type: 2}
+  - {fileID: 1438955207752988, guid: 5ca90e6bdfd7c4940bdc34c8be07eba8, type: 2}
   weapon:
-  - {fileID: 0}
+  - {fileID: 1980187002725608, guid: ec907507353edb547a5ad16aa6e4a82a, type: 2}
+  - {fileID: 1980187002725608, guid: ec907507353edb547a5ad16aa6e4a82a, type: 2}
+  - {fileID: 1423917430836260, guid: 630268d333fb5dc41b06374f7452dfbb, type: 2}
+  - {fileID: 1935153028207422, guid: a8ecb8c7ad1e0854787509be86ed30f9, type: 2}
   consumable:
   - {fileID: 0}
 --- !u!1 &28566828
@@ -4184,6 +4188,7 @@ MonoBehaviour:
   battlePlayerPos: {fileID: 1761269380}
   battleMapPoint1: {fileID: 1697392123}
   battleMapPoint2: {fileID: 441257710}
+  modelsLoaded: 0
 --- !u!4 &576423957
 Transform:
   m_ObjectHideFlags: 0
@@ -4951,7 +4956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSpeed: 20
+  mapSpeed: 10
   minSpeed: 0
   maxSpeed: 20
   turboSpeed: 50
@@ -5313,7 +5318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSpeed: 20
+  mapSpeed: 10
   minSpeed: 0
   maxSpeed: 20
   turboSpeed: 50
@@ -8054,7 +8059,7 @@ MonoBehaviour:
   turboSpeed_new: 0
   currentSpeed_new: 0
   speedDampener_new: 0
-  speedMultiplier: 0
+  speedMultiplier_new: 0
   maxArmor_new: 0
   initialArmor_new: 0
   currentArmor_new: 0
@@ -10888,13 +10893,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSpeed: 4
-  minSpeed: 4
-  maxSpeed: 10
-  turboSpeed: 8
-  currentSpeed: 4
-  speedDampener: 4
-  speedMultiplier: 0
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 20
+  turboSpeed: 50
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!114 &1234987098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13897,13 +13902,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSpeed: 3
-  minSpeed: 3
-  maxSpeed: 10
-  turboSpeed: 6
-  currentSpeed: 3
-  speedDampener: 3
-  speedMultiplier: 0
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 14
+  turboSpeed: 35
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!114 &1584523574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14087,13 +14092,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1585636469}
-  m_LocalRotation: {x: 0.46174863, y: -0, z: -0, w: 0.8870109}
-  m_LocalPosition: {x: 0.39909363, y: 49.2, z: -54.31406}
+  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
+  m_LocalPosition: {x: 0.39909363, y: 49.2, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1652555426}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 55, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
 --- !u!1001 &1592873458
 Prefab:
   m_ObjectHideFlags: 0
@@ -14645,6 +14650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleCamera: {fileID: 1585636473}
+  minDistance: 20
+  maxDistance: 60
 --- !u!1 &1655929688
 GameObject:
   m_ObjectHideFlags: 0
@@ -15915,13 +15922,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dd1494f1e15104886d0d942ece4979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSpeed: 7
-  minSpeed: 7
-  maxSpeed: 10
-  turboSpeed: 9
-  currentSpeed: 7
-  speedDampener: 7
-  speedMultiplier: 0
+  mapSpeed: 10
+  minSpeed: 0
+  maxSpeed: 14
+  turboSpeed: 35
+  currentSpeed: 0
+  speedDampener: 0.2
+  speedMultiplier: 0.5
 --- !u!114 &1816079150
 MonoBehaviour:
   m_ObjectHideFlags: 0

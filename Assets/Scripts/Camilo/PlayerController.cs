@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 	public Vector3 shootingVector;
 
 	public float turboTime;
+	private bool usedTurbo;
 	private float maxSpeed;
 	private Quaternion ankle;
 
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour {
 		myPlayer = gameObject.GetComponent<Player> ();
 		myInput = gameObject.GetComponent<PlayerInputs> ();
 		terrainminDistance = 3f;
+		turboTime = 3f;
+		usedTurbo = false;
 	}
 	
 	// Update is called once per frame
@@ -80,9 +83,23 @@ public class PlayerController : MonoBehaviour {
 			pressing = true;
 		}
 		if (Input.GetAxis (myInput.trigger) > 0.2 && turboTime > 0) {
-			maxSpeed = myPlayer.playerUnit.speed.turboSpeed;
-			turboTime--;
-		} else {
+			if (!usedTurbo) {
+				myPlayer.playerUnit.speed.currentSpeed = myPlayer.playerUnit.speed.turboSpeed;
+				usedTurbo = true;
+				maxSpeed = myPlayer.playerUnit.speed.turboSpeed;
+			}
+		}
+		if(usedTurbo) {
+			if (maxSpeed > myPlayer.playerUnit.speed.maxSpeed) {
+				maxSpeed -= myPlayer.playerUnit.speed.speedDampener*4;
+			}
+				turboTime -= Time.deltaTime;
+			if (turboTime < 0) {
+				turboTime = 3f;
+				usedTurbo = false;
+			}
+		}
+		else {
 			maxSpeed = myPlayer.playerUnit.speed.maxSpeed;
 		}
 		if (pressing) {

@@ -53,7 +53,7 @@ public class GameEngine : MonoBehaviour {
 	public Transform battleMapPoint2;
 
     private bool playerSelected;
-	private bool modelsLoaded;
+	public bool modelsLoaded;
 
 	void Awake(){
 		combatEngine = gameObject.GetComponent<CombatEngine> ();

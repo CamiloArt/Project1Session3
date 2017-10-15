@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23320333429982240}
   - component: {fileID: 114563635198564012}
   m_Layer: 0
-  m_Name: BlueRocketLauncher
+  m_Name: RocketLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

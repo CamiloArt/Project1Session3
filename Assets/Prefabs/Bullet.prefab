@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114258453789017980}
   - component: {fileID: 114295619613352210}
   m_Layer: 0
-  m_Name: RedBullet
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,8 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  target: BluePLayer
-  player: 
+  myPlayer: {fileID: 0}
 --- !u!114 &114295619613352210
 MonoBehaviour:
   m_ObjectHideFlags: 1

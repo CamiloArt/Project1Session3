@@ -22,7 +22,7 @@ public class ApplyValues : MonoBehaviour {
     public float turboSpeed_new;
     public float currentSpeed_new;
     public float speedDampener_new;
-    public float speedMultiplier;
+    public float speedMultiplier_new;
     [Header("Armor")]
     public float maxArmor_new;
     public float initialArmor_new;
@@ -71,6 +71,7 @@ public class ApplyValues : MonoBehaviour {
                 turboSpeed_new = unit[valueIndex].speed.turboSpeed;
                 currentSpeed_new = unit[valueIndex].speed.currentSpeed;
                 speedDampener_new = unit[valueIndex].speed.speedDampener;
+				speedMultiplier_new = unit[valueIndex].speed.speedMultiplier;
                 //Armor
                 maxArmor_new = unit[valueIndex].armor.maxArmor;
                 initialArmor_new = unit[valueIndex].armor.initialArmor;
@@ -107,7 +108,8 @@ public class ApplyValues : MonoBehaviour {
                 maxSpeed_new = unit[valueIndex].speed.maxSpeed;
                 turboSpeed_new = unit[valueIndex].speed.turboSpeed;
                 currentSpeed_new = unit[valueIndex].speed.currentSpeed;
-                speedDampener_new = unit[valueIndex].speed.speedDampener;
+				speedDampener_new = unit[valueIndex].speed.speedDampener;
+				speedMultiplier_new = unit[valueIndex].speed.speedMultiplier;
                 //Armor
                 maxArmor_new = unit[valueIndex].armor.maxArmor;
                 initialArmor_new = unit[valueIndex].armor.initialArmor;
@@ -144,7 +146,8 @@ public class ApplyValues : MonoBehaviour {
                 maxSpeed_new = unit[valueIndex].speed.maxSpeed;
                 turboSpeed_new = unit[valueIndex].speed.turboSpeed;
                 currentSpeed_new = unit[valueIndex].speed.currentSpeed;
-                speedDampener_new = unit[valueIndex].speed.speedDampener;
+				speedDampener_new = unit[valueIndex].speed.speedDampener;
+				speedMultiplier_new = unit[valueIndex].speed.speedMultiplier;
                 //Armor
                 maxArmor_new = unit[valueIndex].armor.maxArmor;
                 initialArmor_new = unit[valueIndex].armor.initialArmor;
@@ -182,7 +185,7 @@ public class ApplyValues : MonoBehaviour {
         gameEngine.currentPlayer.playerUnit.speed.turboSpeed = turboSpeed_new;
         gameEngine.currentPlayer.playerUnit.speed.currentSpeed = currentSpeed_new;
         gameEngine.currentPlayer.playerUnit.speed.speedDampener = speedDampener_new;
-        gameEngine.currentPlayer.playerUnit.speed.speedMultiplier = speedMultiplier;
+        gameEngine.currentPlayer.playerUnit.speed.speedMultiplier = speedMultiplier_new;
         //Armor
         gameEngine.currentPlayer.playerUnit.armor.maxArmor = maxArmor_new;
         gameEngine.currentPlayer.playerUnit.armor.initialArmor = initialArmor_new;

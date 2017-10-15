@@ -33,9 +33,9 @@ public class Unit : MonoBehaviour {
 	}
 	public void LoadModels(){
 		vehicle = Instantiate(vehicleLib.car[vehicleIndex], gameObject.transform.position, Quaternion.identity, gameObject.transform);
-		//Vector3 weaponPos;
-		//carWeapon myPos = vehicle.gameObject.GetComponent<carWeapon> ();
-		//weaponPos = myPos.weaponPosition.position;
-		//Instantiate (vehicleLib.weapon [weaponIndex], weaponPos, Quaternion.identity, vehicle.gameObject.transform);	
+		Vector3 weaponPos;
+		carWeapon myPos = vehicle.gameObject.GetComponent<carWeapon> ();
+		weaponPos = myPos.weaponPosition.position;
+		Instantiate (vehicleLib.weapon [weaponIndex], weaponPos, Quaternion.identity, vehicle.gameObject.transform);	
 	}
 }
