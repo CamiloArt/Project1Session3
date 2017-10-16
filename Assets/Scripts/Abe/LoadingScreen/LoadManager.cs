@@ -7,7 +7,7 @@ public class LoadManager : MonoBehaviour {
     public GameEngine gameEngine;
     public TurnEnd turnEnd;
     public LoadingBar loadingBar; //access LoadingBar in LoadingScreen GameObject
-    [Tooltip("LoadingScreen = [0], SelectionMenu = [1], StrategyMap = [2], BattleMap = [3]")]
+    [Tooltip("StartMenu = [0], LoadingScreen = [1], SelectionMenu = [2], StrategyMap = [3], BattleMap = [4]")]
     public GameObject[] Scenes;
 
     public bool loadToSelectionMenu = false;
@@ -47,16 +47,19 @@ public class LoadManager : MonoBehaviour {
     //
     private void Load_LoadingScreen()
     {
-        Scenes[0].SetActive(true);
-        Scenes[1].SetActive(false);
+        Scenes[0].SetActive(false);
+        Scenes[1].SetActive(true);
         Scenes[2].SetActive(false);
+        Scenes[3].SetActive(false);
+        //[3](false)
     }
 
     private void SelectionMenu()
     {
         Scenes[0].SetActive(false);
-        Scenes[1].SetActive(true);
-        Scenes[2].SetActive(false);
+        Scenes[1].SetActive(false);
+        Scenes[2].SetActive(true);
+        Scenes[3].SetActive(false);
         loadToSelectionMenu = false;
         //[3](false);
     }
@@ -69,7 +72,8 @@ public class LoadManager : MonoBehaviour {
     {
         Scenes[0].SetActive(false);
         Scenes[1].SetActive(false);
-        Scenes[2].SetActive(true);
+        Scenes[2].SetActive(false);
+        Scenes[3].SetActive(true);
         loadToStrategyMap = false;
         gameEngine.gameState = "strategyMap";
         //[3](false);
@@ -84,6 +88,7 @@ public class LoadManager : MonoBehaviour {
         Scenes[0].SetActive(false);
         Scenes[1].SetActive(false);
         Scenes[2].SetActive(false);
+        Scenes[4].SetActive(false);
         loadToBattleMap = false;
         //[3](true);
     }

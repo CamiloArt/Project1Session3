@@ -30,6 +30,11 @@ public class SelectWeapon : MonoBehaviour {
 
     public int weaponSelectIndex; //Minigun:[1], RocketLauncher:[2], Flamethrower[3]
 
+    void Start()
+    {
+        Option0();
+    }
+
     void Update()
     {
         NothingSelectedW();
@@ -38,57 +43,41 @@ public class SelectWeapon : MonoBehaviour {
 	//MachineGun
 	public void Option0()
 	{
-		if (applyValues.muscleCar_LookAt)
-		{
-            currentValueW[0] = true;
-            currentValueW[1] = false;
-            currentValueW[2] = false;
-            currentValueW[3] = false;
+        currentValueW[0] = true;
+        currentValueW[1] = false;
+        currentValueW[2] = false;
+        currentValueW[3] = false;
 
-            currentSelectedWeapon = muscleCar_Weapons[0];
+        currentSelectedWeapon = muscleCar_Weapons[0];
 
-			muscleCar_Weapons[0].SetActive(true);
-			muscleCar_Weapons[1].SetActive(false);
-            muscleCar_Weapons[2].SetActive(false);
-            muscleCar_Weapons[3].SetActive(false);
+		muscleCar_Weapons[0].SetActive(true);
+		muscleCar_Weapons[1].SetActive(false);
+        muscleCar_Weapons[2].SetActive(false);
+        muscleCar_Weapons[3].SetActive(false);
 
-            dps = 0.2f;
-            dpsWText.text = "Minigun Damage: " + dps.ToString();
-		}
-		if (applyValues.buggy_LookAt)
-		{
-            currentValueW[0] = true;
-            currentValueW[1] = false;
-            currentValueW[2] = false;
-            currentValueW[3] = false;
+        currentValueW[0] = true;
+        currentValueW[1] = false;
+        currentValueW[2] = false;
+        currentValueW[3] = false;
 
-            currentSelectedWeapon = buggy_Weapons[0];
+        currentSelectedWeapon = buggy_Weapons[0];
 
-			buggy_Weapons[0].SetActive(true);
-			buggy_Weapons[1].SetActive(false);
-			buggy_Weapons[2].SetActive(false);
-            buggy_Weapons[3].SetActive(false);
+		buggy_Weapons[0].SetActive(true);
+		buggy_Weapons[1].SetActive(false);
+		buggy_Weapons[2].SetActive(false);
+        buggy_Weapons[3].SetActive(false);
 
-            dps = 0.2f;
-            dpsWText.text = "Minigun Damage: " + dps.ToString();
-		}
-		if (applyValues.monsterTruck_LookAt)
-		{
-            currentValueW[0] = true;
-            currentValueW[1] = false;
-            currentValueW[2] = false;
-            currentValueW[3] = false;
+        currentValueW[0] = true;
+        currentValueW[1] = false;
+        currentValueW[2] = false;
+        currentValueW[3] = false;
 
-            currentSelectedWeapon = monsterTruck_Weapons[0];
+        currentSelectedWeapon = monsterTruck_Weapons[0];
 
-			monsterTruck_Weapons[0].SetActive(true);
-			monsterTruck_Weapons[1].SetActive(false);
-			monsterTruck_Weapons[2].SetActive(false);
-            monsterTruck_Weapons[3].SetActive(false);
-
-            dps = 0.2f;
-            dpsWText.text = "Minigun Damage: " + dps.ToString();
-	    }
+		monsterTruck_Weapons[0].SetActive(true);
+		monsterTruck_Weapons[1].SetActive(false);
+		monsterTruck_Weapons[2].SetActive(false);
+        monsterTruck_Weapons[3].SetActive(false);
 	}
 	//Minigun
 	public void Option1()
@@ -281,20 +270,7 @@ public class SelectWeapon : MonoBehaviour {
     {
         nothingSelectedW = true;
 
-        muscleCar_Weapons[0].SetActive(false);
-        muscleCar_Weapons[1].SetActive(false);
-        muscleCar_Weapons[2].SetActive(false);
-        muscleCar_Weapons[3].SetActive(false);
-
-        buggy_Weapons[0].SetActive(false);
-        buggy_Weapons[1].SetActive(false);
-        buggy_Weapons[2].SetActive(false);
-        buggy_Weapons[3].SetActive(false);
-
-        monsterTruck_Weapons[0].SetActive(false);
-        monsterTruck_Weapons[1].SetActive(false);
-        monsterTruck_Weapons[2].SetActive(false);
-        monsterTruck_Weapons[3].SetActive(false);
+        Option0();
     }
 
     void NothingSelectedW()
@@ -302,7 +278,7 @@ public class SelectWeapon : MonoBehaviour {
         if (nothingSelectedW)
         {
             nothingSelectedWTxt.enabled = true;
-            nothingSelectedWTxt.text = "select a weapon";
+            nothingSelectedWTxt.text = "select a weapon |";
         }
         if (!nothingSelectedW)
         {

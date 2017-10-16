@@ -18,6 +18,9 @@ public class SelectConsumables : MonoBehaviour {
     [Tooltip("Mines:[0], Grenades:[1], Caltrops[2]")]
     public bool[] currentValueC;
 
+    public bool nothingSelectedC = true;
+    public Text nothingSelectedCTxt;
+
     public GameObject currentSelectedConsumable;
 
     public Text dpsCText;
@@ -25,6 +28,11 @@ public class SelectConsumables : MonoBehaviour {
     public float dps;
 
     public int consumablesSelectIndex; //Mines:[0], Grenades:[1], Caltrops[2]
+
+    void Update()
+    {
+        NothingSelectedC();
+    }
 
     //Mines
     public void Option0()
@@ -188,5 +196,18 @@ public class SelectConsumables : MonoBehaviour {
         monsterTruck_Consumables[0].SetActive(false);
         monsterTruck_Consumables[1].SetActive(false);
         monsterTruck_Consumables[2].SetActive(false);
+    }
+
+    void NothingSelectedC()
+    {
+        if (nothingSelectedC)
+        {
+            nothingSelectedCTxt.enabled = true;
+            nothingSelectedCTxt.text = "select a consumable";
+        }
+        if (!nothingSelectedC)
+        {
+            nothingSelectedCTxt.enabled = false;
+        }
     }
 }
