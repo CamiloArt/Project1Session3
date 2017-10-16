@@ -11,6 +11,7 @@ public class SelectVehicle : MonoBehaviour {
 
     public Camera mainCamera;
     public GameObject selectedUI;
+    public GameObject unselectedUI;
 
     public Transform initialTransform;
     public Transform newTransform;
@@ -87,10 +88,12 @@ public class SelectVehicle : MonoBehaviour {
         if (selected)
         {
             selectedUI.SetActive(true);
+            unselectedUI.SetActive(false);
         }
         if (!selected)
         {
             selectedUI.SetActive(false);
+            unselectedUI.SetActive(true);
         }
     }
 }
