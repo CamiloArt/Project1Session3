@@ -23,6 +23,7 @@ public class RocketLauncher : MonoBehaviour {
 	}
 
 	void Update () {
+		
 		if (myPlayer.inBattle) {
 			if (!indexSetted) {
 				setIndex ();

@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 	private bool usedTurbo;
 	private float maxSpeed;
 	private Quaternion ankle;
+	public bool switchWeapon;
 
 	// Use this for initialization
 
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour {
 		terrainminDistance = 3f;
 		turboTime = 3f;
 		usedTurbo = false;
+		switchWeapon = false;
 	}
 	
 	// Update is called once per frame
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour {
 		if(gameEngine.gameState == "battlemap" && gameEngine.inBattle && myPlayer.inBattle){
 			SetDirection ();
 			getShootingAxis ();
+			getSwitchWeapon ();
 		}
 	}
 
@@ -129,6 +132,19 @@ public class PlayerController : MonoBehaviour {
 		if (Mathf.Abs (Input.GetAxis (myInput.hAxisName2)) > 0.2 || Mathf.Abs (Input.GetAxis (myInput.vAxisName2)) > 0.2) {
 			shooting = true;
 			shootingVector = new Vector3 (Input.GetAxisRaw (myInput.hAxisName2), 0, Input.GetAxisRaw (myInput.vAxisName2));
+		}
+	}
+	void getSwitchWeapon(){
+		if (Input.GetButtonDown (myInput.Ybutton)) {
+			if (switchWeapon) {
+				myPlayer.playerUnit.weapon2.SetActive (false);
+				myPlayer.playerUnit.weapon1.SetActive (true);
+				switchWeapon = false;
+			} else {
+				myPlayer.playerUnit.weapon1.SetActive (false);
+				myPlayer.playerUnit.weapon2.SetActive (true);
+				switchWeapon = true;
+			}
 		}
 	}
 	void CheckTerrains(){
