@@ -29,6 +29,11 @@ public class SelectConsumables : MonoBehaviour {
 
     public int consumablesSelectIndex; //Mines:[0], Grenades:[1], Caltrops[2]
 
+    void Start()
+    {
+        ResetConsumablesSelection();
+    }
+
     void Update()
     {
         NothingSelectedC();
@@ -52,6 +57,8 @@ public class SelectConsumables : MonoBehaviour {
 
             dps = 0.2f;
             dpsCText.text = "Mines Damage: " + dps.ToString();
+
+            nothingSelectedC = false;
         }
         if (applyValues.buggy_LookAt)
         {
@@ -67,6 +74,8 @@ public class SelectConsumables : MonoBehaviour {
 
             dps = 0.2f;
             dpsCText.text = "Mines Damage: " + dps.ToString();
+
+            nothingSelectedC = false;
         }
         if (applyValues.monsterTruck_LookAt)
         {
@@ -82,6 +91,9 @@ public class SelectConsumables : MonoBehaviour {
 
             dps = 0.2f;
             dpsCText.text = "Mines Damage: " + dps.ToString();
+
+
+            nothingSelectedC = false;
         }
     }
     //Grenades
@@ -102,6 +114,8 @@ public class SelectConsumables : MonoBehaviour {
 
             dps = 0.5f;
             dpsCText.text = "Grenades Damage: " + dps.ToString();
+
+            nothingSelectedC = false;
         }
         if (applyValues.buggy_LookAt)
         {
@@ -117,6 +131,8 @@ public class SelectConsumables : MonoBehaviour {
 
             dps = 0.5f;
             dpsCText.text = "Grenades Damage: " + dps.ToString();
+
+            nothingSelectedC = false;
         }
         if (applyValues.monsterTruck_LookAt)
         {
@@ -132,6 +148,8 @@ public class SelectConsumables : MonoBehaviour {
 
             dps = 0.5f;
             dpsCText.text = "Grenades Damage: " + dps.ToString();
+
+            nothingSelectedC = false;
         }
     }
     //Caltrops
@@ -152,6 +170,8 @@ public class SelectConsumables : MonoBehaviour {
 
             dps = 0.7f;
             dpsCText.text = "Caltrops Damage: " + dps.ToString();
+
+            nothingSelectedC = false;
         }
         if (applyValues.buggy_LookAt)
         {
@@ -167,6 +187,8 @@ public class SelectConsumables : MonoBehaviour {
 
             dps = 0.7f;
             dpsCText.text = "Caltrops Damage: " + dps.ToString();
+
+            nothingSelectedC = false;
         }
         if (applyValues.monsterTruck_LookAt)
         {
@@ -180,20 +202,22 @@ public class SelectConsumables : MonoBehaviour {
 
             dps = 0.7f;
             dpsCText.text = "Caltrops Damage: " + dps.ToString();
+
+            nothingSelectedC = false;
         }
     }
 
     public void ResetConsumablesSelection()
     {
-        muscleCar_Consumables[0].SetActive(false);
+        muscleCar_Consumables[0].SetActive(true);
         muscleCar_Consumables[1].SetActive(false);
         muscleCar_Consumables[2].SetActive(false);
 
-        buggy_Consumables[0].SetActive(false);
+        buggy_Consumables[0].SetActive(true);
         buggy_Consumables[1].SetActive(false);
         buggy_Consumables[2].SetActive(false);
 
-        monsterTruck_Consumables[0].SetActive(false);
+        monsterTruck_Consumables[0].SetActive(true);
         monsterTruck_Consumables[1].SetActive(false);
         monsterTruck_Consumables[2].SetActive(false);
     }

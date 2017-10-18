@@ -92,8 +92,14 @@ public class LoadManager : MonoBehaviour {
         loadToBattleMap = false;
         //[3](true);
     }
+
     public void LoadTo_BattleMap()
     {
         loadToBattleMap = true;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

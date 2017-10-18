@@ -53,13 +53,13 @@ public class ParentPlatform : MonoBehaviour {
             }
         }
         //Right
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !selectVehicle.selected)
         {
             rotate = true;
             PRotationAmount.y += PRotationAngle;
             direction = 1;
         }
-        if (Input.GetAxisRaw("X360_HorizontalDPad") == 1f)
+        if (Input.GetAxisRaw("X360_HorizontalDPad") == 1f && !selectVehicle.selected)
         {
             if (!axisInUse)
             {
