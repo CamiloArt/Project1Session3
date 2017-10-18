@@ -41,10 +41,10 @@ public class Unit : MonoBehaviour {
 		weapon2 = Instantiate (vehicleLib.weapon [0], weaponPos, Quaternion.identity, vehicle.gameObject.transform);
 		weapon2.SetActive (false);
 	}
-	public void UseConsumable(){
+	public void UseConsumable(Vector3 lastDir){
 		GameObject newConsumable;
 		Vector3 consumablePos = myPos.consumablePosition.position;
 		newConsumable = Instantiate (vehicleLib.consumable [consumableIndex], consumablePos, Quaternion.identity);
-		newConsumable.gameObject.SendMessage ("hello");
+		newConsumable.gameObject.SendMessage ("SetMe", lastDir);
 	}
 }

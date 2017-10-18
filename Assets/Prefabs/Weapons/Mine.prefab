@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65143218086196424}
   - component: {fileID: 135950926595890276}
   - component: {fileID: 114938650686833078}
+  - component: {fileID: 143971138737813960}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -87,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1307521876420916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: 0.1, z: 0}
+  m_LocalPosition: {x: 214.89093, y: 0.9547386, z: -14.99655}
   m_LocalScale: {x: 0.4, y: -0.04, z: 0.4}
   m_Children:
   - {fileID: 4943348490443810}
@@ -199,7 +200,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: 20
   myDamage: 1
-  myParticle: {fileID: 0}
+  myExplosion: {fileID: 1514033912629232, guid: 4b6374e14901e1c43b904a12ee76c94d,
+    type: 2}
+  delay: 1
+  currentTime: 0
 --- !u!135 &135950926595890276
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -212,6 +216,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!143 &143971138737813960
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307521876420916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.06
+  m_SlopeLimit: 45
+  m_StepOffset: 0.03
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198750132402769976
 ParticleSystem:
   m_ObjectHideFlags: 1

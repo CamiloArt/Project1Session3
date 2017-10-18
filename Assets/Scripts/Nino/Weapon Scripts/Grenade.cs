@@ -6,23 +6,36 @@ public class Grenade : MonoBehaviour {
 	
 	public float thrust;
 	public Rigidbody rb;
-	private Vector3 throwDirection;
+	public Vector3 throwDirection;
+	public GameObject myExplosion;
 	public float timer;
+	public float myDamage;
 
 	// Use this for initialization
 	void Start () {
-
-		rb = GetComponent<Rigidbody>();
 		//throwDirection = pl.lastDirection * -thrust;
-		rb.AddForce(throwDirection, ForceMode.Impulse);
-		Destroy (gameObject, timer);
-
 	}
 
 	void Update(){
-	
-		if (timer <= 1)
+		timer -= Time.deltaTime;
+		if (timer <= 2.5)
 			GetComponent<SphereCollider> ().enabled = true;
+		if (timer <= 0) {
+			Instantiate (myExplosion, gameObject.transform.position, Quaternion.identity);
+			Destroy (gameObject);
+		}
+	}
+	public void SetMe(Vector3 playerDir){
+		throwDirection = new Vector3 (-playerDir.x, 1f, -playerDir.z * 2);
+		rb.AddForce((throwDirection * 6), ForceMode.Impulse);
+	}
+	void OnTriggerEnter(Collider col){
+		if (col.gameObject.tag == "Player") {
+			Player colPlayer = col.gameObject.GetComponent<Player> ();
+			colPlayer.playerUnit.health.ReceiveDamage (myDamage);
+			Instantiate (myExplosion, gameObject.transform.position, Quaternion.identity);
+			Destroy (gameObject);
+		}
 	}
 }
 

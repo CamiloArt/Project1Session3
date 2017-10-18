@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour {
 	private Quaternion ankle;
 	public bool switchWeapon;
 
+	private bool consBool;
+	private bool consBool2;
+
 	// Use this for initialization
 
 	void Awake () {
@@ -42,6 +45,7 @@ public class PlayerController : MonoBehaviour {
 		turboTime = 3f;
 		usedTurbo = false;
 		switchWeapon = false;
+		consBool = false;
 	}
 	
 	// Update is called once per frame
@@ -146,9 +150,14 @@ public class PlayerController : MonoBehaviour {
 				switchWeapon = true;
 			}
 		}
-//		if (Mathf.Abs(Input.GetAxis (myInput.trigger)) > 0.2) {
-//			myPlayer.playerUnit.UseConsumable();
-//		}
+		if (Mathf.Abs (Input.GetAxisRaw (myInput.trigger2)) > 0.2 && !consBool) {
+			myPlayer.playerUnit.UseConsumable (direction);
+			consBool = true;
+		}
+		if (Mathf.Abs (Input.GetAxisRaw (myInput.trigger2)) < 0.2 && consBool)
+		{
+			consBool = false;
+		}
 	}
 	void CheckTerrains(){
 		GameObject[] terrains = GameObject.FindGameObjectsWithTag ("Terrain");
