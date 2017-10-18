@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour {
 		if (Mathf.Abs (Input.GetAxis (myInput.hAxisName)) > 0.2 || Mathf.Abs (Input.GetAxis (myInput.vAxisName)) > 0.2) {
 			pressing = true;
 		}
-		if (Input.GetAxis (myInput.trigger) > 0.2 && turboTime > 0) {
+		if (Input.GetAxisRaw (myInput.trigger) > 0.2 && turboTime > 0) {
 			if (!usedTurbo) {
 				myPlayer.playerUnit.speed.currentSpeed = myPlayer.playerUnit.speed.turboSpeed;
 				usedTurbo = true;
