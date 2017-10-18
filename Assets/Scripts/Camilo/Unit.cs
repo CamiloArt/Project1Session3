@@ -16,6 +16,7 @@ public class Unit : MonoBehaviour {
 	public Fuel fuel;
 	public Range range;
 	public Player player;
+	private carWeapon myPos;
 
 	public bool isAlive;
 
@@ -34,10 +35,16 @@ public class Unit : MonoBehaviour {
 	public void LoadModels(){
 		vehicle = Instantiate(vehicleLib.car[vehicleIndex], gameObject.transform.position, Quaternion.identity, gameObject.transform);
 		Vector3 weaponPos;
-		carWeapon myPos = vehicle.gameObject.GetComponent<carWeapon> ();
+		myPos = vehicle.gameObject.GetComponent<carWeapon> ();
 		weaponPos = myPos.weaponPosition.position;
 		weapon1 = Instantiate (vehicleLib.weapon [weaponIndex], weaponPos, Quaternion.identity, vehicle.gameObject.transform);
 		weapon2 = Instantiate (vehicleLib.weapon [0], weaponPos, Quaternion.identity, vehicle.gameObject.transform);
 		weapon2.SetActive (false);
+	}
+	public void UseConsumable(){
+		GameObject newConsumable;
+		Vector3 consumablePos = myPos.consumablePosition.position;
+		newConsumable = Instantiate (vehicleLib.consumable [consumableIndex], consumablePos, Quaternion.identity);
+		newConsumable.gameObject.SendMessage ("hello");
 	}
 }

@@ -117,23 +117,23 @@ public class Turf : MonoBehaviour {
 			}
 		}
 
-		SetColor ();
+//		SetColor ();
 	}
-	void SetColor(){
-		switch (owner) {
-		case OwnerNames.BlueTeam:
-			flagRender.material.shader = Shader.Find("Specular");
-			//set Blue color;
-			break;
-		case OwnerNames.Neutral:
-			flagRender.material.shader = Shader.Find("Specular");
-			//set Blue color;
-			break;
-		case OwnerNames.RedTeam:
-			flagRender.material.shader = Shader.Find("Specular");
-			//set Blue color;
-			break;
-
-		}
-	}
+//	void SetColor(){
+//		switch (owner) {
+//		case OwnerNames.BlueTeam:
+//			flagRender.material.shader = Shader.Find("Specular");
+//			//set Blue color;
+//			break;
+//		case OwnerNames.Neutral:
+//			flagRender.material.shader = Shader.Find("Specular");
+//			//set Blue color;
+//			break;
+//		case OwnerNames.RedTeam:
+//			flagRender.material.shader = Shader.Find("Specular");
+//			//set Blue color;
+//			break;
+//
+//		}
+//	}
 }

@@ -146,6 +146,9 @@ public class PlayerController : MonoBehaviour {
 				switchWeapon = true;
 			}
 		}
+//		if (Mathf.Abs(Input.GetAxis (myInput.trigger)) > 0.2) {
+//			myPlayer.playerUnit.UseConsumable();
+//		}
 	}
 	void CheckTerrains(){
 		GameObject[] terrains = GameObject.FindGameObjectsWithTag ("Terrain");

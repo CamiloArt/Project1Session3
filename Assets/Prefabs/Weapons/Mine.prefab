@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23469817483097508}
   - component: {fileID: 65143218086196424}
   - component: {fileID: 135950926595890276}
+  - component: {fileID: 114938650686833078}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -185,6 +186,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &114938650686833078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307521876420916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02544c7cd2ed6443bab0750b6109bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 20
+  myDamage: 1
+  myParticle: {fileID: 0}
 --- !u!135 &135950926595890276
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class carWeapon : MonoBehaviour {
 	public Transform weaponPosition;
-	public Transform machineGunPosition;
+	public Transform consumablePosition;
 	public GameObject weapon;
+
 	// Use this for initialization
 	void Start () {
 		

@@ -4,44 +4,24 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour {
 	
-	public float gravity = 20.0F;
+	public float gravity;
 	private Vector3 moveDirection = Vector3.zero;
-	// Update is called once per frame
-
-	public enum Team {
-
-		blue,
-		red,
-		nbteam,
-		invalid
-	}
-
-	public Team team = Team.invalid;
-
-	private string Trigger;
-
-	void Start () {
-		switch (team) {
-		case Team.blue:
-			Trigger = "BlueRightTrigger";
-			break;
-		case Team.red:
-			Trigger = "RedRightTrigger";
-			break;
-		}
-	}
-
-
+	public float myDamage;
+	public ParticleSystem myParticle;
 
 	void Update () {
 		CharacterController cc = GetComponent<CharacterController>();
-		if (cc.isGrounded) {
-			
+		if (!cc.isGrounded) {
+			moveDirection.y -= gravity * Time.deltaTime;
+			cc.Move (moveDirection * Time.deltaTime);
 		}
-		moveDirection.y -= gravity * Time.deltaTime;
-		cc.Move(moveDirection * Time.deltaTime);
 	}
-
+	void OnTriggerEnter(Collider col){
+		if (col.gameObject.tag == "Player") {
+			col.gameObject.SendMessage ("ReceiveDamage", myDamage);
+			myParticle.Play ();
+		}
+	}
 
 
 }

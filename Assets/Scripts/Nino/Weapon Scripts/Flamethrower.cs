@@ -9,6 +9,7 @@ public class Flamethrower : MonoBehaviour {
 	public float timelimit;
 	public float coolDown;
 	private float currentTime;
+	public ParticleSystem myParticle;
 
 	void Start () {
 		myPlayer = gameObject.GetComponentInParent<Player> ();
@@ -18,8 +19,10 @@ public class Flamethrower : MonoBehaviour {
 	void Update () {
 		if (myPlayer.myController.shooting) {
 			flamer.SetActive (true);
+			myParticle.Play ();
 		} else {
 			flamer.SetActive (false);
+			myParticle.Stop ();
 		}
 		if (myPlayer.myController.shootingVector != Vector3.zero)
 			transform.rotation = Quaternion.LookRotation(myPlayer.myController.shootingVector);
