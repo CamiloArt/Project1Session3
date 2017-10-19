@@ -17,6 +17,9 @@ public class Unit : MonoBehaviour {
 	public Range range;
 	public Player player;
 	private carWeapon myPos;
+	public bool inCaltrops;
+	public float caltropsCooldown;
+	public float caltropsTime;
 
 	public bool isAlive;
 
@@ -24,6 +27,7 @@ public class Unit : MonoBehaviour {
 	void Start () {
 		isAlive = true;
         vehicleLib = GameObject.FindGameObjectWithTag("Finish").GetComponent<Vehicles>();
+		player = gameObject.GetComponentInParent<Player> ();
 	}
 	
 	// Update is called once per frame
@@ -31,12 +35,20 @@ public class Unit : MonoBehaviour {
 		if (health.currentHp <= 0) {
 			isAlive = false;
 		}
+		if (inCaltrops) {
+			caltropsTime -= Time.deltaTime;
+		}
+		if (caltropsTime < 0) {
+			inCaltrops = false;
+		}
 	}
 	public void LoadModels(){
 		vehicle = Instantiate(vehicleLib.car[vehicleIndex], gameObject.transform.position, Quaternion.identity, gameObject.transform);
 		Vector3 weaponPos;
 		myPos = vehicle.gameObject.GetComponent<carWeapon> ();
 		weaponPos = myPos.weaponPosition.position;
+		myPos.teamColor = player.playerTeam.teamColor.ToString ();
+		myPos.SetColor ();
 		weapon1 = Instantiate (vehicleLib.weapon [weaponIndex], weaponPos, Quaternion.identity, vehicle.gameObject.transform);
 		weapon2 = Instantiate (vehicleLib.weapon [0], weaponPos, Quaternion.identity, vehicle.gameObject.transform);
 		weapon2.SetActive (false);
@@ -44,7 +56,12 @@ public class Unit : MonoBehaviour {
 	public void UseConsumable(Vector3 lastDir){
 		GameObject newConsumable;
 		Vector3 consumablePos = myPos.consumablePosition.position;
-		newConsumable = Instantiate (vehicleLib.consumable [consumableIndex], consumablePos, Quaternion.identity);
-		newConsumable.gameObject.SendMessage ("SetMe", lastDir);
+		newConsumable = Instantiate (vehicleLib.consumable [consumableIndex], consumablePos, player.gameObject.transform.rotation);
+		if(consumableIndex == 1)
+			newConsumable.gameObject.SendMessage ("SetMe", lastDir);
+	}
+	public void CaltropsEnter(){
+		inCaltrops = true;
+		caltropsTime = caltropsCooldown;
 	}
 }

@@ -107,7 +107,11 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 		else {
-			maxSpeed = myPlayer.playerUnit.speed.maxSpeed;
+			if (myPlayer.playerUnit.inCaltrops) {
+				maxSpeed = myPlayer.playerUnit.speed.maxSpeed - myPlayer.playerUnit.speed.caltropsReducer;
+			} else {
+				maxSpeed = myPlayer.playerUnit.speed.maxSpeed;
+			}
 		}
 		if (pressing) {
 			myPlayer.playerUnit.speed.currentSpeed += myPlayer.playerUnit.speed.speedMultiplier;

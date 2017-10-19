@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4419595538373552}
   - component: {fileID: 198513746291165002}
+  - component: {fileID: 114815913060310876}
   - component: {fileID: 199151994880689234}
   m_Layer: 0
   m_Name: Caltrops
@@ -49,13 +50,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651742300130654}
-  m_LocalRotation: {x: -0.17364825, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: -0.75, y: 0.32, z: 28.71}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4487489715759824}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!4 &4487489715759824
 Transform:
   m_ObjectHideFlags: 1
@@ -63,13 +64,26 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065763547503468}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.11, y: 0.62, z: 0.52333117}
+  m_LocalPosition: {x: -32.681396, y: 0.6059103, z: -214.15166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4419595538373552}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &114815913060310876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1651742300130654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a000a09f14e2d4b981481a1d52dfd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caltropsParticles: {fileID: 198513746291165002}
+  activationTime: 0.2
 --- !u!198 &198513746291165002
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -129,7 +143,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2144611291
+  randomSeed: 1546045085
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2537,14 +2551,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 10000
-    radiusScale: 1
+    radiusScale: 10
     collidesWith:
       serializedVersion: 2
       m_Bits: 4294967295
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -2555,7 +2569,7 @@ ParticleSystem:
     collisionShape3: {fileID: 0}
     collisionShape4: {fileID: 0}
     collisionShape5: {fileID: 0}
-    inside: 1
+    inside: 0
     outside: 0
     enter: 0
     exit: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -158,7 +158,9 @@ MonoBehaviour:
   - {fileID: 1423917430836260, guid: 630268d333fb5dc41b06374f7452dfbb, type: 2}
   - {fileID: 1935153028207422, guid: a8ecb8c7ad1e0854787509be86ed30f9, type: 2}
   consumable:
-  - {fileID: 0}
+  - {fileID: 1307521876420916, guid: 666c219570d03654abc8f7c4b982ea8c, type: 2}
+  - {fileID: 1919042825546182, guid: de7b14d80ed14ba46bb880ea4fa821ef, type: 2}
+  - {fileID: 1065763547503468, guid: caf3c4dd9efb4374c87f250e350766b8, type: 2}
 --- !u!1 &28566828
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +568,9 @@ MonoBehaviour:
   fuel: {fileID: 57438798}
   range: {fileID: 57438797}
   player: {fileID: 279275052}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &57438802
 MonoBehaviour:
@@ -585,6 +590,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!1 &60124688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3074,7 +3080,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5358,6 +5364,7 @@ MonoBehaviour:
   gameState: 
   mapCamera: {fileID: 2032403328}
   battleCamera: {fileID: 1585636469}
+  explosion: {fileID: 1514033912629232, guid: 4b6374e14901e1c43b904a12ee76c94d, type: 2}
   currentPlayerPos: {fileID: 1865128592}
   battlePlayerPos: {fileID: 1761269380}
   battleMapPoint1: {fileID: 1697392123}
@@ -5376,6 +5383,7 @@ Transform:
   - {fileID: 1865128592}
   - {fileID: 1761269380}
   - {fileID: 13646571}
+  - {fileID: 2077199717}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -5950,7 +5958,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6222,6 +6230,9 @@ MonoBehaviour:
   fuel: {fileID: 649909391}
   range: {fileID: 649909390}
   player: {fileID: 88106713}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &649909395
 MonoBehaviour:
@@ -6241,6 +6252,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!1 &655332188
 GameObject:
   m_ObjectHideFlags: 0
@@ -6540,6 +6552,9 @@ MonoBehaviour:
   fuel: {fileID: 668933825}
   range: {fileID: 668933824}
   player: {fileID: 1100612703}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &668933829
 MonoBehaviour:
@@ -6559,6 +6574,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!114 &672808775 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114174151608891982, guid: de8b70362fb567143be8460bf20fe2e2,
@@ -6683,6 +6699,9 @@ MonoBehaviour:
   fuel: {fileID: 675300394}
   range: {fileID: 675300393}
   player: {fileID: 378406327}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &675300398
 MonoBehaviour:
@@ -6702,6 +6721,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!1 &677412578
 GameObject:
   m_ObjectHideFlags: 0
@@ -7493,6 +7513,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!114 &724250598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7582,6 +7603,9 @@ MonoBehaviour:
   fuel: {fileID: 724250600}
   range: {fileID: 724250598}
   player: {fileID: 0}
+  inCaltrops: 0
+  caltropsCooldown: 0
+  caltropsTime: 0
   isAlive: 0
 --- !u!135 &724250603
 SphereCollider:
@@ -10935,6 +10959,9 @@ MonoBehaviour:
   fuel: {fileID: 1087752862}
   range: {fileID: 1087752861}
   player: {fileID: 126598942}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &1087752866
 MonoBehaviour:
@@ -10954,6 +10981,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!1 &1094780259
 GameObject:
   m_ObjectHideFlags: 0
@@ -11353,7 +11381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1133273196
 Transform:
   m_ObjectHideFlags: 0
@@ -11735,7 +11763,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11902,7 +11930,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12909,7 +12937,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13210,6 +13238,9 @@ MonoBehaviour:
   fuel: {fileID: 1316774181}
   range: {fileID: 1316774180}
   player: {fileID: 341132464}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &1316774185
 MonoBehaviour:
@@ -13229,6 +13260,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!1 &1321856519
 GameObject:
   m_ObjectHideFlags: 0
@@ -13742,7 +13774,7 @@ Transform:
   - {fileID: 1718326229}
   - {fileID: 947796342}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1381466566
 GameObject:
@@ -13862,6 +13894,9 @@ MonoBehaviour:
   fuel: {fileID: 1381466569}
   range: {fileID: 1381466568}
   player: {fileID: 89440615}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &1381466573
 MonoBehaviour:
@@ -13881,6 +13916,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!1001 &1386975405
 Prefab:
   m_ObjectHideFlags: 0
@@ -13918,7 +13954,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4952083851673004, guid: c30fa654d12a43442a90fe1ff19b4861, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c30fa654d12a43442a90fe1ff19b4861, type: 2}
@@ -13965,7 +14001,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14313,6 +14349,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!114 &1456298446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14402,6 +14439,9 @@ MonoBehaviour:
   fuel: {fileID: 1456298448}
   range: {fileID: 1456298446}
   player: {fileID: 0}
+  inCaltrops: 0
+  caltropsCooldown: 0
+  caltropsTime: 0
   isAlive: 0
 --- !u!135 &1456298451
 SphereCollider:
@@ -16184,7 +16224,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -17010,6 +17050,9 @@ MonoBehaviour:
   fuel: {fileID: 1734463253}
   range: {fileID: 1734463252}
   player: {fileID: 1121512147}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &1734463252
 MonoBehaviour:
@@ -17099,6 +17142,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!1 &1747280515
 GameObject:
   m_ObjectHideFlags: 0
@@ -17217,6 +17261,9 @@ MonoBehaviour:
   fuel: {fileID: 1747280518}
   range: {fileID: 1747280517}
   player: {fileID: 1206887702}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &1747280522
 MonoBehaviour:
@@ -17236,6 +17283,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!1 &1752786632
 GameObject:
   m_ObjectHideFlags: 0
@@ -17365,6 +17413,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!114 &1753373721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17454,6 +17503,9 @@ MonoBehaviour:
   fuel: {fileID: 1753373723}
   range: {fileID: 1753373721}
   player: {fileID: 0}
+  inCaltrops: 0
+  caltropsCooldown: 0
+  caltropsTime: 0
   isAlive: 0
 --- !u!135 &1753373726
 SphereCollider:
@@ -17631,7 +17683,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -18613,6 +18665,9 @@ MonoBehaviour:
   fuel: {fileID: 1900812997}
   range: {fileID: 1900812996}
   player: {fileID: 1248044793}
+  inCaltrops: 0
+  caltropsCooldown: 1
+  caltropsTime: 0
   isAlive: 0
 --- !u!114 &1900813001
 MonoBehaviour:
@@ -18632,6 +18687,7 @@ MonoBehaviour:
   currentSpeed: 0
   speedDampener: 0.2
   speedMultiplier: 0.5
+  caltropsReducer: 0
 --- !u!1 &1906330091
 GameObject:
   m_ObjectHideFlags: 0
@@ -20183,7 +20239,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -24051,6 +24107,61 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2071892780}
+--- !u!1 &2077199716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2077199717}
+  - component: {fileID: 2077199718}
+  m_Layer: 0
+  m_Name: levelLibrary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2077199717
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077199716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 576423957}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2077199718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077199716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82fef44af8345e6438aba737121cbacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - 0
+  - 100
+  - 250
+  - 500
+  - 900
+  - 1300
+  - 1800
+  - 2400
+  - 3100
+  - 4000
+  killExperience: 100
+  takeTurfExperience: 150
+  neutralizeExperience: 75
+  damageExperience: 5
 --- !u!1 &2081308916
 GameObject:
   m_ObjectHideFlags: 0
@@ -24252,7 +24363,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.384, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

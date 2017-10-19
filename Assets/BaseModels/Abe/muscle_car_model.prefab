@@ -942,7 +942,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1135606593680730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 203.54924, y: 2.8680058, z: -12.597369}
+  m_LocalPosition: {x: 193.96562, y: 63.708538, z: -111.7319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4672183758136332}
@@ -2230,3 +2230,7 @@ MonoBehaviour:
   weaponPosition: {fileID: 4553709165355722}
   consumablePosition: {fileID: 4478148011310024}
   weapon: {fileID: 0}
+  mySkyn: {fileID: 1193956746310582}
+  teamColor: 
+  red: {fileID: 2100000, guid: 2c748037a449001469a21160e3f9dca1, type: 2}
+  blue: {fileID: 2100000, guid: 57e94186448598344a772ce2939da11c, type: 2}

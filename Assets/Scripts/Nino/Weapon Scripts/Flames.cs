@@ -21,7 +21,6 @@ public class Flames : MonoBehaviour {
 			playerOnHit = player.GetComponent<Player> ();
 			if (playerOnHit.playerTeam.teamColor.ToString () != myPlayer.playerTeam.teamColor.ToString ())
 				playerOnHit.playerUnit.health.ReceiveDamage (damage);
-			Debug.Log ("Entered");
 
 		}
 	}

@@ -11,10 +11,11 @@ public class Speed : MonoBehaviour {
 	public float currentSpeed;
 	public float speedDampener;
 	public float speedMultiplier;
+	public float caltropsReducer;
 
 	// Use this for initialization
 	void Start () {
-		
+		caltropsReducer = 15;
 	}
 	
 	// Update is called once per frame

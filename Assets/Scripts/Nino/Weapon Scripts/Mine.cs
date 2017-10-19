@@ -32,11 +32,6 @@ public class Mine : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
-	public void SetMe(){
-		
-	}
-
-
 }
 
 

@@ -43,6 +43,7 @@ public class GameEngine : MonoBehaviour {
 	public GameObject mapCamera;
 	//Battle map cameras
 	public GameObject battleCamera;
+	public GameObject explosion;
 	//Camera Switch
 	private bool camSwitch;
 	//BattleMap Variables
@@ -244,7 +245,7 @@ public class GameEngine : MonoBehaviour {
 		}
 	}
 	public void DamageLeader( Transform leaderPosition){
-		//instantiate an explosion on the leader position
+		Instantiate (explosion, leaderPosition.position, Quaternion.identity);
 		gameState = "DamagingLeader";
 		playerInRangeIndex = currentPlayer.playerInRange;
 		players [playerInRangeIndex].playerUnit.health.ReceiveDamage (currentPlayer.playerUnit.damage);
