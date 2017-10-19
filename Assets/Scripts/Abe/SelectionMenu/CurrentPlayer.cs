@@ -20,7 +20,7 @@ public class CurrentPlayer : MonoBehaviour {
         {
             currentPlayer.text = "Leader 2";
         }
-        if (gameEngine.playerTurnNum < 6 || gameEngine.playerTurnNum > 6)
+        if (gameEngine.playerTurnNum < 6 && gameEngine.playerTurnNum > 1 || gameEngine.playerTurnNum > 6)
         {
             currentPlayer.text = "Player " + gameEngine.playerTurnNum.ToString();
         }

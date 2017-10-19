@@ -4,49 +4,49 @@ using UnityEngine;
 
 public class MainMenuTransition : MonoBehaviour {
 
-    public Vector3 targetAngle = new Vector3(0f, -100f, 0f);
+    public Vector3 targetAngle = new Vector3(0f, -170f, 0f);
     public Vector3 currentAngle;
 
     public float speed = 0.1f;
 
-    public bool transitionToCredits = false;
-    public bool creditsActive = false;
+    bool lerpRight = false;
+    bool lerpLeft = false;
 
     void Start()
     {
         currentAngle = transform.eulerAngles;
     }
 
-	void Update () 
+    void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("X360_HorizontalDPad") == 1f)//Right
+        if (lerpRight)
         {
-            transitionToCredits = true;
-            if (transitionToCredits && !creditsActive)
-            {
-                creditsActive = true;
-                currentAngle = new Vector3(
-                    Mathf.LerpAngle(currentAngle.x, targetAngle.x, Time.deltaTime),
-                    Mathf.LerpAngle(currentAngle.y, targetAngle.y, Time.deltaTime),
-                    Mathf.LerpAngle(currentAngle.z, targetAngle.z, Time.deltaTime));
+            lerpLeft = false;
+            currentAngle = new Vector3(
+                Mathf.LerpAngle(currentAngle.x, targetAngle.x, Time.deltaTime),
+                Mathf.LerpAngle(currentAngle.y, targetAngle.y, Time.deltaTime),
+                Mathf.LerpAngle(currentAngle.z, targetAngle.z, Time.deltaTime));
 
-                transform.eulerAngles = currentAngle;
-            }
+            transform.eulerAngles = currentAngle;
         }
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("X360_HorizontalDPad") == -1f)//Left
+        if (lerpLeft)
         {
-            transitionToCredits = false;
-            if (!transitionToCredits && creditsActive)
-            {
-                creditsActive = false;
-                currentAngle = new Vector3(
-                    Mathf.LerpAngle(currentAngle.x, 0f, Time.deltaTime),
-                    Mathf.LerpAngle(currentAngle.y, 0f, Time.deltaTime),
-                    Mathf.LerpAngle(currentAngle.z, 0f, Time.deltaTime));
+            lerpRight = false;
+            currentAngle = new Vector3(
+                Mathf.LerpAngle(currentAngle.x, 0f, Time.deltaTime),
+                Mathf.LerpAngle(currentAngle.y, 0f, Time.deltaTime),
+                Mathf.LerpAngle(currentAngle.z, 0f, Time.deltaTime));
 
-                transform.eulerAngles = currentAngle;
-
-            }
+            transform.eulerAngles = currentAngle;
         }
-	}
+    }
+
+    public void LerpPosRight()
+    {
+        lerpRight = true;
+    }
+    public void LerpPosLeft()
+    {
+        lerpLeft = true;
+    }
 }
