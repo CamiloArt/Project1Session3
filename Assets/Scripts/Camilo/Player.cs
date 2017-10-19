@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	public int playerInRange;
 	public bool inBattle;
 	public PlayerController myController;
+	public levelMannager myLvl;
 
 	public enum playerType{
 		Leader,
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		myController = gameObject.GetComponent<PlayerController>();
+		myLvl = gameObject.GetComponent<levelMannager> ();
 		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
 		inBattle = false;
 	}
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour {
 		playerUnit.isAlive = true;
 		playerUnit.health.currentHp = playerUnit.health.initialHp;
 		gameObject.transform.position = respawnPosition.position;
+		myLvl.myExperience = 0;
 	}
 	public void CheckEnemies(){
 		for (int i = 0; i < gameEngine.players.Length; i++) {

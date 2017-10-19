@@ -56,6 +56,8 @@ public class GameEngine : MonoBehaviour {
     private bool playerSelected;
 	public bool modelsLoaded;
 
+	public levelLibrary lvlLib;
+
 	void Awake(){
 		combatEngine = gameObject.GetComponent<CombatEngine> ();
 	}
@@ -229,6 +231,8 @@ public class GameEngine : MonoBehaviour {
 				moveDirection = players [playerInRangeIndex].gameObject.transform.position - players [currentPlayerIndex].gameObject.transform.position;
 				moveDirection = moveDirection.normalized;
 				looserController.Move (moveDirection * Time.deltaTime * looserSpeed);
+
+
 			} else {
 				looserController = players [combatEngine.looserIndex].gameObject.GetComponent<CharacterController> ();
 				moveDirection = players [combatEngine.looserIndex].gameObject.transform.position - players [combatEngine.winnerIndex].gameObject.transform.position;
@@ -239,6 +243,18 @@ public class GameEngine : MonoBehaviour {
 		combatCounter = combatTime;
 		prevTime -= Time.deltaTime;
 		if (prevTime <= 0) {
+			if (!combatEngine.playerDied) {
+				if (combatEngine.draw) {
+					players [playerInRangeIndex].myLvl.myExperience += combatEngine.player2DamageDealt * lvlLib.damageExperience;
+					players [currentPlayerIndex].myLvl.myExperience += combatEngine.player1DamageDealt * lvlLib.damageExperience;
+				} else {
+					players [combatEngine.looserIndex].myLvl.myExperience += combatEngine.player2DamageDealt * lvlLib.damageExperience;
+					players [combatEngine.winnerIndex].myLvl.myExperience += (combatEngine.player1DamageDealt * lvlLib.damageExperience) + lvlLib.winExperience;
+				}
+			} else {
+
+				players [combatEngine.winnerIndex].myLvl.myExperience += (combatEngine.player1DamageDealt * lvlLib.damageExperience) + lvlLib.killExperience;
+			}
 			prevTime = timeIntro;
 			gameState = "strategyMap";
 			EndPlayerTurn ();

@@ -8,9 +8,11 @@ public class Health : MonoBehaviour {
 	public float currentHp;
 	public float initialHp;        
 	public bool isDead;
+	public Armor myArmor;
 	// Use this for initialization
 	void Start () {
 		currentHp = initialHp;
+		myArmor = gameObject.GetComponent<Armor> ();
 	}
 	
 	// Update is called once per frame
@@ -25,6 +27,6 @@ public class Health : MonoBehaviour {
 		isDead = true;
 	}
 	public void ReceiveDamage(float damageTaken){
-		currentHp -= damageTaken;
+		currentHp -= (damageTaken -(damageTaken* (myArmor.currentArmor/10)));
 	}
 }
