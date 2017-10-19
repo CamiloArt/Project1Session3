@@ -15,18 +15,9 @@ public class LeaderSelectionOption : MonoBehaviour {
         if (gameEngine.playerTurnNum == 1 || gameEngine.playerTurnNum == 6)
         {
             selectableUIElements.SetActive(false);
-            if (applyValues.muscleCar_LookAt)
-            {
-                leaderSkull[0].SetActive(true);
-            }
-            if (applyValues.buggy_LookAt)
-            {
-                leaderSkull[1].SetActive(true);
-            }
-            if (applyValues.monsterTruck_LookAt)
-            {
-                leaderSkull[2].SetActive(true);
-            }
+            leaderSkull[0].SetActive(true);
+            leaderSkull[1].SetActive(true);
+            leaderSkull[2].SetActive(true);
         }
         else
         {
