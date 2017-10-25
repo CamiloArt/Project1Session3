@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour {
 	private Player myPlayer;
 	private GameEngine gameEngine;
 	private PlayerInputs myInput;
+	public ParticleSystem myDust; 
 
 	public CharacterController playerCc;
 	public Vector3 mapDirection;
 	public float magnitude;
 	float terrainminDistance;
+	public bool pressingTime;
 
 	//combat variables
 	public float gravity;
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 		usedTurbo = false;
 		switchWeapon = false;
 		consBool = false;
+		myDust.Stop ();
 	}
 	
 	// Update is called once per frame
@@ -53,24 +56,34 @@ public class PlayerController : MonoBehaviour {
 		shooting = false;
 		if (gameEngine.gameState == "strategyMap" && gameEngine.startTurn) {
 			if (gameEngine.currentPlayer.playerTurn == myPlayer.playerTurn) {
+				pressingTime = false;
 				myPlayer = gameEngine.currentPlayer;
 				playerCc = myPlayer.gameObject.GetComponent<CharacterController> ();
 				MovePlayerMainMap ();
 			}
 		}
-		if(gameEngine.gameState == "battlemap" && gameEngine.inBattle && myPlayer.inBattle){
+		else if(gameEngine.gameState == "battlemap" && gameEngine.inBattle && myPlayer.inBattle){
 			SetDirection ();
 			getShootingAxis ();
 			getSwitchWeapon ();
+		}
+		else{
+			myDust.Stop ();
 		}
 	}
 
 	void MovePlayerMainMap(){
 		this.mapDirection = Vector3.zero;
-		if (Mathf.Abs(Input.GetAxis(myInput.hAxisName)) > 0.2 || Mathf.Abs(Input.GetAxis (myInput.vAxisName)) > 0.2) {
-			mapDirection += new Vector3 (Input.GetAxis (myInput.hAxisName),0f,Input.GetAxis (myInput.vAxisName));
+		if (Mathf.Abs (Input.GetAxis (myInput.hAxisName)) > 0.2 || Mathf.Abs (Input.GetAxis (myInput.vAxisName)) > 0.2) {
+			mapDirection += new Vector3 (Input.GetAxis (myInput.hAxisName), 0f, Input.GetAxis (myInput.vAxisName));
 			ApplyMovement ();
-			}
+			myDust.Play ();
+		} else {
+			myDust.Stop ();
+		}
+		if (Input.GetButton (myInput.Ybutton)) {
+			pressingTime = true;
+		}
 	}
 
 	void ApplyMovement(){
@@ -88,6 +101,9 @@ public class PlayerController : MonoBehaviour {
 		pressing = false;
 		if (Mathf.Abs (Input.GetAxis (myInput.hAxisName)) > 0.2 || Mathf.Abs (Input.GetAxis (myInput.vAxisName)) > 0.2) {
 			pressing = true;
+			myDust.Play ();
+		} else {
+			myDust.Stop ();
 		}
 		if (Input.GetAxisRaw (myInput.trigger) > 0.2 && turboTime > 0) {
 			if (!usedTurbo) {

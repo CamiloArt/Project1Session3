@@ -145,7 +145,7 @@ public class GameEngine : MonoBehaviour {
 		if (timeCounter == timeLimit) {
 			currentPlayer.playerUnit.fuel.currentFuel = currentPlayer.playerUnit.fuel.maxFuel;
 		}
-		if(Input.GetKey(KeyCode.G)){
+		if(currentPlayer.myController.pressingTime){
 			timeMultiplier = 3;
 		}
 		//timer decreasing during the turn

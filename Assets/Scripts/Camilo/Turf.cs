@@ -7,6 +7,7 @@ public class Turf : MonoBehaviour {
 	public float minDistance;
 	public GameEngine gameEngine;
 	public GameObject flag;
+	public ParticleSystem baseParticle, takingParticle;
 	private Renderer flagRender;
 	private bool blueLeader;
 	private int blueGuardsCounter;
@@ -26,6 +27,7 @@ public class Turf : MonoBehaviour {
 	void Awake () {
 		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
 		flagRender = flag.GetComponent<Renderer> ();
+		takingParticle.Stop ();
 	}
 	void Start(){
 		owner = OwnerNames.Neutral;
@@ -76,58 +78,76 @@ public class Turf : MonoBehaviour {
 		float prevCounter = teamCounter;
 		switch (owner) {
 		case OwnerNames.BlueTeam:
-			if(redLeader && !blueLeader){
-				teamCounter--;				
-			}else if(redGuardsCounter > 0 && blueGuardsCounter == 0 && !blueLeader){
+			if (redLeader && !blueLeader) {
 				teamCounter--;
+				takingParticle.Play ();
+			} else if (redGuardsCounter > 0 && blueGuardsCounter == 0 && !blueLeader) {
+				teamCounter--;
+				takingParticle.Play ();
+			} else {
+				takingParticle.Stop ();
 			}
 			break;
 		case OwnerNames.Neutral:
 			if(redLeader && !blueLeader){
-				teamCounter--;				
+				teamCounter--;	
+				takingParticle.Play ();
 			}else if(!redLeader && blueLeader){
 				teamCounter++;
+				takingParticle.Play ();
+			} else {
+				takingParticle.Stop ();
 			}
 			break;
 		case OwnerNames.RedTeam:
 			if(!redLeader && blueLeader){
-				teamCounter++;				
+				teamCounter++;
+				takingParticle.Play ();
 			}else if(redGuardsCounter == 0 && blueGuardsCounter > 0 &&!redLeader){
 				teamCounter++;
+				takingParticle.Play ();
+			} else {
+				takingParticle.Stop ();
 			}
 			break;
 		
 		}
-		if (teamCounter == gameEngine.turnsToCapture) {
+		var main = baseParticle.main;
+
+		if (teamCounter == gameEngine.turnsToCapture && owner != OwnerNames.BlueTeam) {
 			owner = OwnerNames.BlueTeam;
+			main.startColor = Color.blue;
 			for (int i = 0; i < gameEngine.players.Length; i++) {
 				if (gameEngine.players [i].playerTeam.teamColor == Team.tColor.Blue)
 					gameEngine.players [i].myLvl.myExperience += gameEngine.lvlLib.takeTurfExperience;
 			}
-		}else if(teamCounter == 0){
+		}else if(teamCounter == 0  && owner != OwnerNames.Neutral){
 			owner = OwnerNames.Neutral;
+			main.startColor = Color.white;
 			Vector3 newpos = new Vector3 (1, -100, 0);
 			flag.transform.localPosition = newpos;
 			for (int i = 0; i < gameEngine.players.Length; i++) {
 				if (gameEngine.players [i].playerTeam.teamColor == Team.tColor.Blue && prevCounter < teamCounter) {
 					gameEngine.players [i].myLvl.myExperience += gameEngine.lvlLib.takeTurfExperience;
 				} else if(gameEngine.players [i].playerTeam.teamColor == Team.tColor.Red && prevCounter > teamCounter){
-					
+					gameEngine.players [i].myLvl.myExperience += gameEngine.lvlLib.takeTurfExperience;
 				}
 			}
-		}else if(teamCounter == -gameEngine.turnsToCapture){
+		}else if(teamCounter == -gameEngine.turnsToCapture  && owner != OwnerNames.RedTeam){
 			owner = OwnerNames.RedTeam;
+			main.startColor = Color.red;
 			for (int i = 0; i < gameEngine.players.Length; i++) {
 				if (gameEngine.players [i].playerTeam.teamColor == Team.tColor.Red)
 					gameEngine.players [i].myLvl.myExperience += gameEngine.lvlLib.takeTurfExperience;
 			}
 		}
 
-		if(teamCounter > 0 || teamCounter < 0 ){
-			Vector3 newpos = new Vector3 (1, Mathf.Abs(teamCounter) * 2, 0);
+
+		if (teamCounter > 0 || teamCounter < 0) {
+			Vector3 newpos = new Vector3 (1, Mathf.Abs (teamCounter) * 2, 0);
 			flag.transform.localPosition = newpos;
 			if (teamCounter > 0) {
-				flagRender.material.SetColor ("_Color", Color.blue);				
+				flagRender.material.SetColor ("_Color", Color.blue);
 			} else {
 				flagRender.material.SetColor ("_Color", Color.red);
 			}

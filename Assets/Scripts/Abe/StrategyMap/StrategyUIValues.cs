@@ -23,7 +23,7 @@ public class StrategyUIValues : MonoBehaviour {
 
     void RedTeamTurn()
     {
-        if (gameEngine.playerTurnNum == 3)
+        if (gameEngine.playerTurnNum == 1)
         {
             redTeam = true;
             blueTeam = false;
@@ -35,7 +35,7 @@ public class StrategyUIValues : MonoBehaviour {
             blueStats.SetActive(false);
         }
         //bodyguards
-        if (gameEngine.playerTurnNum == 1 
+        if (gameEngine.playerTurnNum == 3 
             || gameEngine.playerTurnNum == 5 
             || gameEngine.playerTurnNum == 7
             || gameEngine.playerTurnNum == 9)
@@ -53,7 +53,7 @@ public class StrategyUIValues : MonoBehaviour {
 
     void BlueTeamTurn()
     {
-        if (gameEngine.playerTurnNum == 4)
+        if (gameEngine.playerTurnNum == 2)
         {
             redTeam = false;
             blueTeam = true;
@@ -65,7 +65,7 @@ public class StrategyUIValues : MonoBehaviour {
             blueStats.SetActive(true);
         }
         //bodyguards
-        if (gameEngine.playerTurnNum == 2 
+        if (gameEngine.playerTurnNum == 4 
             || gameEngine.playerTurnNum == 6 
             || gameEngine.playerTurnNum == 8
             || gameEngine.playerTurnNum == 10)
