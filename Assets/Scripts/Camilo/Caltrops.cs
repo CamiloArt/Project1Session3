@@ -7,14 +7,19 @@ public class Caltrops : MonoBehaviour {
 	public ParticleSystem caltropsParticles;
 	private float myTime;
 	public float activationTime;
+	private GameEngine gameEngine;
 	// Use this for initialization
 	void Start () {
 		myTime = 0;
+		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		myTime += Time.deltaTime;
+		if (gameEngine.gameState == "strategyMap") {
+			Destroy (gameObject.GetComponentInParent<GameObject>());
+		}
 	}
 
 	void OnParticleCollision(GameObject other){

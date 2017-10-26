@@ -11,6 +11,11 @@ public class Mine : MonoBehaviour {
 	public float delay = 1f;
 	public float currentTime;
 	private bool activate;
+	private GameEngine gameEngine;
+
+	void Start(){
+		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine").GetComponent<GameEngine> ();
+	}
 
 	void Update () {
 		activate = false;
@@ -22,6 +27,9 @@ public class Mine : MonoBehaviour {
 		currentTime += Time.deltaTime;
 		if (currentTime > delay) {
 			activate = true;
+		}
+		if (gameEngine.gameState == "strategyMap") {
+			Destroy (gameObject);
 		}
 	}
 	void OnTriggerEnter(Collider col){

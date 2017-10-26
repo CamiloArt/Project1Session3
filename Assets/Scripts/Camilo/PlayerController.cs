@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			myDust.Stop ();
 		}
-		if (Input.GetButton (myInput.Ybutton)) {
+		if (Input.GetButton (myInput.Abutton)) {
 			pressingTime = true;
 		}
 	}
@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	void getSwitchWeapon(){
-		if (Input.GetButtonDown (myInput.Ybutton)) {
+		if (Input.GetButtonDown (myInput.RBbutton)) {
 			if (switchWeapon) {
 				myPlayer.playerUnit.weapon2.SetActive (false);
 				myPlayer.playerUnit.weapon1.SetActive (true);

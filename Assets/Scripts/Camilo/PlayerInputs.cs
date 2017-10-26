@@ -15,6 +15,7 @@ public class PlayerInputs : MonoBehaviour {
 	public string Bbutton;
 	public string Ybutton;
 	public string Xbutton;
+	public string RBbutton;
 
 	void Awake(){
 		myPlayer = gameObject.GetComponent<Player> ();
@@ -22,9 +23,9 @@ public class PlayerInputs : MonoBehaviour {
 
 	void Start(){
 		if (myPlayer.playerTeam.teamColor == Team.tColor.Blue) {
-//			hAxisName = "BluePlayerHorizontal";
-//			vAxisName = "BluePlayerVertical";
-//			trigger = "BlueLeftTrigger";
+			hAxisName = "BluePlayerHorizontal";
+			vAxisName = "BluePlayerVertical";
+			trigger = "BlueLeftTrigger";
 			hAxisName2 = "BluePlayerHorizontal2";
 			vAxisName2 = "BluePlayerVertical2";
 			trigger2 = "BlueRightTrigger";
@@ -32,14 +33,15 @@ public class PlayerInputs : MonoBehaviour {
 			Bbutton = "BluePlayerB";
 			Ybutton = "BluePlayerY";
 			Xbutton = "BluePlayerX";
-			hAxisName = "Horizontal";
-			vAxisName = "Vertical";
-			trigger = "BlueLeftTrigger";
+			RBbutton = "BluePlayerRB";
+//			hAxisName = "Horizontal";
+//			vAxisName = "Vertical";
+//			trigger = "BlueLeftTrigger";
 
 		} else if(myPlayer.playerTeam.teamColor == Team.tColor.Red) {
-//			hAxisName = "RedPlayerHorizontal";
-//			vAxisName = "RedPlayerVertical";
-//			trigger = "RedLeftTrigger";
+			hAxisName = "RedPlayerHorizontal";
+			vAxisName = "RedPlayerVertical";
+			trigger = "RedLeftTrigger";
 			hAxisName2 = "RedPlayerHorizontal2";
 			vAxisName2 = "RedPlayerVertical2";
 			trigger2 = "RedRightTrigger";
@@ -47,9 +49,10 @@ public class PlayerInputs : MonoBehaviour {
 			Bbutton = "RedPlayerB";
 			Ybutton = "RedPlayerY";
 			Xbutton = "RedPlayerX";
-			hAxisName = "Horizontal";
-			vAxisName = "Vertical";
-			trigger = "BlueLeftTrigger";
+			RBbutton = "RedPlayerRB";
+//			hAxisName = "Horizontal";
+//			vAxisName = "Vertical";
+//			trigger = "BlueLeftTrigger";
 		}
 	}
 	// Update is called once per frame

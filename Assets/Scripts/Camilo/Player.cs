@@ -52,14 +52,17 @@ public class Player : MonoBehaviour {
 				distance = Vector3.Distance (gameEngine.players[i].gameObject.transform.position, gameObject.transform.position);
 				if (gameEngine.players [i].typeOfPlayer == playerType.Leader &&  distance < playerUnit.range.range) {
 					//make damage to the leader
-					gameEngine.DamageLeader(gameEngine.players [i].gameObject.transform);
 					playerInRange = i;
+					gameEngine.DamageLeader(gameEngine.players [i].gameObject.transform);
+					Debug.Log (i.ToString ());
+					i = gameEngine.players.Length + 1;
 				}
 				else if (distance < playerUnit.range.range || distance < gameEngine.players[i].playerUnit.range.range) {
 					enemyInRange = true;
 					inBattle = true;
 					playerInRange = i;
 					gameEngine.players [i].inBattle = true;
+					i = gameEngine.players.Length + 1;
 				}
 			}
 		}

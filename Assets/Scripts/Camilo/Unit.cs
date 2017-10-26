@@ -20,6 +20,8 @@ public class Unit : MonoBehaviour {
 	public bool inCaltrops;
 	public float caltropsCooldown;
 	public float caltropsTime;
+	public int consumablesNum;
+	public int initialConsumables;
 
 	public bool isAlive;
 
@@ -28,6 +30,7 @@ public class Unit : MonoBehaviour {
 		isAlive = true;
         vehicleLib = GameObject.FindGameObjectWithTag("Finish").GetComponent<Vehicles>();
 		player = gameObject.GetComponentInParent<Player> ();
+		consumablesNum = initialConsumables;
 	}
 	
 	// Update is called once per frame
@@ -54,14 +57,21 @@ public class Unit : MonoBehaviour {
 		weapon2.SetActive (false);
 	}
 	public void UseConsumable(Vector3 lastDir){
-		GameObject newConsumable;
-		Vector3 consumablePos = myPos.consumablePosition.position;
-		newConsumable = Instantiate (vehicleLib.consumable [consumableIndex], consumablePos, player.gameObject.transform.rotation);
-		if(consumableIndex == 1)
-			newConsumable.gameObject.SendMessage ("SetMe", lastDir);
+		if (consumablesNum > 0) {
+			consumablesNum--;
+			GameObject newConsumable;
+			Vector3 consumablePos = myPos.consumablePosition.position;
+			newConsumable = Instantiate (vehicleLib.consumable [consumableIndex], consumablePos, player.gameObject.transform.rotation);
+			if (consumableIndex == 1)
+				newConsumable.gameObject.SendMessage ("SetMe", lastDir);
+
+		}
 	}
 	public void CaltropsEnter(){
 		inCaltrops = true;
 		caltropsTime = caltropsCooldown;
+	}
+	public void ResetConsumables(){
+		consumablesNum = initialConsumables;
 	}
 }

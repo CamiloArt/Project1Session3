@@ -255,6 +255,10 @@ public class GameEngine : MonoBehaviour {
 
 				players [combatEngine.winnerIndex].myLvl.myExperience += (combatEngine.player1DamageDealt * lvlLib.damageExperience) + lvlLib.killExperience;
 			}
+			players [playerInRangeIndex].inBattle = false;
+			players [playerInRangeIndex].playerUnit.ResetConsumables ();
+			players [currentPlayerIndex].inBattle = false;
+			players [currentPlayerIndex].playerUnit.ResetConsumables ();
 			prevTime = timeIntro;
 			gameState = "strategyMap";
 			EndPlayerTurn ();

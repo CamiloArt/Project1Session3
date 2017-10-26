@@ -5,9 +5,10 @@ using UnityEngine;
 public class BattleCamera : MonoBehaviour 
 {
     private GameEngine gameEngine;
-    private Vector3 Player01, Player02;
+	private Vector3 Player01, Player02;
+	public Transform firstPosition;
     public Camera battleCamera;
-    public float minDistance, maxDistance;
+	public float minDistance, maxDistance, resetFocus;
    	
 	void Start () 
     {
@@ -17,14 +18,14 @@ public class BattleCamera : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        if (gameEngine.gameState == "battlemap")
-        {
-            if (gameEngine.inBattle)
-            {
-                PlayerTarget();
-                DynamicCamera();
-            }
-        }
+		if (gameEngine.gameState == "battlemap") {
+			if (gameEngine.inBattle) {
+				PlayerTarget ();
+				DynamicCamera ();
+			}
+		} else {
+			ResetCamera ();
+		}
 	}
 
     void PlayerTarget()
@@ -44,5 +45,9 @@ public class BattleCamera : MonoBehaviour
 
         battleCamera.fieldOfView = distance*1.5f;
     }
+	void ResetCamera(){
+		battleCamera.fieldOfView = resetFocus;
+		gameObject.transform.position = firstPosition.position;
+	}
 }
 

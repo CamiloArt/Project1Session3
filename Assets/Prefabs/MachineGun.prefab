@@ -98,7 +98,7 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   speed: 2
   firingTime: 0
-  canShootTime: 1
+  canShootTime: 0.8
   bulletTimeNum: 0
   bulletNum: 0
   shooting: 0
