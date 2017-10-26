@@ -41,7 +41,7 @@ public class MachineGun : MonoBehaviour {
 	void ShootBullet(){
 		bulletTimeNum += Time.deltaTime;
 		float btimecd = 0.1f;
-		if (bulletNum < 3) {
+		if (bulletNum < 5) {
 			if (bulletTimeNum > btimecd) {
 				GameObject bullet; 
 				bullet = Instantiate (bulletPrefab, this.transform.position, this.transform.rotation);
