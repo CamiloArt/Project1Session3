@@ -20,7 +20,7 @@ public class MachineGun : MonoBehaviour {
 	void Start () {
 		myPlayer = gameObject.GetComponentInParent<Player> ();
 		bulletTimeNum = 0f;
-		firingTime = 0f;
+		firingTime = canShootTime;
 		bulletNum = 0;
 	}
 
@@ -40,7 +40,7 @@ public class MachineGun : MonoBehaviour {
 	}
 	void ShootBullet(){
 		bulletTimeNum += Time.deltaTime;
-		float btimecd = 0.1f;
+		float btimecd = 0.07f;
 		if (bulletNum < 5) {
 			if (bulletTimeNum > btimecd) {
 				GameObject bullet; 

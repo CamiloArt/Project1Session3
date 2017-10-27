@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1722775831135402}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.0391718, y: 80.44014, z: -27.382349}
+  m_LocalPosition: {x: 225.95508, y: 1.7586498, z: -210.02603}
   m_LocalScale: {x: 0.2, y: 0.20000012, z: 0.20000012}
   m_Children:
   - {fileID: 4979061711249838}
@@ -156,6 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0.2
   myTeamColor: 
+  hitAnimation: {fileID: 1489904497781886, guid: e36a87b25d185a04b8563783099acd59,
+    type: 2}
 --- !u!114 &114295619613352210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,7 +180,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198366055009012636
 ParticleSystem:

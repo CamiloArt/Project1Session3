@@ -215,6 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   myTeamColor: 
+  hitAnimation: {fileID: 1514033912629232, guid: 4b6374e14901e1c43b904a12ee76c94d,
+    type: 2}
 --- !u!114 &114775502773545546
 MonoBehaviour:
   m_ObjectHideFlags: 1

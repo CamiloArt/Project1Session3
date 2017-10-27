@@ -146,7 +146,7 @@ public class GameEngine : MonoBehaviour {
 			currentPlayer.playerUnit.fuel.currentFuel = currentPlayer.playerUnit.fuel.maxFuel;
 		}
 		if(currentPlayer.myController.pressingTime){
-			timeMultiplier = 3;
+			timeMultiplier = 5;
 		}
 		//timer decreasing during the turn
 		timeCounter -= Time.deltaTime * timeMultiplier;
@@ -225,10 +225,12 @@ public class GameEngine : MonoBehaviour {
 			if (combatEngine.draw) {
 				looserController = players [currentPlayerIndex].gameObject.GetComponent<CharacterController> ();
 				moveDirection = players [currentPlayerIndex].gameObject.transform.position - players [playerInRangeIndex].gameObject.transform.position;
+				moveDirection.y = 0;
 				moveDirection = moveDirection.normalized;
 				looserController.Move (moveDirection * Time.deltaTime * looserSpeed);
 				looserController = players [playerInRangeIndex].gameObject.GetComponent<CharacterController> ();
 				moveDirection = players [playerInRangeIndex].gameObject.transform.position - players [currentPlayerIndex].gameObject.transform.position;
+				moveDirection.y = 0;
 				moveDirection = moveDirection.normalized;
 				looserController.Move (moveDirection * Time.deltaTime * looserSpeed);
 
@@ -236,6 +238,7 @@ public class GameEngine : MonoBehaviour {
 			} else {
 				looserController = players [combatEngine.looserIndex].gameObject.GetComponent<CharacterController> ();
 				moveDirection = players [combatEngine.looserIndex].gameObject.transform.position - players [combatEngine.winnerIndex].gameObject.transform.position;
+				moveDirection.y = 0;
 				moveDirection = moveDirection.normalized;
 				looserController.Move (moveDirection * Time.deltaTime * looserSpeed);
 			}
@@ -254,6 +257,7 @@ public class GameEngine : MonoBehaviour {
 			} else {
 
 				players [combatEngine.winnerIndex].myLvl.myExperience += (combatEngine.player1DamageDealt * lvlLib.damageExperience) + lvlLib.killExperience;
+				Instantiate (explosion, players [combatEngine.looserIndex].gameObject.transform.position, Quaternion.identity);
 			}
 			players [playerInRangeIndex].inBattle = false;
 			players [playerInRangeIndex].playerUnit.ResetConsumables ();

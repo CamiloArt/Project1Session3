@@ -18,7 +18,7 @@ public class Caltrops : MonoBehaviour {
 	void Update () {
 		myTime += Time.deltaTime;
 		if (gameEngine.gameState == "strategyMap") {
-			Destroy (gameObject.GetComponentInParent<GameObject>());
+			Destroy (gameObject);
 		}
 	}
 

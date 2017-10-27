@@ -5,8 +5,6 @@ using UnityEngine;
 public class Flames : MonoBehaviour {
 
 	public float damage;
-	public string target;
-	public string player;
 	private Player myPlayer;
 
 	void Start(){

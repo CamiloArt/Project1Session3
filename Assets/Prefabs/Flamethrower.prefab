@@ -86,7 +86,7 @@ Transform:
   m_GameObject: {fileID: 1904262451463654}
   m_LocalRotation: {x: -0.00000001545431, y: 0.7071067, z: -0.000000015454308, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 6, y: 0.5, z: 0.7}
   m_Children: []
   m_Father: {fileID: 4434154314442612}
   m_RootOrder: 0
@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935153028207422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 202.3977, y: 7.4642344, z: 33.35102}
+  m_LocalPosition: {x: 227.914, y: -1.0631279, z: -201.19965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4278547856516230}
@@ -208,8 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0.1
-  target: RedPlayer
-  player: 
 --- !u!114 &114984680237710682
 MonoBehaviour:
   m_ObjectHideFlags: 1

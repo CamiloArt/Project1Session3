@@ -8,7 +8,7 @@ public class Mine : MonoBehaviour {
 	private Vector3 moveDirection = Vector3.zero;
 	public float myDamage;
 	public GameObject myExplosion;
-	public float delay = 1f;
+	public float delay = 0.5f;
 	public float currentTime;
 	private bool activate;
 	private GameEngine gameEngine;

@@ -10,6 +10,8 @@ public class MainMapCanvas : MonoBehaviour {
 	public Text redTeamScore;
 	public Text blueTeamScore;
 	public Text combatTimer;
+	public Image arrow;
+	public Camera strategyCamera;
 	private GameEngine gameEngine;
 	private Score gameScore;
 	// Use this for initialization
@@ -28,6 +30,8 @@ public class MainMapCanvas : MonoBehaviour {
 		combatTimer.text = "";
 		if (gameEngine.currentPlayer) {
 			if (gameEngine.gameState == "strategyMap") {
+				arrow.enabled = true;
+				arrow.transform.position = strategyCamera.WorldToScreenPoint (gameEngine.currentPlayer.gameObject.transform.position);
 				redTeamScore.text = gameScore.RedTeamTurfs.ToString ();
 				blueTeamScore.text = gameScore.blueTeamTurfs.ToString ();
 				if (gameEngine.startTurn)
@@ -35,6 +39,7 @@ public class MainMapCanvas : MonoBehaviour {
 				else
 					ShowPrevCounter ();
 			} else if (gameEngine.gameState == "battlemap") {
+				arrow.enabled = false;
 				if (gameEngine.inBattle)
 					showInBattleCounter ();
 				else
